@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'members', 'General User');
+(2, 'member', 'General User');
 
 CREATE TABLE IF NOT EXISTS `login_attempts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -53,7 +53,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_laccount_status1` FOREIGN KEY (`account_status_id`) REFERENCES `account_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`,   `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `account_status_id`, `first_name`, `last_name`, `company`, `mobile`) VALUES
-(1, '\0\0', 'superadmin', '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4', '9462e8eee0', 'admin@admin.com', NULL, NULL, NULL, 1268889823, 1373438882, 1, 'Admin', 'admin', 'ADMIN', '0');
+(1, '\0\0', 'superadmin', '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4', '9462e8eee0', 'admin@admin.com', NULL, NULL, NULL, 1268889823, 1373438882, 1, 'Admin', 'admin', 'ADMIN', '0'),
+(2, '\0\0', 'member', '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4', '9462e8eee0', 'member@member.com', NULL, NULL, NULL, 1268889823, 1373438882, 1, 'Member', 'Member', 'MEMBER', '0');
 
 
 CREATE TABLE IF NOT EXISTS `users_groups` (
@@ -69,5 +70,6 @@ ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(1, 1, 1)
+(1, 1, 1),
+(2, 2, 2);
   

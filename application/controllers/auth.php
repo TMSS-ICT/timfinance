@@ -10,6 +10,7 @@ class Auth extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->helper('url');
 
+
         // Load MongoDB library instead of native db driver if required
         $this->config->item('use_mongodb', 'ion_auth') ?
                         $this->load->library('mongo_db') :
@@ -30,29 +31,25 @@ class Auth extends CI_Controller {
         } else {
             $user_group = $this->ion_auth->get_current_user_types();
             foreach ($user_group as $group) {
-                if($group == ADMIN){
+                $this->session->set_userdata(array('group' => $group));
+                if ($group == ADMIN) {
                     //set the flash data error message if there is one
                     $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
-                    //list the users
-                    $this->data['users'] = $this->ion_auth->users()->result();
-                    foreach ($this->data['users'] as $k => $user) {
-                        $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-                    }
-
+                    $user_id = $this->session->userdata('user_id');
                     //$this->_render_page('auth/index', $this->data);
-                    $this->template->load(NULL, ADMIN_LOGIN_SUCCESS_VIEW, $this->data);
+                    //$this->template->load(NULL, ADMIN_LOGIN_SUCCESS_VIEW, $this->data);
+
+                    $this->data['user_group'] = $group;
+                    $this->template->load(null, "admin/show_feedback", $this->data);
                     break;
-                }
-                elseif($group == MEMBER){
+                } elseif ($group == MEMBER) {
                     $this->template->load(NULL, MEMBER_LOGIN_SUCCESS_VIEW);
                     break;
-                }
-                else{
+                } else {
                     echo "Non member";
                 }
             }
-            
         }
     }
 
@@ -72,18 +69,21 @@ class Auth extends CI_Controller {
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 //if the login is successful
                 //redirect them back to the home page
-                $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('auth/', 'refresh');
+                //$this->session->set_flashdata('message', $this->ion_auth->messages());
+//                $this->template->load("templates/member_tmpl", 'member/add_feedback', $this->data);
+                redirect('member/index', 'refresh');
             } else {
                 //if the login was un-successful
                 //redirect them back to the login page
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
+                $this->session->set_flashdata('message_flag', ERROR_MESSAGE_FLAG);
                 redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
             }
         } else {
             //the user is not logging in so display the login page
             //set the flash data error message if there is one
             $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+            $this->data['message_flag'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message_flag');
 
             $this->data['identity'] = array('name' => 'identity',
                 'id' => 'identity',
@@ -94,8 +94,8 @@ class Auth extends CI_Controller {
                 'id' => 'password',
                 'type' => 'password',
             );
-
-            $this->template->load(NULL, LOGIN_TEMPLATE, $this->data);
+            $this->template->load("nonmember/templates/main_tmpl", "nonmember/login", $this->data);
+            //$this->template->load(NULL, LOGIN_TEMPLATE, $this->data);
             //$this->_render_page('auth/login', $this->data);
         }
     }
@@ -109,6 +109,7 @@ class Auth extends CI_Controller {
 
         //redirect them to the login page
         $this->session->set_flashdata('message', $this->ion_auth->messages());
+        $this->session->set_flashdata('message_flag', SUCCESS_MESSAGE_FLAG);
         redirect('auth/login', 'refresh');
     }
 

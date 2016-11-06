@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="author" content="Nazmul Hasan, Alamgir Kabir, Noor Alam, Tanveer, Rashida">
+        <meta name="author" content="Rashida">
         <meta name="description" content="Social">
         <meta name="keywords" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,7 +17,7 @@
     <body class="back">
         <div id="wrapper">
             <div id="header">
-                <?php $this->load->view("templates/sections/header_with_login"); ?>
+                <?php $this->load->view("templates/sections/header"); ?>
             </div>
             <div style="background-color: #EDF0F5;">
                 <div class="container-fluid">
