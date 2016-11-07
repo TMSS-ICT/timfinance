@@ -557,9 +557,9 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
 
 /*------------------------------------------- Admin --------------------------------- */
 .button-custom {
-    background-color: #703684;
+    background-color: #00B050;
     color: #fff;
-    border: 1px solid #703684;
+    border: 1px solid ;
     border-radius: 3px;
     height: 30px;
     line-height: 15px;

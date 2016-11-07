@@ -1,9 +1,21 @@
-<div class="row">
-    <div class="col-md-12">
-        <p style="font-size: 30px">জোন</p>
+<div class="row"  style="margin-top: 25px">
+    <div class="ezttle">
+        <div class="col-md-6">
+            <div ><span class="text">Administration form</span></div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">NID: </div>
+                <div class="col-md-6" ><input type="text" class="form-control input-xs customInputMargin" placeholder="0579011225765768" ng-model="searchInfo.cellNo"></div>
+                <div class="col-md-3"><input id="search_submit_btn" type="submit" size="18" value="Search" onclick="search_member(angular.element(this).scope().searchInfo)" class="button-custom"></div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="row col-md-12" style="margin-top: 25px">
+<div class="row" style="margin-top: 25px">
+    <div class=" row col-md-12 form-group form-inline">
+        <?php $this->load->view("member/page_photo_add"); ?>
+    </div>
     <div class=" row form-group form-inline">
 
         <div class=" col-md-3 form-group  ">
@@ -36,7 +48,13 @@
             </select>
         </div>
         <div class="col-md-3">
-
+            <lebel  class=""  for="">শাখাঃ</lebel>
+            <select class=""  name="branch_name">
+                <option>মিরপুর</option>
+                <option>পবা</option>
+                <option>বেড়া</option>
+                <option>লালপুর</option>
+            </select>
         </div>
 
     </div>
@@ -100,27 +118,24 @@
     </div>
     <div class=" row form-group form-inline">
         <div class="col-md-3">
-            <lebel for="">শিক্ষাগত যোগ্যতা(সর্বোচ্চ)</lebel>
+            <lebel for="">Bank Info</lebel>
             <select class="" name="educational_qualification">
                 <option>---select---</option>
-                <option>এস এস সি</option>
-                <option>এইচ এস সি</option>
-                <option>অনার্স</option>
-                <option>মাস্টার্স</option>
+                <option>Grameen</option>
+                <option>Brack</option>
+                <option>Krishi</option>
             </select>
 
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="father/hasband_first_name" placeholder="account number">
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="father/hasband_second_name" placeholder="Address">
+        </div>
+        <div class="col-md-2">
         </div>
         <div class="col-md-3">
-            <lebel for="">পাসের বছর</lebel>
-            <select class="" name="gender_name">
-                <option>---select---</option>
-                <option>2008</option>
-                <option>2009</option>
-                <option>2010</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-
         </div>
 
     </div>

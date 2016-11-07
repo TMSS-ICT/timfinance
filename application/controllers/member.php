@@ -16,6 +16,10 @@ class Member extends CI_Controller {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
     }
+    public function addmission() {
+        $this->data['test'] = "";
+        $this->template->load(MEMBER_TEMPLATE, 'member/addmision', $this->data);
+    }
 
     public function add_feedback() {
         $this->form_validation->set_error_delimiters("<div style='color:red'>", '</div>');
