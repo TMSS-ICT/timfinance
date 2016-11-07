@@ -41,7 +41,7 @@ class Auth extends CI_Controller {
                     //$this->template->load(NULL, ADMIN_LOGIN_SUCCESS_VIEW, $this->data);
 
                     $this->data['user_group'] = $group;
-                    $this->template->load(null, "admin/show_feedback", $this->data);
+                    $this->template->load(null, "admin/index", $this->data);
                     break;
                 } elseif ($group == MEMBER) {
                     $this->template->load(NULL, MEMBER_LOGIN_SUCCESS_VIEW);

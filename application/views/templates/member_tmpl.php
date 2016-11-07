@@ -21,7 +21,14 @@
             </div>
             <div style="background-color: #EDF0F5;">
                 <div class="container-fluid">
-                    <?php echo $contents; ?>
+                    <div class="row">
+                        <div class="col-md-2">
+                            left panel here
+                        </div>
+                        <div class="col-md-10">
+                            <?php echo $contents; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="footer">
