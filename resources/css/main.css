@@ -1,7 +1,3 @@
-ez-wrap@charset "UTF-8";
-@import url("http://fonts.googleapis.com/css?family=Roboto:300,400");
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400");
-
 [class$="icon-"]:before,
 [class*="icon- "]:before {
     font-family:"Ding";

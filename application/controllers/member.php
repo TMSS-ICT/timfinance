@@ -12,6 +12,10 @@ class Member extends CI_Controller {
         $this->load->library('ion_auth');
     }
 
+    public function test() {
+        $this->data['test'] = "";
+        $this->template->load(MEMBER_TEMPLATE, '', $this->data);
+    }
     public function index() {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
@@ -23,6 +27,10 @@ class Member extends CI_Controller {
     public function addmission() {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/addmision', $this->data);
+    }
+    public function loan_admission() {
+        $this->data['test'] = "";
+        $this->template->load(MEMBER_TEMPLATE, 'member/loan_form', $this->data);
     }
 
     public function add_feedback() {
