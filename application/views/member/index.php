@@ -407,16 +407,6 @@
         <div class="col-md-2">
 
             <select class="" name="father/hasband_family_name">
-                <option>বছর</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <select class="" name="father/hasband_family_name">
                 <option>মাস</option>
                 <option>1</option>
                 <option>2</option>
@@ -426,15 +416,126 @@
         </div>
 
         <div class="col-md-2">
+            <textarea  row ="2" name="alternative_earning_source">ব্যবসা/চাকুরী করে অর্জিত সম্পদের বিবরণ</textarea >
+        </div>
+
+        <div class="col-md-1">
+            </div>
+
+
+        <div class="col-md-2">
+            <textarea  row ="2" name="alternative_earning_source">ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণ</textarea >
+        </div>
+
+    </div>
+
+    <div class="row form-group form-inline">
+
+        <div class="col-md-3">
+            <lebel for="">রাজনীতির সাথে জরিত কি না- </lebel>
+        </div>
+
+        <div class="col-md-2">
 
             <select class="" name="father/hasband_family_name">
-                <option>দিন</option>
-                <option>1</option>
+                <option>নির্বাচন করুন</option>
+                <option>হ্যাঁ</option>
+                <option>না</option>
+
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <lebel for="">ব্যবসার ধরন</lebel>
+        </div>
+
+        <div class="col-md-2">
+
+            <select class="" name="father/hasband_family_name">
+                <option>নির্বাচন করুন</option>
+                <option>একক</option>
+                <option>অংশীদারি</option>
+
+            </select>
+        </div>
+        <div class="col-md-2">
+            <textarea  row ="2" name="alternative_earning_source">ব্যবসার ভবিষ্যৎ পরিকল্পনা</textarea >
+        </div>
+
+    </div>
+
+    <div class="row form-group form-inline">
+
+        <div class="col-md-3">
+            <lebel for="">পরিবারের প্রকৃতি </lebel>
+        </div>
+
+        <div class="col-md-2">
+
+            <select class="" name="father/hasband_family_name">
+                <option>নির্বাচন করুন</option>
+                <option>একক</option>
+                <option>যৌথ</option>
+
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <lebel for="">পরিবারের সদস্য সংখ্যা</lebel>
+        </div>
+
+        <div class="col-md-2">
+
+            <select class="" name="father/hasband_family_name">
+                <option>নির্বাচন করুন</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
-            </select>
+                <option>5</option>
 
+            </select>
+        </div>
+        
+
+    </div>
+
+    <div class="row form-group form-inline">
+
+        <div class="col-md-3">
+            <lebel for="">কেউ মামলাগ্রস্থ থাকলে তার বিবরণ</lebel>
+        </div>
+
+        <div class="col-md-2">
+
+            <select class="" name="father/hasband_family_name">
+                <option>সম্পর্ক</option>
+                <option>বাবা</option>
+                <option>স্বামী</option>
+                <option>ছেলে</option>
+                <option>বোন</option>
+                <option>শ্বশুর</option>
+                <option>শ্বাশুরি</option>
+
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <textarea  row ="2" name="alternative_earning_source">মামলার কারন বর্ণনা করুন</textarea >
+        </div>
+
+        <div class="col-md-2">
+
+            <select class="" name="father/hasband_family_name">
+                <option>নির্বাচন করুন</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+
+            </select>
+        </div>
+        <div class="col-md-2">
+            <textarea  row ="2" name="alternative_earning_source">পরিবারের কেউ গুরুতর অসুস্থ থাকলে তার বিবরণ</textarea >
         </div>
 
     </div>
