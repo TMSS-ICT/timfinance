@@ -416,7 +416,7 @@
         </div>
 
         <div class="col-md-2">
-            <textarea  row ="2" name="alternative_earning_source">ব্যবসা/চাকুরী করে অর্জিত সম্পদের বিবরণ</textarea >
+            <textarea  row ="2" class="form-control" name="alternative_earning_source">ব্যবসা/চাকুরী করে অর্জিত সম্পদের বিবরণ</textarea >
         </div>
 
         <div class="col-md-1">
@@ -424,7 +424,7 @@
 
 
         <div class="col-md-2">
-            <textarea  row ="2" name="alternative_earning_source">ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণ</textarea >
+            <textarea  row ="2" class="form-control" name="alternative_earning_source">ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণ</textarea >
         </div>
 
     </div>
@@ -495,50 +495,61 @@
 
             </select>
         </div>
-        
+
 
     </div>
 
     <div class="row form-group form-inline">
 
         <div class="col-md-3">
-            <lebel for="">কেউ মামলাগ্রস্থ থাকলে তার বিবরণ</lebel>
-        </div>
-
-        <div class="col-md-2">
-
-            <select class="" name="father/hasband_family_name">
-                <option>সম্পর্ক</option>
-                <option>বাবা</option>
-                <option>স্বামী</option>
-                <option>ছেলে</option>
-                <option>বোন</option>
-                <option>শ্বশুর</option>
-                <option>শ্বাশুরি</option>
-
-            </select>
-        </div>
-
-        <div class="col-md-2">
-            <textarea  row ="2" name="alternative_earning_source">মামলার কারন বর্ণনা করুন</textarea >
+            <lebel for="">উপার্জনক্ষম পুরুষের সংখ্যা</lebel>
         </div>
 
         <div class="col-md-2">
 
             <select class="" name="father/hasband_family_name">
                 <option>নির্বাচন করুন</option>
+                <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
+                <option>6</option>
 
             </select>
         </div>
+
+        <div class="col-md-3">
+            <lebel for="">উপার্জনক্ষম মহিলার সংখ্যা</lebel>
+        </div>
+
+        <div class="col-md-2">
+
+            <select class="" name="father/hasband_family_name">
+                <option>নির্বাচন করুন</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+
+            </select>
+        </div>
+
         <div class="col-md-2">
             <textarea  row ="2" name="alternative_earning_source">পরিবারের কেউ গুরুতর অসুস্থ থাকলে তার বিবরণ</textarea >
         </div>
         <div class="col-md-2">
         </div>
+
+
+
+    </div>
+
+    <div class="row">
+
+
 
     </div>
 
