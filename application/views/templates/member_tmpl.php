@@ -71,10 +71,10 @@
             <div style="background-color: #FFFFFF;">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-2" style="background-color: #eff3f6">
+                        <div class="col-md-2" style="background-color: #FFFFFF">
                             <?php $this->load->view("templates/left_panel"); ?>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9" style="background-color: #FFFFFF">
                             <?php echo $contents; ?>
                         </div>
                         <div class="col-md-1">

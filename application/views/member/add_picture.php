@@ -1,18 +1,21 @@
 <div ng-app="app.Member" ng-controller="ImageCopperController" ng-clock >
     <div  ng-show="imageCropStep == 1" class="fileinput-cover-button">
-
-        <span>
-            <img class="img-responsive" fallback-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"  ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
-            <input  class="profile_cover_upload_input"  type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
+        <div style="position: relative">
+            <div>
+                <img  style=" height: 100px; width: 100px;  " class="img-responsive" fallback-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"  ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
+            </div>
+            <div style="position: absolute; z-index: 11; top: 25px; height: 100px; width: 100px; background: transparent;overflow: hidden; ">
+                <input  class="profile_cover_upload_input"  type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
+            </div>
             <div class="profile_cover_upload_img">
                 <span>Upload a picture</span>
             </div>
-        </span>
+        </div>
     </div>	
     <div ng-show="imageCropStep == 2" class="zoom_disable">
         <image-crop			 
-            data-height="150"
-            data-width="150"
+            data-height="100"
+            data-width="100"
             data-shape="square"
             data-step="imageCropStep"
             src="imgSrc"
