@@ -16,6 +16,10 @@ class Member extends CI_Controller {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
     }
+    public function survey_info() {
+        $this->data['test'] = "";
+        $this->template->load(MEMBER_TEMPLATE, 'member/survey', $this->data);
+    }
     public function addmission() {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/addmision', $this->data);

@@ -537,13 +537,14 @@
         <div class="col-md-2">
             <textarea  row ="2" name="alternative_earning_source">পরিবারের কেউ গুরুতর অসুস্থ থাকলে তার বিবরণ</textarea >
         </div>
+        <div class="col-md-2">
+        </div>
 
     </div>
 
-    <div class="row">
-        <div class=" col-md-3">
-            <button id="search_submit_btn" ng-model="Save" type="button" size="18" value="Save"
-                    onclick="search_payment_history()" class="button ">
+      <div class="row form-group form-inline">
+        <div class=" col-md-2 pull-right">
+            <input id="search_submit_btn" type="submit"  value="Save" onclick="search_payment_history()" class="button-custom ">
         </div>
     </div>
 </div>

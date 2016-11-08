@@ -1,5 +1,5 @@
-angular.module('controller.Payment', ['services.Payment']).
-        controller('paymentController', function ($scope, paymentService) {
+angular.module('controller.Member', ['services.Member']).
+        controller('memberController', function ($scope, memberService) {
             $scope.paymentInfo = {};
             $scope.paymentTypeList = [];
             $scope.allow_payment = true;
@@ -8,7 +8,7 @@ angular.module('controller.Payment', ['services.Payment']).
                     return;
                 }
                 $scope.allow_payment = false;
-                paymentService.createPayment(userId, $scope.paymentInfo).
+                memberService.createPayment(userId, $scope.paymentInfo).
                         success(function (data, status, headers, config) {
                             $scope.allow_payment = true;
                             callbackFunction(data);

@@ -1,5 +1,5 @@
-angular.module('services.Payment', []).
-        factory('paymentService', function ($http, $location) {
+angular.module('services.Member', []).
+        factory('memberService', function ($http, $location) {
             var $app_name = "/rechargeserver";
             //var $app_name = "";
             var paymentService = {};

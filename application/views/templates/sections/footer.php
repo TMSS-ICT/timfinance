@@ -1,5 +1,4 @@
-<div style="border: 1px solid lightgray; width: 100%"></div>
-<div class="container-fluid">
+<div style=" margin-top: 500px;  width: 100%"></div>
     <div class="row padding_top_over_row">
         <div class="col-md-offset-1 col-md-10">
             <div style="color: #703684">
