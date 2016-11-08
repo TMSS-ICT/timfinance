@@ -441,8 +441,8 @@
 
     <div class="row">
         <div class=" col-md-3">
-            <input id="search_submit_btn" ng-model="Save" type="submit" size="18" value="Save"
-                   onclick="search_payment_history()" class="button ">
+            <button id="search_submit_btn" ng-model="Save" type="button" size="18" value="Save"
+                    onclick="search_payment_history()" class="button ">
         </div>
     </div>
 </div>
