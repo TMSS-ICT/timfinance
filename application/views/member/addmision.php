@@ -13,8 +13,16 @@
     </div>
 </div>
 <div class="row" style="margin-top: 25px">
-    <div class=" row col-md-12 form-group form-inline">
-        <?php $this->load->view("member/page_photo_add"); ?>
+    <div class=" row  form-group form-inline">
+        <div class="col-md-3">
+            <?php $this->load->view("member/add_picture"); ?>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
     </div>
     <div class=" row form-group form-inline">
 
@@ -141,39 +149,46 @@
     </div>
     <div class=" row form-group form-inline">
         <div class="col-md-3">
-            <lebel for="">পিতা/স্বামীর নামঃ</lebel>
-            <select class="" name="father/hasband_title">
-                <option>---select---</option>
-                <option>মোঃ</option>
-
-            </select>
+            <lebel for="">Member Business Info</lebel>
         </div>
         <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="পিতার ১ম নামঃ">
+            <lebel for="">Type</lebel>
+            <div class="form-group ">
+                <select class="" name="age">
+                    <option>---select---</option>
+                    <option>Eng</option>
+                    <option>doc</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
         </div>
         <div class="col-md-2">
-            <input type="text" name="father/hasband_second_name" placeholder="পিতার ২য় নামঃ">
+            <lebel for="">Duration</lebel>
+            <div class="form-group ">
+                <select class="" name="age">
+                    <option>---select---</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
         </div>
         <div class="col-md-2">
             <input type="text" name="father/hasband_second_name" placeholder="পিতার ২য় নামঃ">
         </div>
         <div class="col-md-3">
-            <lebel for="">অভিভাবকের পেশা</lebel>
+            <lebel for="">Address</lebel>
             <div class="form-group ">
+                <input type="text_area" name="father/hasband_second_name" placeholder="Address">
 
-                <select class="" name="father/hasband_title">
-                    <option>---select---</option>
-                    <option>কৃষি</option>
-                    <option>চাকুরী</option>
-                    <option>ব্যবসা</option>
-
-                </select>
             </div>
         </div>
     </div>
     <div class=" row form-group form-inline">
         <div class="col-md-3">
-            <lebel for="">মাতার নামঃ</lebel>
+            <lebel for="">Instalment</lebel>
             <select class="" name="father/hasband_title">
                 <option>---select---</option>
                 <option>মোছাঃ</option>
@@ -236,75 +251,8 @@
             </select>
         </div>
     </div>
-    <div class=" row form-group form-inline">
-        <div class="col-md-3">
-
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="পোষ্ট অফিস">
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="গ্রাম বা মহল্লা">
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="রাস্তা নং">
-        </div>
-    </div>
-    <div class=" row form-group form-inline">
-        <div class="col-md-3">
-            <lebel for="">স্থায়ী ঠিকানাঃ</lebel>
-        </div>
-        <div class="col-md-2">
-            <lebel for="">দেশ</lebel>
-            <select class="" name="father/hasband_title">
-                <option>---select---</option>
-                <option>বাংলাদেশ</option>
-
-            </select>
-        </div>
-        <div class="col-md-2">
-            <lebel for="">জেলাঃ</lebel>
-            <select class="" name="father/hasband_title">
-                <option>---select---</option>
-                <option>পাবনা</option>
-
-            </select>
-        </div>
-        <div class="col-md-2">
-            <lebel for="">থানা</lebel>
-            <select class="" name="father/hasband_title">
-                <option>---select---</option>
-                <option>পাবনা</option>
-
-            </select>
-        </div>
-        <div class="col-md-2">
-            <lebel for="">ইউনিয়ন</lebel>
-            <select class="" name="father/hasband_family_name">
-                <option>---select---</option>
-                <option>আমিনপুর</option>
-                <option>জহিরপুর</option>
-                <option>দেবত্তর</option>
-
-            </select>
-        </div>
-    </div>
-    <div class=" row form-group form-inline">
-        <div class="col-md-3">
-
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="পোষ্ট অফিস">
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="গ্রাম বা মহল্লা">
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="father/hasband_first_name" placeholder="রাস্তা নং">
-        </div>
-    </div>
     <div class="row">
-        <div class=" col-md-offset-10 col-md-2pull-right">
+        <div class=" col-md-offset-8 col-md-2 pull-right">
             <input id="search_submit_btn" ng-model="Save" type="submit" size="18" value="Save" onclick="search_payment_history()" class="button ">
         </div>
     </div>
