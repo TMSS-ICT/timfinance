@@ -75,33 +75,103 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (2, 2, 2);
 
 
+CREATE TABLE IF NOT EXISTS `investors` (
+  `id` tinyint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(5) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `org_id`  int(11) unsigned NOT NULL,
+  `is_active`  int(11) unsigned NOT NULL,
+  `is_active_date`  int(11) unsigned NOT NULL,
+  `employee_id`  int(11) unsigned NOT NULL,
+  `created_on` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+ADD CONSTRAINT `fk_dept_id` FOREIGN KEY (`zone_id`) REFERENCES `depatments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+INSERT INTO `investors` (`id`, `name`) VALUES
+(1, 'TMMS-ICT'),
+(2, 'TMMS-Account');
 
+CREATE TABLE IF NOT EXISTS `purposes` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `org_id`  int(11) unsigned NOT NULL,
+  `is_active`  int(11) unsigned NOT NULL,
+  `is_active_date`  int(11) unsigned NOT NULL,
+  `employee_id`  int(11) unsigned NOT NULL,
+  `created_on` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `purposes` (`id`, `name`) VALUES
+(1, 'TMMS-ICT'),
+(2, 'TMMS-Account');
 
+CREATE TABLE IF NOT EXISTS `depatments` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `posts` (`id`, `name`) VALUES
+(1, 'TMMS-ICT'),
+(2, 'TMMS-Account');
 
+CREATE TABLE IF NOT EXISTS `employees` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `dept_id` int(11) unsigned NOT NULL,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+ ADD CONSTRAINT `fk_dept_id` FOREIGN KEY (`zone_id`) REFERENCES `depatments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+INSERT INTO `employees` (`id`, `dept_id`, `name`) VALUES
+(1, 1, 'Noor-a Alam'),
+(2,1, 'Zia');
 
+-- /genders table 
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `posts` (`id`, `name`) VALUES
+(1, 'Raninong'),
+(2, 'Kapasia');
 
+CREATE TABLE IF NOT EXISTS `thanas` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `thanas` (`id`, `name`) VALUES
+(1, 'Kapasia');
 
-
+CREATE TABLE IF NOT EXISTS `districts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `districts` (`id`, `name`) VALUES
+(1, 'Gazipur');
 -- /genders table 
 CREATE TABLE IF NOT EXISTS `marital_status` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `educations` (`id`, `name`) VALUES
+INSERT INTO `marital_status` (`id`, `name`) VALUES
 (1, 'Single'),
 (2, 'Married');
-
+-- /educations table 
 CREATE TABLE IF NOT EXISTS `educations` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `marital_status` (`id`, `name`) VALUES
+INSERT INTO `educations` (`id`, `name`) VALUES
 (1, 'PSC'),
 (2, 'JSC'),
 (3, 'SSC'),
 (4, 'HSC');
+-- /professions table 
 CREATE TABLE IF NOT EXISTS `professions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -123,24 +193,25 @@ CREATE TABLE IF NOT EXISTS `genders` (
 INSERT INTO `genders` (`id`, `name`) VALUES
 (1, 'Male'),
 (2, 'FeMale');
-
+-- /political status table 
 CREATE TABLE IF NOT EXISTS `political_statuses` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `political_status` (`id`, `name`) VALUES
+INSERT INTO `political_statuses` (`id`, `name`) VALUES
 (1, 'Yes'),
 (2, 'No');
-CREATE TABLE IF NOT EXISTS `business_statuses` (
+-- /business status table 
+CREATE TABLE IF NOT EXISTS `business_types` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `business_status` (`id`, `name`) VALUES
+INSERT INTO `business_types` (`id`, `name`) VALUES
 (1, 'OwnerShip'),
 (2, 'PartnerShip');
-
+-- /family types table 
 CREATE TABLE IF NOT EXISTS `family_types` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -195,18 +266,7 @@ ALTER TABLE `m_groups`
 INSERT INTO `m_groups` (`id`, `branch_id`, `name`) VALUES
 (1, 1, "Ranigong");
 
-CREATE TABLE IF NOT EXISTS `m_groups` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `branch_id` int(11) unsigned NOT NULL,
-  `name` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-ALTER TABLE `m_groups`
-  ADD CONSTRAINT `fk_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-INSERT INTO `m_groups` (`id`, `branch_id`, `name`) VALUES
-(1, 1, "Ranigong");
-
--- //member table
+-- //members table
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `zone_id` int(11) unsigned NOT NULL,
@@ -231,8 +291,6 @@ CREATE TABLE IF NOT EXISTS `members` (
   `m_sur_name` varchar(40) DEFAULT NULL,
   `m_age` varchar(40) DEFAULT NULL,
 
-
-   
   `m_vill_name` varchar(40) DEFAULT NULL,
   `m_union_name` varchar(40) DEFAULT NULL,
   `m_post_id`  int(11) unsigned NOT NULL,
@@ -276,7 +334,7 @@ ALTER TABLE `members`
   ADD CONSTRAINT `fk_marital1` FOREIGN KEY (`marital_id`) REFERENCES `marital_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_current_profession1` FOREIGN KEY (`current_profession_id`) REFERENCES `professions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_current_profession2` FOREIGN KEY (`previous_profession_id`) REFERENCES `professions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_political_status1` FOREIGN KEY (`political_status_id`) REFERENCES `political_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_political_status1` FOREIGN KEY (`political_status_id`) REFERENCES `political_statuses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_business1` FOREIGN KEY (`business_type_id`) REFERENCES `business_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_family_type1` FOREIGN KEY (`family_type_id`) REFERENCES `family_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
