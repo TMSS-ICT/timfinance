@@ -8,7 +8,7 @@
                 <input  class="profile_cover_upload_input"  type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
             </div>
             <div class="profile_cover_upload_img">
-                <span>ছবি আপলোড করুন</span>
+                <span>Upload a picture</span>
             </div>
         </div>
     </div>	
@@ -29,7 +29,7 @@
             ></image-crop>	   
     </div>
     <div ng-show="imageCropStep == 2">
-        <button class="btn btn-sm"   ng-click="initCrop = true">জমা দিন</button>
+        <button class="btn btn-sm"   ng-click="initCrop = true">Save</button>		
         <button class="btn btn-sm"  ng-click="clear()">Cancel</button>
     </div>		  
     <div  ng-show="imageCropStep == 3">

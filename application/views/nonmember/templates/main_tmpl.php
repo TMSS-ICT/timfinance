@@ -11,11 +11,27 @@
         <link href="<?php echo base_url()?>resources/css/main.css" rel="stylesheet">
         <link href="<?php echo base_url()?>resources/css/default.css" rel="stylesheet">
         <link href="<?php echo base_url()?>resources/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo base_url()?>resources/css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>resources/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="<?php echo base_url()?>resources/css/AdminLTE.min.css">
+
+        <link rel="stylesheet" href="<?php echo base_url()?>resources/css/skins/_all-skins.min.css">
 
         <script src="<?php echo base_url()?>resources/js/jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url()?>resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url()?>resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="<?php echo base_url()?>resources/js/jquery-ui.js"></script>
+
+        <script src="<?php echo base_url()?>resources/js/bootstrap.min.js"></script>
+
+        <script src="<?php echo base_url()?>resources/js/app.min.js"></script>
+
+
+
     </head>
-    <body id="" class="">
+    <body id="" class="hold-transition skin-blue sidebar-mini">
         <?php $this->load->view('nonmember/templates/sections/header');?>
         <section>
             <?php echo $contents;?>
