@@ -344,7 +344,8 @@
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>জাতীয় পরিচয় পত্রের নংঃ </label>
-                                    <input type="number" class="form-control" name="member_nid" placeholder="জাতীয় পরিচয় পত্রের নং"
+                                    <input type="number" class="form-control" name="member_nid"
+                                           placeholder="জাতীয় পরিচয় পত্রের নং"
                                            style="width: 100%;">
                                 </div>
                             </div>
@@ -946,7 +947,6 @@
                                     <select class="form-control" name="member_previous_profession_duration"
                                             style="width: 100%;">
                                         <option selected="selected">নির্বাচন করুন</option>
-                                        <option>নির্বাচন করুন</option>
                                         <option>হ্যাঁ</option>
                                         <option>না</option>
                                     </select>
@@ -1005,9 +1005,488 @@
 
             <div class="col-md-12">
 
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের ব্যবসায়িক তথ্য </h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
 
-                <!-- /.box-header -->
-                <!-- form start -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-3">
+                                    <label>ব্যবসার নামঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="আবাদি জমি (শতক)" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>ব্যবসার প্রকৃতিঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="ব্যবসার প্রকৃতিঃ" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>ব্যবসার অভিজ্ঞতাঃ(মাস) </label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="মাস" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>ব্যবসা কেন্দ্রের ঠিকানাঃ </label>
+                                    <textarea rows="2" class="form-control" name="business_future_plan"
+                                              style="width: 100%;"></textarea>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-3">
+                                    <label>বব্যবসা শুরুর তারিখঃ</label>
+                                    <input type="date" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>অবকাঠামোঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>পাকা</option>
+                                        <option>সেমি পাকা</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-sm-6 form-inline">
+                                    <label>পরিমাপঃ </label>
+                                    <input type="number" class="form-group" name="cultivable_land"
+                                           placeholder="ফুট">
+                                    <input type="number" class="form-group" name="cultivable_land"
+                                           placeholder="ফুট">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-sm-3">
+                                    <label> দিকঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>পূর্ব</option>
+                                        <option>পশ্চিম</option>
+                                        <option>উত্তর</option>
+                                        <option>দক্ষিণ</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-3">
+
+                                </div>
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>বব্যবসা স্থানঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>নিজেস্ব</option>
+                                        <option>পজিশন</option>
+                                        <option>ভাড়া</option>
+                                        <option>লীজ</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>ট্রেড লাইসেন্স নংঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="১২৩৪৪৫৬৭" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>ইস্যুকারী কতৃপক্ষঃ </label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>ইউনিয়ন</option>
+                                        <option>পৌরসভা</option>
+                                        <option>সিটি কর্পোরেশন</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>ব্যবসায় নিয়োজিত মূলধনঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="নিয়োজিত মূলধন" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>মাসিক গড় বিক্রয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="গড় বিক্রয়" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">ব্যবসায় নিয়োজিত মূলধনের উৎসঃ</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>ব্যাংক(%)</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>এন জি ও (%)</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>নিজঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="নিজঃ" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>ধার/কর্জ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="ধার/কর্জ" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>বব্যবসা থেকে মাসিক আয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="বব্যবসা থেকে মাসিক আয়" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>বব্যবসা থেকে মাসিক ব্যয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="বব্যবসা থেকে মাসিক ব্যয়" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>উদ্বৃত্তঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="উদ্বৃত্ত" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>অন্যান্য উৎস থেকে মাসিক আয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="অন্যান্য উৎস থেকে মাসিক আয়" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>অন্যান্য উৎসঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>চাকুরী</option>
+                                        <option>অন্যত্র বিনিয়োগ</option>
+                                        <option>জমি</option>
+                                        <option>বাড়ী ভাড়া</option>
+                                        <option>দোকান ভাড়া</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>অন্যান্য উৎস থেকে মাসিক ব্যয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="অন্যান্য উৎস মাসিক ব্যয়" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>উদ্বৃত্তঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="উদ্বৃত্ত" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-sm-3">
+
+                                    <label>সর্বমোট উদ্বৃত্তঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="সর্বমোট উদ্বৃত্ত" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>ব্যবসার ধরনঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>পাইকারী</option>
+                                        <option>খুচরা</option>
+                                        <option>উৎপাদনকারী</option>
+                                        <option>সরবরাহকারী</option>
+                                        <option>প্রক্রিয়াজাতকারী</option>
+                                        <option>কৃষি</option>
+                                        <option>পরিবহন</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>অন্যান্যঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="অন্যান্য.........." style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-header with-border">
+                        <p class="text-red">প্রতিদিন ব্যবসায় নিয়োজিত সময়ঃ</p>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+
+                                <div class="form-group col-lg-3">
+                                    <label>১ম অর্ধ শুরুঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>১ম অর্ধ শেষঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label>২য় অর্ধ শুরুঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>২য় অর্ধ শেষঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+
+                                <div class="form-group col-lg-3">
+                                    <label>মোট সময়ঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+
+                                <div class="form-group col-lg-3">
+                                    <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>প্রতিদিন প্রতিষ্ঠান বন্ধ হয়ঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label>মাঝে বন্ধ শুরুঃ</label>
+                                    <input type="time" class="form-control " name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>মাঝে বন্ধ শেষঃ</label>
+                                    <input type="time" class="form-control" name="cultivable_land"
+                                           placeholder="" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>সাপ্তাহিক বন্ধঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>শুক্রবার</option>
+                                        <option>শনিবার</option>
+                                        <option>রবিবার</option>
+                                        <option>সোমবার</option>
+                                        <option>মঙ্গলবার</option>
+                                        <option>বুধবার</option>
+                                        <option>বৃহস্পতিবার</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>প্রতিষ্ঠানে স্থায়ী জনবলের সংখ্যাঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="প্রতিষ্ঠানে স্থায়ী জনবলের সংখ্যা" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
 
                 <div class="box-body">
                     <div class="col-sm-2 pull-right">
@@ -1015,12 +1494,10 @@
                     </div>
                 </div>
 
-
             </div>
 
 
         </div>
-
 
     </section>
     <!-- /.content -->
