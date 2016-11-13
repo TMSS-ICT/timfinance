@@ -40,8 +40,7 @@ class Auth extends CI_Controller {
                     //$this->_render_page('auth/index', $this->data);
                     //$this->template->load(NULL, ADMIN_LOGIN_SUCCESS_VIEW, $this->data);
 
-                    $this->data['user_group'] = $group;
-                    $this->template->load(null, "admin/index", $this->data);
+                     redirect('member/index', 'refresh');
                     break;
                 } elseif ($group == MEMBER) {
                     $this->template->load(NULL, MEMBER_LOGIN_SUCCESS_VIEW);

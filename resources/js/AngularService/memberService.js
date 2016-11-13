@@ -1,19 +1,18 @@
 angular.module('services.Member', []).
         factory('memberService', function ($http, $location) {
-            var $app_name = "/rechargeserver";
+            var $app_name = "/tmifinance";
             //var $app_name = "";
-            var paymentService = {};
-            paymentService.createPayment = function (userId, paymentInfo) {
-
+            var memberService = {};
+            memberService.addSurveyInfo = function (memberSurveyInfo) {
                 return $http({
                     method: 'post',
-                    url: $location.path() + $app_name + '/payment/create_payment/'+ userId,
+                    url: $location.path() + $app_name + '/member/add_survey_info/',
                     data: {
-                        paymentInfo: paymentInfo
+                        memberSurveyInfo: memberSurveyInfo
                     }
                 });
             }
            
-            return paymentService;
+            return memberService;
         });
 

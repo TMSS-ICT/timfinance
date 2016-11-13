@@ -23,27 +23,36 @@
                                 <div class="form-group col-lg-4" ng-init="setZoneList('<?php echo htmlspecialchars(json_encode($zone_list)) ?>')">
                                     <label>জোনঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.zoneId" style="width: 100%;">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option selected="selected">ঢাকা</option>
                                         <option ng-repeat="zoneInfo in zoneList" value={{zoneInfo.id}} >{{zoneInfo.name}}</option>
+
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-4" ng-init="setAreaList('<?php echo htmlspecialchars(json_encode($area_list)) ?>')">
                                     <label>এলাকাঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.areaId" style="width: 100%;">
-                                        <option value="">নির্বাচন করুন</option>/option>
-                                        <option ng-repeat="areaInfo in areaList" value={{areaInfo.id}} >{{areaInfo.name}}</option>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
 
                                     </select>
                                 </div>
 
                                 <div class="form-group col-sm-4" ng-init="setBranchList('<?php echo htmlspecialchars(json_encode($branch_list)) ?>')">
                                     <label>শাখাঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.branchId" style="width: 100%;">
-                                        <option value="">নির্বাচন করুন</option>/option>
-                                        <option ng-repeat="branchInfo in branchList" value={{branchInfo.id}} >{{branchInfo.name}}</option>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
+
                                     </select>
+
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
 

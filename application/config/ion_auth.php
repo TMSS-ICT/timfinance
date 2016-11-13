@@ -43,7 +43,20 @@ $config['tables']['groups']          = 'groups';
 $config['tables']['users_groups']    = 'users_groups';
 $config['tables']['login_attempts']  = 'login_attempts';
 
-$config['tables']['feedbacks']       = 'feedbacks';
+$config['tables']['members']       = 'members';
+$config['tables']['zones']       = 'zones';
+$config['tables']['areas']       = 'areas';
+$config['tables']['branches']       = 'branches';
+$config['tables']['genders']       = 'genders';
+$config['tables']['posts']       = 'posts';
+$config['tables']['thanas']       = 'thanas';
+$config['tables']['districts']       = 'districts';
+$config['tables']['marital_status']       = 'marital_status';
+$config['tables']['professions']       = 'professions';
+$config['tables']['political_statuses']       = 'political_statuses';
+$config['tables']['business_types']       = 'business_types';
+$config['tables']['family_types']       = 'family_types';
+$config['tables']['educations']       = 'educations';
 
 /*
  | Users table column and Group table column you want to join WITH.

@@ -10,24 +10,349 @@ class Member extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
         $this->load->library('ion_auth');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login', 'refresh');
+        }
+         $this->load->model('org/member_model');
     }
 
     public function test() {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, '', $this->data);
     }
+
     public function index() {
-        $this->data['test'] = "";
+        if (file_get_contents("php://input") != null) {
+            $user_name = "";
+            $response = array();
+            $postdata = file_get_contents("php://input");
+            $requestInfo = json_decode($postdata);
+            $addisional_data = array();
+            if (property_exists($requestInfo, "zoneId") != FALSE) {
+                $addisional_data['zone_id'] = $requestInfo->zoneId;
+            }
+            if (property_exists($requestInfo, "areaId") != FALSE) {
+                $addisional_data['area_id'] = $requestInfo->areaId;
+            }
+            if (property_exists($requestInfo, "branchId") != FALSE) {
+                $addisional_data['branch_id'] = $requestInfo->branchId;
+            }
+            if (property_exists($requestInfo, "firstName") != FALSE) {
+                $addisional_data['first_name'] = $requestInfo->firstName;
+            }
+            if (property_exists($requestInfo, "lastName") != FALSE) {
+                $addisional_data['last_name'] = $requestInfo->lastName;
+            }
+            if (property_exists($requestInfo, "surName") != FALSE) {
+                $addisional_data['sur_name'] = $requestInfo->surName;
+            }
+            if (property_exists($requestInfo, "genderId") != FALSE) {
+                $addisional_data['gender_id'] = $requestInfo->genderId;
+            }
+            if (property_exists($requestInfo, "age") != FALSE) {
+                $addisional_data['age'] = $requestInfo->age;
+            }
+            if (property_exists($requestInfo, "educationId") != FALSE) {
+                $addisional_data['education_id'] = $requestInfo->educationId;
+            }
+            if (property_exists($requestInfo, "passingYear") != FALSE) {
+                $addisional_data['passing_year'] = $requestInfo->passingYear;
+            }
+            if (property_exists($requestInfo, "fFirstName") != FALSE) {
+                $addisional_data['f_first_name'] = $requestInfo->fFirstName;
+            }
+            if (property_exists($requestInfo, "fLastName") != FALSE) {
+                $addisional_data['f_last_name'] = $requestInfo->fLastName;
+            }
+            if (property_exists($requestInfo, "fSurName") != FALSE) {
+                $addisional_data['f_sur_name'] = $requestInfo->fSurName;
+            }
+            if (property_exists($requestInfo, "fAge") != FALSE) {
+                $addisional_data['f_age'] = $requestInfo->fAge;
+            }
+            if (property_exists($requestInfo, "fBusiness") != FALSE) {
+                $addisional_data['f_business'] = $requestInfo->fBusiness;
+            }
+            if (property_exists($requestInfo, "areaId") != FALSE) {
+                $addisional_data['m_first_name'] = $requestInfo->offset;
+            }
+            if (property_exists($requestInfo, "mFirstName") != FALSE) {
+                $addisional_data['m_last_name'] = $requestInfo->mFirstName;
+            }
+            if (property_exists($requestInfo, "mSurName") != FALSE) {
+                $addisional_data['m_sur_name'] = $requestInfo->mSurName;
+            }
+            if (property_exists($requestInfo, "mAge") != FALSE) {
+                $addisional_data['m_age'] = $requestInfo->mAge;
+            }
+            if (property_exists($requestInfo, "mVill") != FALSE) {
+
+                $addisional_data['m_vill_name'] = $requestInfo->mVill;
+            }
+            if (property_exists($requestInfo, "mUnion") != FALSE) {
+                $addisional_data['m_union_name'] = $requestInfo->mUnion;
+            }
+            if (property_exists($requestInfo, "mPostId") != FALSE) {
+                $addisional_data['m_post_id'] = $requestInfo->mPostId;
+            }
+            if (property_exists($requestInfo, "mThanaId") != FALSE) {
+                $addisional_data['m_thana_id'] = $requestInfo->mThanaId;
+            }
+            if (property_exists($requestInfo, "mDistrictId") != FALSE) {
+                $addisional_data['m_district_id'] = $requestInfo->mDistrictId;
+            }
+            if (property_exists($requestInfo, "pVill") != FALSE) {
+                $addisional_data['p_vill_name'] = $requestInfo->pVill;
+            }
+            if (property_exists($requestInfo, "pUnion") != FALSE) {
+                $addisional_data['p_union_name'] = $requestInfo->pUnion;
+            }
+            if (property_exists($requestInfo, "pPostId") != FALSE) {
+                $addisional_data['p_post_id'] = $requestInfo->pPostId;
+            }
+            if (property_exists($requestInfo, "pThanaId") != FALSE) {
+                $addisional_data['p_thana_id'] = $requestInfo->pThanaId;
+            }
+            if (property_exists($requestInfo, "pDistrictId") != FALSE) {
+                $addisional_data['p_district_id'] = $requestInfo->pDistrictId;
+            }
+            if (property_exists($requestInfo, "mobile") != FALSE) {
+                $addisional_data['mobile'] = $requestInfo->mobile;
+            }
+            if (property_exists($requestInfo, "email") != FALSE) {
+                $addisional_data['email'] = $requestInfo->email;
+            }
+            if (property_exists($requestInfo, "guardianEmail") != FALSE) {
+                $addisional_data['guardian_email'] = $requestInfo->guardianEmail;
+            }
+            if (property_exists($requestInfo, "sDistance") != FALSE) {
+                $addisional_data['s_distance'] = $requestInfo->sDistance;
+            }
+            if (property_exists($requestInfo, "maritalId") != FALSE) {
+                $addisional_data['marital_id'] = $requestInfo->maritalId;
+            }
+            if (property_exists($requestInfo, "cProfession_id") != FALSE) {
+                $addisional_data['current_profession_id'] = $requestInfo->cProfession_id;
+            }
+            if (property_exists($requestInfo, "pProfession_id") != FALSE) {
+                $addisional_data['previous_profession_id'] = $requestInfo->pProfession_id;
+            }
+            if (property_exists($requestInfo, "politicalStatusId") != FALSE) {
+                $addisional_data['political_status_id'] = $requestInfo->politicalStatusId;
+            }
+            if (property_exists($requestInfo, "businessTypeId") != FALSE) {
+                $addisional_data['business_type_id'] = $requestInfo->businessTypeId;
+            }
+            if (property_exists($requestInfo, "fBusinessPlan") != FALSE) {
+                $addisional_data['future_business_plan'] = $requestInfo->fBusinessPlan;
+            }
+            if (property_exists($requestInfo, "familyTypeId") != FALSE) {
+                $addisional_data['family_type_id'] = $requestInfo->familyTypeId;
+            }
+            if (property_exists($requestInfo, "fMemberNo") != FALSE) {
+                $addisional_data['family_member_no'] = $requestInfo->fMemberNo;
+            }
+            if (property_exists($requestInfo, "maleEarnedPerson") != FALSE) {
+                $addisional_data['male_earned_person'] = $requestInfo->maleEarnedPerson;
+            }
+            if (property_exists($requestInfo, "femaleEarnedPerson") != FALSE) {
+                $addisional_data['female_earned_person'] = $requestInfo->femaleEarnedPerson;
+            }
+           
+            $insert_id = $this->member_model->add_survey($addisional_data);
+            if ($insert_id != -1) {
+                $response["message"] = "Survey Information is Added Successfully!";
+            } else {
+                $response["message"] = "Sorry! Error While Adding Survey Information!";
+            }
+        }
+
+        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
+        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
+        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
+        $this->data['gender_list'] = $this->member_model->get_gender_list()->result_array();
+        $this->data['post_list'] = $this->member_model->get_post_list()->result_array();
+        $this->data['thana_list'] = $this->member_model->get_thana_list()->result_array();
+        $this->data['dist_list'] = $this->member_model->get_district_list()->result_array();
+        $this->data['marital_list'] = $this->member_model->get_marital_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['political_status_list'] = $this->member_model->get_political_statuses()->result_array();
+        $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
+        $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
+        $this->data['family_type_list'] = $this->member_model->get_education_list()->result_array();
+        $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
     }
+
     public function survey_info() {
-        $this->data['test'] = "";
+        if (file_get_contents("php://input") != null) {
+            $user_name = "";
+            $response = array();
+            $postdata = file_get_contents("php://input");
+            $requestInfo = json_decode($postdata);
+            $addisional_data = array();
+            if (property_exists($requestInfo, "zoneId") != FALSE) {
+                $addisional_data['zone_id'] = $requestInfo->zoneId;
+            }
+            if (property_exists($requestInfo, "areaId") != FALSE) {
+                $addisional_data['area_id'] = $requestInfo->areaId;
+            }
+            if (property_exists($requestInfo, "branchId") != FALSE) {
+                $addisional_data['branch_id'] = $requestInfo->branchId;
+            }
+            if (property_exists($requestInfo, "firstName") != FALSE) {
+                $addisional_data['first_name'] = $requestInfo->firstName;
+            }
+            if (property_exists($requestInfo, "lastName") != FALSE) {
+                $addisional_data['last_name'] = $requestInfo->lastName;
+            }
+            if (property_exists($requestInfo, "surName") != FALSE) {
+                $addisional_data['sur_name'] = $requestInfo->surName;
+            }
+            if (property_exists($requestInfo, "genderId") != FALSE) {
+                $addisional_data['gender_id'] = $requestInfo->genderId;
+            }
+            if (property_exists($requestInfo, "age") != FALSE) {
+                $addisional_data['age'] = $requestInfo->age;
+            }
+            if (property_exists($requestInfo, "educationId") != FALSE) {
+                $addisional_data['education_id'] = $requestInfo->educationId;
+            }
+            if (property_exists($requestInfo, "passingYear") != FALSE) {
+                $addisional_data['passing_year'] = $requestInfo->passingYear;
+            }
+            if (property_exists($requestInfo, "fFirstName") != FALSE) {
+                $addisional_data['f_first_name'] = $requestInfo->fFirstName;
+            }
+            if (property_exists($requestInfo, "fLastName") != FALSE) {
+                $addisional_data['f_last_name'] = $requestInfo->fLastName;
+            }
+            if (property_exists($requestInfo, "fSurName") != FALSE) {
+                $addisional_data['f_sur_name'] = $requestInfo->fSurName;
+            }
+            if (property_exists($requestInfo, "fAge") != FALSE) {
+                $addisional_data['f_age'] = $requestInfo->fAge;
+            }
+            if (property_exists($requestInfo, "fBusiness") != FALSE) {
+                $addisional_data['f_business'] = $requestInfo->fBusiness;
+            }
+            if (property_exists($requestInfo, "areaId") != FALSE) {
+                $addisional_data['m_first_name'] = $requestInfo->offset;
+            }
+            if (property_exists($requestInfo, "mFirstName") != FALSE) {
+                $addisional_data['m_last_name'] = $requestInfo->mFirstName;
+            }
+            if (property_exists($requestInfo, "mSurName") != FALSE) {
+                $addisional_data['m_sur_name'] = $requestInfo->mSurName;
+            }
+            if (property_exists($requestInfo, "mAge") != FALSE) {
+                $addisional_data['m_age'] = $requestInfo->mAge;
+            }
+            if (property_exists($requestInfo, "mVill") != FALSE) {
+
+                $addisional_data['m_vill_name'] = $requestInfo->mVill;
+            }
+            if (property_exists($requestInfo, "mUnion") != FALSE) {
+                $addisional_data['m_union_name'] = $requestInfo->mUnion;
+            }
+            if (property_exists($requestInfo, "mPostId") != FALSE) {
+                $addisional_data['m_post_id'] = $requestInfo->mPostId;
+            }
+            if (property_exists($requestInfo, "mThanaId") != FALSE) {
+                $addisional_data['m_thana_id'] = $requestInfo->mThanaId;
+            }
+            if (property_exists($requestInfo, "mDistrictId") != FALSE) {
+                $addisional_data['m_district_id'] = $requestInfo->mDistrictId;
+            }
+            if (property_exists($requestInfo, "pVill") != FALSE) {
+                $addisional_data['p_vill_name'] = $requestInfo->pVill;
+            }
+            if (property_exists($requestInfo, "pUnion") != FALSE) {
+                $addisional_data['p_union_name'] = $requestInfo->pUnion;
+            }
+            if (property_exists($requestInfo, "pPostId") != FALSE) {
+                $addisional_data['p_post_id'] = $requestInfo->pPostId;
+            }
+            if (property_exists($requestInfo, "pThanaId") != FALSE) {
+                $addisional_data['p_thana_id'] = $requestInfo->pThanaId;
+            }
+            if (property_exists($requestInfo, "pDistrictId") != FALSE) {
+                $addisional_data['p_district_id'] = $requestInfo->pDistrictId;
+            }
+            if (property_exists($requestInfo, "mobile") != FALSE) {
+                $addisional_data['mobile'] = $requestInfo->mobile;
+            }
+            if (property_exists($requestInfo, "email") != FALSE) {
+                $addisional_data['email'] = $requestInfo->email;
+            }
+            if (property_exists($requestInfo, "guardianEmail") != FALSE) {
+                $addisional_data['guardian_email'] = $requestInfo->guardianEmail;
+            }
+            if (property_exists($requestInfo, "sDistance") != FALSE) {
+                $addisional_data['s_distance'] = $requestInfo->sDistance;
+            }
+            if (property_exists($requestInfo, "maritalId") != FALSE) {
+                $addisional_data['marital_id'] = $requestInfo->maritalId;
+            }
+            if (property_exists($requestInfo, "cProfession_id") != FALSE) {
+                $addisional_data['current_profession_id'] = $requestInfo->cProfession_id;
+            }
+            if (property_exists($requestInfo, "pProfession_id") != FALSE) {
+                $addisional_data['previous_profession_id'] = $requestInfo->pProfession_id;
+            }
+            if (property_exists($requestInfo, "politicalStatusId") != FALSE) {
+                $addisional_data['political_status_id'] = $requestInfo->politicalStatusId;
+            }
+            if (property_exists($requestInfo, "businessTypeId") != FALSE) {
+                $addisional_data['business_type_id'] = $requestInfo->businessTypeId;
+            }
+            if (property_exists($requestInfo, "fBusinessPlan") != FALSE) {
+                $addisional_data['future_business_plan'] = $requestInfo->fBusinessPlan;
+            }
+            if (property_exists($requestInfo, "familyTypeId") != FALSE) {
+                $addisional_data['family_type_id'] = $requestInfo->familyTypeId;
+            }
+            if (property_exists($requestInfo, "fMemberNo") != FALSE) {
+                $addisional_data['family_member_no'] = $requestInfo->fMemberNo;
+            }
+            if (property_exists($requestInfo, "maleEarnedPerson") != FALSE) {
+                $addisional_data['male_earned_person'] = $requestInfo->maleEarnedPerson;
+            }
+            if (property_exists($requestInfo, "femaleEarnedPerson") != FALSE) {
+                $addisional_data['female_earned_person'] = $requestInfo->femaleEarnedPerson;
+            }
+            $this->load->model('member_model');
+            $insert_id = $this->member_model->add_survey($addisional_data);
+            if ($insert_id != -1) {
+                $response["message"] = "Survey Information is Added Successfully!";
+            } else {
+                $response["message"] = "Sorry! Error While Adding Survey Information!";
+            }
+        }
+
+        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
+        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
+        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
+        $this->data['gender_list'] = $this->member_model->get_gender_list()->result_array();
+        $this->data['post_list'] = $this->member_model->get_post_list()->result_array();
+        $this->data['thana_list'] = $this->member_model->get_thana_list()->result_array();
+        $this->data['dist_list'] = $this->member_model->get_district_list()->result_array();
+        $this->data['marital_list'] = $this->member_model->get_marital_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['political_status_list'] = $this->member_model->get_political_statuses()->result_array();
+        $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
+        $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
+        $this->data['family_type_list'] = $this->member_model->get_education_list()->result_array();
         $this->template->load(MEMBER_TEMPLATE, 'member/survey', $this->data);
     }
+
     public function addmission() {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/addmision', $this->data);
     }
+
     public function loan_admission() {
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_form', $this->data);

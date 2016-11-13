@@ -1,6 +1,7 @@
 <?php
 
 include './constants/auth.php';
+include './constants/app_configarations.php';
 /***************** Custom constant **********************/
 
 define('MEMBER', 'members');
