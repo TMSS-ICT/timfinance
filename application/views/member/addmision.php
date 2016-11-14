@@ -1,7 +1,8 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSS)</h1>
+        <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSS)</h1>
+        <p class="text-aqua"><u>ভর্তি ফরম</u></p>
     </section>
 
     <!-- Main content -->

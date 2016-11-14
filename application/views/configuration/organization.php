@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
         <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSS)</h1>
-        <p class="text-aqua"><u>প্রতিষ্ঠানের তথ্য প্রদান করুন</u></p>
+        <p class="text-aqua text-center"><u>প্রতিষ্ঠানের তথ্য প্রদান করুন</u></p>
     </section>
 
     <!-- Main content -->

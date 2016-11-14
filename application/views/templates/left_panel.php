@@ -17,6 +17,21 @@
                     <li><a href="<?php echo base_url() . 'member/loan_admission' ?>"><i class="fa fa-circle-o"></i>ঋন আবেদন</a></li>
                 </ul>
             </li>
+
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa  fa-bank "></i> <span>প্রতিষ্ঠান সংক্রান্ত </span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ><a href="index.html"><i class="fa fa-institution"></i>প্রতিষ্ঠানের তথ্য </a></li>
+                    <li><a href="<?php echo base_url() . 'member/addmission' ?>"><i class="fa fa-user-plus"></i>সদস্য ভর্তি ফরম</a></li>
+                    <li><a href="<?php echo base_url() . 'member/loan_admission' ?>"><i class="fa fa-circle-o"></i>ঋন আবেদন</a></li>
+                </ul>
+            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
@@ -50,7 +65,7 @@
                 </ul>
             </li>
 
-
+            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>গ্রেচ</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

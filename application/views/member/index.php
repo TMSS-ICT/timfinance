@@ -2,6 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
         <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSS)</h1>
+        <p class="text-blue text-center"><u>TIMF প্রকল্প এলাকার জনগনের তথ্য বিবরণী</u></p>
     </section>
 
     <!-- Main content -->
