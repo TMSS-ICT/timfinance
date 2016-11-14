@@ -13,7 +13,7 @@ class Member extends CI_Controller {
         if (!$this->ion_auth->logged_in()) {
             redirect('auth/login', 'refresh');
         }
-         $this->load->model('org/member_model');
+        $this->load->model('org/member_model');
     }
 
     public function test() {
@@ -89,6 +89,10 @@ class Member extends CI_Controller {
 
                 $addisional_data['m_vill_name'] = $requestInfo->mVill;
             }
+            if (property_exists($requestInfo, "mRoad") != FALSE) {
+
+                $addisional_data['m_road'] = $requestInfo->mRoad;
+            }
             if (property_exists($requestInfo, "mUnion") != FALSE) {
                 $addisional_data['m_union_name'] = $requestInfo->mUnion;
             }
@@ -131,11 +135,11 @@ class Member extends CI_Controller {
             if (property_exists($requestInfo, "maritalId") != FALSE) {
                 $addisional_data['marital_id'] = $requestInfo->maritalId;
             }
-            if (property_exists($requestInfo, "cProfession_id") != FALSE) {
-                $addisional_data['current_profession_id'] = $requestInfo->cProfession_id;
+            if (property_exists($requestInfo, "cProfessionId") != FALSE) {
+                $addisional_data['current_profession_id'] = $requestInfo->cProfessionId;
             }
-            if (property_exists($requestInfo, "pProfession_id") != FALSE) {
-                $addisional_data['previous_profession_id'] = $requestInfo->pProfession_id;
+            if (property_exists($requestInfo, "pProfessionId") != FALSE) {
+                $addisional_data['previous_profession_id'] = $requestInfo->pProfessionId;
             }
             if (property_exists($requestInfo, "politicalStatusId") != FALSE) {
                 $addisional_data['political_status_id'] = $requestInfo->politicalStatusId;
@@ -158,7 +162,7 @@ class Member extends CI_Controller {
             if (property_exists($requestInfo, "femaleEarnedPerson") != FALSE) {
                 $addisional_data['female_earned_person'] = $requestInfo->femaleEarnedPerson;
             }
-           
+
             $insert_id = $this->member_model->add_survey($addisional_data);
             if ($insert_id != -1) {
                 $response["message"] = "Survey Information is Added Successfully!";
@@ -180,10 +184,18 @@ class Member extends CI_Controller {
 //        $this->data['political_status_list'] = $this->member_model->get_political_statuses()->result_array();
 //        $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
 //        $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
-//        $this->data['family_type_list'] = $this->member_model->get_education_list()->result_array();
+//        $this->data['educations_list'] = $this->member_model->get_education_list()->result_array();
         $this->data['zone_list'] = "";
         $this->data['area_list'] = "";
         $this->data['branch_list'] = "";
+        $this->data['gender_list'] = "";
+        $this->data['educations_list'] = "";
+        $this->data['age_list'] = "";
+        $this->data['passing_year_list'] = "";
+         $this->data['profession_list'] = "";
+         $this->data['marital_list'] = "";
+          $this->data['political_status_list'] = "";
+           $this->data['country_list'] = "";
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
     }
@@ -348,18 +360,18 @@ class Member extends CI_Controller {
         $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
         $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
         $this->data['family_type_list'] = $this->member_model->get_education_list()->result_array();
-         $this->data['app_name'] = MEMBER_APP;
+        $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/survey', $this->data);
     }
 
     public function addmission() {
-         $this->data['app_name'] = MEMBER_APP;
+        $this->data['app_name'] = MEMBER_APP;
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/addmision', $this->data);
     }
 
     public function loan_admission() {
-         $this->data['app_name'] = MEMBER_APP;
+        $this->data['app_name'] = MEMBER_APP;
         $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_form', $this->data);
     }
