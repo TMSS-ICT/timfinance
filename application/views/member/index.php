@@ -169,16 +169,11 @@
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-sm-3">
-                                    <label>পারিবারিক নামঃ</label>
-                                    <select class="form-control " name="member_spouse_family_name"
-                                            style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
-                                        <option>মোঃ</option>
-                                        <option>মোছাঃ</option>
-                                        <option>শ্রীঃ</option>
-                                        <option>শ্রীমতি</option>
-
+                                 <div class="form-group col-sm-3">
+                                    <label>মায়ের বয়সঃ</label>
+                                    <select class="form-control " ng-model="memberSurveyInfo.fAge">
+                                       <option value="">নির্বাচন করুন</option>/option>
+                                        <option ng-repeat="ageInfo in ageList" value={{ageInfo.id}} >{{ageInfo.name}}</option>
                                     </select>
 
                                 </div>
@@ -235,12 +230,12 @@
                                     <select class="form-control"  ng-model="memberSurveyInfo.gProfessionId" 
                                             style="width: 100%;" ng-init="setProfessionList('<?php echo htmlspecialchars(json_encode($profession_list)) ?>')">
                                        <option value="">নির্বাচন করুন</option>/option>
-                                        <option ng-repeat="professionInfo in professionList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
+                                        <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>বৈবাহিক অবস্থাঃ</label>
-                                    <select class="form-control" ng-model="memberSurveyInfo.maritalId" style="width: 100%;" ng-init="setMaritalList('<?php echo htmlspecialchars(json_encode($profession_list)) ?>')">
+                                    <select class="form-control" ng-model="memberSurveyInfo.maritalId" style="width: 100%;" ng-init="setMaritalList('<?php echo htmlspecialchars(json_encode($marital_list)) ?>')">
                                        <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="maritalInfo in maritalList" value={{maritalInfo.id}} >{{maritalInfo.name}}</option>
                                     </select>
@@ -248,14 +243,14 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>রাজনীতির সাথে জরিত কি না? </label>
-                                    <select class="form-control" style="width: 100%;"ng-model="memberSurveyInfo.politicalStatusId" style="width: 100%;" ng-init="setMaritalList('<?php echo htmlspecialchars(json_encode($political_status_list)) ?>')">
+                                    <select class="form-control" style="width: 100%;"ng-model="memberSurveyInfo.politicalStatusId" style="width: 100%;" ng-init="setPSList('<?php echo htmlspecialchars(json_encode($political_status_list)) ?>')">
                                        <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="pStatusInfo in politicalStatusList" value={{pStatusInfo.id}} >{{pStatusInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>জাতীয় পরিচয় পত্রের নংঃ </label>
-                                    <input type="number" class="form-control" name="member_nid" placeholder="জাতীয় পরিচয় পত্রের নং"
+                                    <input type="number" class="form-control" ng-model="memberController.nid" placeholder="জাতীয় পরিচয় পত্রের নং"
                                            style="width: 100%;">
                                 </div>
                             </div>

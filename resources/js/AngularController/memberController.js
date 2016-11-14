@@ -1,7 +1,6 @@
 angular.module('controller.Member', ['services.Member']).
         controller('memberController', function ($scope, memberService) {
             $scope.memberSurveyInfo = {};
-            $scope.memberSurveyInfo.firstName = "zia";
             $scope.zoneList = [];
             $scope.areaList = [];
             $scope.branchList = [];
@@ -9,6 +8,9 @@ angular.module('controller.Member', ['services.Member']).
             $scope.educationList = [];
             $scope.ageList = [];
             $scope.yearList = [];
+            $scope.proList = [];
+            $scope.maritalList = [];
+            $scope.politicalStatusList = [];
             $scope.allow_action = true;
 
             $scope.setZoneList = function (zoneList) {
@@ -31,6 +33,18 @@ angular.module('controller.Member', ['services.Member']).
             }
             $scope.setYearList = function (yearList) {
                 $scope.yearList = JSON.parse(yearList);
+            }
+            $scope.setProfessionList = function (proList) {
+                $scope.proList = JSON.parse(proList);
+            }
+            $scope.setMaritalList = function (maritalList) {
+                $scope.maritalList = JSON.parse(maritalList);
+            }
+            $scope.setCountryList = function (countryList) {
+                $scope.countryList = JSON.parse(countryList);
+            }
+            $scope.setPSList = function (politicalStatusList) {
+                $scope.politicalStatusList = JSON.parse(politicalStatusList);
             }
             $scope.addSurveyInfo = function (callbackFunction) {
                 if ($scope.allow_action == false) {

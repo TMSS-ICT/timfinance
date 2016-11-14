@@ -51,6 +51,7 @@ $config['tables']['genders']       = 'genders';
 $config['tables']['posts']       = 'posts';
 $config['tables']['thanas']       = 'thanas';
 $config['tables']['districts']       = 'districts';
+$config['tables']['countries']       = 'countries';
 $config['tables']['marital_status']       = 'marital_status';
 $config['tables']['professions']       = 'professions';
 $config['tables']['political_statuses']       = 'political_statuses';

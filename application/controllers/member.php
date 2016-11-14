@@ -171,31 +171,21 @@ class Member extends CI_Controller {
             }
         }
 
-//        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
-//        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
-//        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
-//        $this->data['gender_list'] = $this->member_model->get_gender_list()->result_array();
-//        $this->data['post_list'] = $this->member_model->get_post_list()->result_array();
-//        $this->data['thana_list'] = $this->member_model->get_thana_list()->result_array();
-//        $this->data['dist_list'] = $this->member_model->get_district_list()->result_array();
-//        $this->data['marital_list'] = $this->member_model->get_marital_list()->result_array();
-//        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
-//        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
-//        $this->data['political_status_list'] = $this->member_model->get_political_statuses()->result_array();
-//        $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
-//        $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
-//        $this->data['educations_list'] = $this->member_model->get_education_list()->result_array();
-        $this->data['zone_list'] = "";
-        $this->data['area_list'] = "";
-        $this->data['branch_list'] = "";
-        $this->data['gender_list'] = "";
-        $this->data['educations_list'] = "";
-        $this->data['age_list'] = "";
-        $this->data['passing_year_list'] = "";
-         $this->data['profession_list'] = "";
-         $this->data['marital_list'] = "";
-          $this->data['political_status_list'] = "";
-           $this->data['country_list'] = "";
+        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
+        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
+        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
+        $this->data['gender_list'] = $this->member_model->get_gender_list()->result_array();
+        $this->data['post_list'] = $this->member_model->get_post_list()->result_array();
+        $this->data['thana_list'] = $this->member_model->get_thana_list()->result_array();
+        $this->data['dist_list'] = $this->member_model->get_district_list()->result_array();
+        $this->data['country_list'] = $this->member_model->get_country_list()->result_array();
+        $this->data['marital_list'] = $this->member_model->get_marital_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['political_status_list'] = $this->member_model->get_political_statuses()->result_array();
+        $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
+        $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
+        $this->data['educations_list'] = $this->member_model->get_education_list()->result_array();
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
     }

@@ -111,6 +111,13 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['thanas'])
                         ->get();
     }
+    
+    
+    public function get_country_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['countries'])
+                        ->get();
+    }
 
     /*
      * This method will return gender List

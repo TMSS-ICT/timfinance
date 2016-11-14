@@ -140,24 +140,13 @@ INSERT INTO `purposes` (`id`,`code`,`name`,`org_id`, `employee_id` ) VALUES
 
 
 
--- /genders table 
-CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE IF NOT EXISTS `countries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `posts` (`id`, `name`) VALUES
-(1, 'Raninong'),
-(2, 'Kapasia');
-
-CREATE TABLE IF NOT EXISTS `thanas` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `thanas` (`id`, `name`) VALUES
-(1, 'Kapasia');
-
+INSERT INTO `countries` (`id`, `name`) VALUES
+(1, 'Bangladesh');
 CREATE TABLE IF NOT EXISTS `districts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -165,6 +154,33 @@ CREATE TABLE IF NOT EXISTS `districts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
 INSERT INTO `districts` (`id`, `name`) VALUES
 (1, 'Gazipur');
+
+CREATE TABLE IF NOT EXISTS `thanas` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+ `dist_id`  int(11) unsigned NOT NULL,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;  
+ALTER TABLE `thanas`  
+ ADD CONSTRAINT `fk_thana_dist_id` FOREIGN KEY (`dist_id`) REFERENCES `districts` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION; 
+INSERT INTO `thanas` (`id`, `dist_id`, `name`) VALUES
+(1, 1, 'Kapasia');
+
+-- /genders table 
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+`thana_id`  int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;  
+ALTER TABLE `posts`  
+ ADD CONSTRAINT `fk_post_thana_id` FOREIGN KEY (`thana_id`) REFERENCES `thanas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION; 
+INSERT INTO `posts` (`id`,`thana_id`, `name`) VALUES
+(1, 1, 'Raninong');
+
+
+
+
 -- /genders table 
 CREATE TABLE IF NOT EXISTS `marital_status` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
