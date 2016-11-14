@@ -75,6 +75,35 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (2, 2, 2);
 
 
+CREATE TABLE IF NOT EXISTS `depatments` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `depatments` (`id`, `name`) VALUES
+(1, 'TMMS-ICT'),
+(2, 'TMMS-Account');
+CREATE TABLE IF NOT EXISTS `organigations` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `organigations` (`id`, `name`) VALUES
+(1, 'TMMS');
+
+CREATE TABLE IF NOT EXISTS `employees` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `dept_id` int(11) unsigned NOT NULL,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
+ALTER TABLE `employees`  
+ ADD CONSTRAINT `fk_employe_dept_id` FOREIGN KEY (`dept_id`) REFERENCES `depatments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+INSERT INTO `employees` (`id`, `dept_id`, `name`) VALUES
+(1, 1, 'Noor-a Alam'),
+(2,1, 'Zia');
+
+
 CREATE TABLE IF NOT EXISTS `investors` (
   `id` tinyint(11) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(5) NOT NULL,
@@ -86,10 +115,11 @@ CREATE TABLE IF NOT EXISTS `investors` (
   `created_on` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-ADD CONSTRAINT `fk_dept_id` FOREIGN KEY (`zone_id`) REFERENCES `depatments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-INSERT INTO `investors` (`id`, `name`) VALUES
-(1, 'TMMS-ICT'),
-(2, 'TMMS-Account');
+ALTER TABLE `investors`
+ADD CONSTRAINT `fk_investor_org_id` FOREIGN KEY (`org_id`) REFERENCES `organigations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_investor_emp_id` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+INSERT INTO `investors` (`id`,`code`,`name`,`org_id`, `employee_id` ) VALUES
+(1, '123','TMMS-ICT',1, 1 );
 
 CREATE TABLE IF NOT EXISTS `purposes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -102,29 +132,13 @@ CREATE TABLE IF NOT EXISTS `purposes` (
   `created_on` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `purposes` (`id`, `name`) VALUES
-(1, 'TMMS-ICT'),
-(2, 'TMMS-Account');
+ALTER TABLE `purposes`
+ADD CONSTRAINT `fk_purpose_dept_id` FOREIGN KEY (`org_id`) REFERENCES `organigations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_purpose_emp_id` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+INSERT INTO `purposes` (`id`,`code`,`name`,`org_id`, `employee_id` ) VALUES
+(1, '123','TMMS-ICT',1, 1 );
 
-CREATE TABLE IF NOT EXISTS `depatments` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-INSERT INTO `posts` (`id`, `name`) VALUES
-(1, 'TMMS-ICT'),
-(2, 'TMMS-Account');
 
-CREATE TABLE IF NOT EXISTS `employees` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `dept_id` int(11) unsigned NOT NULL,
-  `name` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
- ADD CONSTRAINT `fk_dept_id` FOREIGN KEY (`zone_id`) REFERENCES `depatments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-INSERT INTO `employees` (`id`, `dept_id`, `name`) VALUES
-(1, 1, 'Noor-a Alam'),
-(2,1, 'Zia');
 
 -- /genders table 
 CREATE TABLE IF NOT EXISTS `posts` (
