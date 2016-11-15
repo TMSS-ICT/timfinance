@@ -18,14 +18,8 @@
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group col-lg-6">
-                                    <label>গ্রেচ আইডিঃ</label>
-                                    <select class="form-control " name="zone_name" style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
-                                        <option>001</option>
-                                        <option>002</option>
-                                        <option>003</option>
-
-                                    </select>
+                                    <label>প্রোডাক্ট কোডঃ</label>
+                                    <input type="text"  name="product_code"   required style="width: 100%">
                                 </div>
                                 <div class="form-group col-sm-6">
 
@@ -39,48 +33,61 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
-                                <div class="form-group col-lg-12">
-                                    <label>সমিতির নামঃ</label>
+                                <div class="form-group col-lg-6">
+                                    <label>প্রোডাক্টের নামঃ</label>
+                                    <input type="text"  name="product_code"   required style="width: 100%">
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>প্রোডাক্টের নাম (ইংরেজি)</label>
+                                    <input type="text"  name="product_code"   required style="width: 100%">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-6">
+                                    <label>বাংলা  নাম (সংক্ষিপ্ত)</label>
+                                    <input type="text"  name="product_code"   required style="width: 100%">
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>বাংলা  নাম (পূর্ণ)</label>
+                                    <input type="text"  name="product_code"   required style="width: 100%">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-4">
+                                    <label>প্রোডাক্টের ধরণঃ</label>
                                     <select class="form-control " name="zone_name" style="width: 100%;">
                                         <option selected="selected">নির্বাচন করুন</option>
-                                        <option>টি এম এস এস</option>
-                                        <option>ব্রাক</option>
-                                        <option>আশা</option>
-
+                                        <option>ঋণ</option>
+                                        <option>002</option>
+                                        <option>003</option>
                                     </select>
                                 </div>
-                            </div>
 
-                        </div>
-                    </div>
+                                <div class="form-group col-lg-4">
+                                    <label>সার্ভিস চার্জ রেটঃ</label>
+                                    <input type="number"  name="member_name"   required style="width: 100%">
+                                </div>
 
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="form-inline">
-                                <div class="form-group col-lg-6">
-                                    <label>সদস্যের নাম</label>
+                                <div class="form-group col-lg-4">
+                                    <label>মেয়াদঃ</label>
                                     <input type="text"  name="member_name"   required style="width: 100%">
                                 </div>
-                                <div class="form-group col-lg-6">
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="form-inline">
-                                <div class="form-group col-lg-6">
-                                    <label>গ্রেচ শুরুর তারিখঃ</label>
-                                    <input type="datetime" class="form-control" name="dateclosing" style="width: 100%" required>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>গ্রেচ সমাপ্তি তারিখঃ</label>
-                                    <input type="datetime" class="form-control" name="dateclosing" style="width: 100%" required>
-                                </div>
 
                             </div>
 
@@ -91,12 +98,85 @@
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group col-lg-6">
-                                    <label>ফোন নংঃ</label>
-                                    <textarea class="form-control" rows="3" name="phonenumber" style="width: 100%" required></textarea>
+                                    <label>মেইন প্রোডাক্টের নামঃ</label>
+                                    <input type="text"  name="member_name"   required style="width: 100%">
                                 </div>
 
                                 <div class="form-group col-lg-6">
+                                    <label>মেইন আইটেম নামঃ</label>
+                                    <input type="number"  name="member_name"   required style="width: 100%">
+                                </div>
 
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-4">
+                                    <label>ঋণ কিস্তিঃ </label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>কিস্তিির সার্ভিস চার্জঃ</label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>সঞ্চয় কিস্তিঃ</label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-4">
+                                    <label>সর্বনিম্ন সীমাঃ </label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>সর্বোচ্চ সীমাঃ </label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>সার্ভিস চার্জ হিসাবের পদ্ধতি</label>
+                                    <option selected="selected">নির্বাচন করুন</option>
+                                    <option>Declaimed</option>
+                                    <option>Flat</option>
+                                    <option>003</option>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-4">
+                                    <label>পেমেন্ট ফ্রিকুয়েন্সিঃ</label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>ইন্সুরেন্স আইটেম কোডঃ</label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>ইন্সুরেন্স আইটেম রেটঃ</label>
+                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
                                 </div>
 
                             </div>

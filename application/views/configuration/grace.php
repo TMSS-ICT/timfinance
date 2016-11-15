@@ -91,8 +91,8 @@
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group col-lg-6">
-                                    <label>ফোন নংঃ</label>
-                                    <textarea class="form-control" rows="3" name="phonenumber" style="width: 100%" required></textarea>
+                                    <label>বরননাঃ</label>
+                                    <textarea class="form-control" rows="3" name="description" style="width: 100%" required></textarea>
                                 </div>
 
                                 <div class="form-group col-lg-6">
