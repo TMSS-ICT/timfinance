@@ -131,6 +131,11 @@ class Member_model extends Ion_auth_model {
                         ->get();
     }
 
+      public function get_union_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['unions'])
+                        ->get();
+    }
     /*
      * This method will return gender List
      * @return gender List
@@ -200,6 +205,12 @@ class Member_model extends Ion_auth_model {
     public function get_education_list() {
         return $this->db->select('*')
                         ->from($this->tables['educations'])
+                        ->get();
+    }
+    
+    public function get_payment_type_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['payment_types'])
                         ->get();
     }
 

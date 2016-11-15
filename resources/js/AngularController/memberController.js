@@ -11,8 +11,51 @@ angular.module('controller.Member', ['services.Member']).
             $scope.proList = [];
             $scope.maritalList = [];
             $scope.politicalStatusList = [];
+            $scope.nameTitleList = [];
+            $scope.districtList = [];
+            $scope.unionList = [];
+            $scope.familyTitleList = [];
+            $scope.fTitleList = [];
+            $scope.mTitleList = [];
+            $scope.thanaList = [];
+            $scope.postList = [];
+            $scope.paymentTypeList = [];
+            $scope.memberNoList = [];
             $scope.allow_action = true;
 
+            $scope.setPaymentTypeList = function (paymentTypeList) {
+                $scope.paymentTypeList = JSON.parse(paymentTypeList);
+            }
+            $scope.setUnionList = function (unionList) {
+                $scope.unionList = JSON.parse(unionList);
+            }
+            $scope.setDistrictList = function (districtList) {
+                $scope.districtList = JSON.parse(districtList);
+            }
+            $scope.setPostList = function (postList) {
+                $scope.postList = JSON.parse(postList);
+            }
+            $scope.setThanaList = function (thanaList) {
+                $scope.thanaList = JSON.parse(thanaList);
+            }
+            $scope.setMemberList = function (memberNoList) {
+                $scope.memberNoList = JSON.parse(memberNoList);
+            }
+            $scope.setBTypeList = function (bTypeList) {
+                $scope.bTypeList = JSON.parse(bTypeList);
+            }
+            $scope.setNameTitleList = function (nameTitleList) {
+                $scope.nameTitleList = JSON.parse(nameTitleList);
+            }
+            $scope.setFamilyTitleList = function (familyTitleList) {
+                $scope.familyTitleList = JSON.parse(familyTitleList);
+            }
+            $scope.setFTitleList = function (fTitleList) {
+                $scope.fTitleList = JSON.parse(fTitleList);
+            }
+            $scope.setMTitleList = function (mTitleList) {
+                $scope.mTitleList = JSON.parse(mTitleList);
+            }
             $scope.setZoneList = function (zoneList) {
                 $scope.zoneList = JSON.parse(zoneList);
             }
@@ -54,7 +97,7 @@ angular.module('controller.Member', ['services.Member']).
                 memberService.addSurveyInfo($scope.memberSurveyInfo).
                         success(function (data, status, headers, config) {
                             $scope.allow_action = true;
-                            callbackFunction(data);
+//                            callbackFunction(data);
                         });
             }
 

@@ -58,6 +58,8 @@ $config['tables']['political_statuses']       = 'political_statuses';
 $config['tables']['business_types']       = 'business_types';
 $config['tables']['family_types']       = 'family_types';
 $config['tables']['educations']       = 'educations';
+$config['tables']['unions']       = 'unions';
+$config['tables']['payment_types']       = 'payment_types';
 
 /*
  | Users table column and Group table column you want to join WITH.

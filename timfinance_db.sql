@@ -137,7 +137,14 @@ ADD CONSTRAINT `fk_purpose_dept_id` FOREIGN KEY (`org_id`) REFERENCES `organigat
 ADD CONSTRAINT `fk_purpose_emp_id` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 INSERT INTO `purposes` (`id`,`code`,`name`,`org_id`, `employee_id` ) VALUES
 (1, '123','TMMS-ICT',1, 1 );
-
+CREATE TABLE IF NOT EXISTS `payment_types` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `payment_types` (`id`, `name`) VALUES
+(1, 'নিয়োমিত'),
+(2, 'ঋণ খেলাপি');
 
 
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -167,15 +174,26 @@ INSERT INTO `thanas` (`id`, `dist_id`, `name`) VALUES
 (1, 1, 'Kapasia');
 
 -- /genders table 
-CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE IF NOT EXISTS `unions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
 `thana_id`  int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;  
+ALTER TABLE `unions`  
+ ADD CONSTRAINT `fk_unions_thana_id` FOREIGN KEY (`thana_id`) REFERENCES `thanas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION; 
+INSERT INTO `unions` (`id`,`thana_id`, `name`) VALUES
+(1, 1, 'Durgapur');
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+`union_id`  int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;  
 ALTER TABLE `posts`  
- ADD CONSTRAINT `fk_post_thana_id` FOREIGN KEY (`thana_id`) REFERENCES `thanas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION; 
-INSERT INTO `posts` (`id`,`thana_id`, `name`) VALUES
+ ADD CONSTRAINT `fk_post_union_id` FOREIGN KEY (`union_id`) REFERENCES `unions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION; 
+INSERT INTO `posts` (`id`,`union_id`, `name`) VALUES
 (1, 1, 'Raninong');
 
 
@@ -304,17 +322,17 @@ CREATE TABLE IF NOT EXISTS `members` (
   `branch_id` int(11) unsigned NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
-  `sur_name` varchar(100) NOT NULL,
-  `gender_id` int(11) unsigned NOT NULL,
-  `age` int(11) unsigned NOT NULL,
-  `education_id` int(11) unsigned NOT NULL,
-  `passing_year` int(11) unsigned NOT NULL,
+  `sur_name` varchar(100) DEFAULT NULL,
+  `gender_id` int(11) unsigned DEFAULT NULL,
+  `age` int(11) unsigned DEFAULT NULL,
+  `education_id` int(11) unsigned DEFAULT NULL,
+  `passing_year` int(11) unsigned DEFAULT NULL,
 
 
   `f_first_name` varchar(40) DEFAULT NULL,
   `f_last_name` varchar(40) DEFAULT NULL,
   `f_sur_name` varchar(40) DEFAULT NULL,
-  `f_age` int(11) unsigned NOT NULL,
+  `f_age` int(11) unsigned DEFAULT NULL,
   `f_business` varchar(40) DEFAULT NULL,
   `m_first_name` varchar(40) DEFAULT NULL,
   `m_last_name` varchar(40) DEFAULT NULL,
@@ -323,30 +341,57 @@ CREATE TABLE IF NOT EXISTS `members` (
 
   `m_vill_name` varchar(40) DEFAULT NULL,
   `m_union_name` varchar(40) DEFAULT NULL,
-  `m_post_id`  int(11) unsigned NOT NULL,
-  `m_thana_id`  int(11) unsigned NOT NULL,
-  `m_district_id` int(11) unsigned NOT NULL,
+  `m_post_id`  int(11) unsigned DEFAULT NULL,
+  `m_thana_id`  int(11) unsigned DEFAULT NULL,
+  `m_district_id` int(11) unsigned DEFAULT NULL,
 
   `p_vill_name` varchar(40) DEFAULT NULL,
   `p_union_name` varchar(40) DEFAULT NULL,
-  `p_post_id`  int(11) unsigned NOT NULL,
-  `p_thana_id`  int(11) unsigned NOT NULL,
-  `p_district_id` int(11) unsigned NOT NULL,
+  `p_post_id`  int(11) unsigned DEFAULT NULL,
+  `p_thana_id`  int(11) unsigned DEFAULT NULL,
+  `p_district_id` int(11) unsigned DEFAULT NULL,
   `mobile` varchar(20) DEFAULT NULL,
   `email` varchar(20) DEFAULT NULL,
   `guardian_email` varchar(20) DEFAULT NULL,
-  `s_distance` int(11) unsigned NOT NULL,
-  `marital_id` int(11) unsigned NOT NULL,
-  `current_profession_id` int(11) unsigned NOT NULL,
-  `previous_profession_id` int(11) unsigned NOT NULL,
+  `s_distance` int(11) unsigned DEFAULT NULL,
+  `marital_id` int(11) unsigned DEFAULT NULL,
+  `current_profession_id` int(11) unsigned DEFAULT NULL,
+  `previous_profession_id` int(11) unsigned DEFAULT NULL,
 
-  `political_status_id` int(11) unsigned NOT NULL,
-  `business_type_id` int(11) unsigned NOT NULL,
+  `political_status_id` int(11) unsigned DEFAULT NULL,
+  `business_type_id` int(11) unsigned  DEFAULT NULL,
   `future_business_plan` varchar(20) DEFAULT NULL,
-  `family_type_id` int(11) unsigned NOT NULL,
-  `family_member_no` int(11) unsigned NOT NULL,
-  `male_earned_person` int(11) unsigned NOT NULL,
-  `female_earned_person` int(11) unsigned NOT NULL,
+  `previous_p_year_id` varchar(20) DEFAULT NULL,
+  `earning_source` varchar(20) DEFAULT NULL,
+  `alt_earning_source` varchar(20) DEFAULT NULL,
+  `cultivable_land` varchar(20) DEFAULT NULL,
+  `un_cultivable_land` varchar(20) DEFAULT NULL,
+  `ponds` varchar(20) DEFAULT NULL,
+  `house` varchar(20) DEFAULT NULL,
+  `total_land` varchar(20) DEFAULT NULL,
+  `ag_income` varchar(20) DEFAULT NULL,
+  `un_ag_income` varchar(20) DEFAULT NULL,
+  `total_income` varchar(20) DEFAULT NULL,
+  `total_expence` varchar(20) DEFAULT NULL,
+  `loss` varchar(20) DEFAULT NULL,
+  `tin_house` varchar(20) DEFAULT NULL,
+  `straw_house` varchar(20) DEFAULT NULL,
+  `brick_house` varchar(20) DEFAULT NULL,
+  `receive_amound` varchar(20) DEFAULT NULL,
+  `paid_amound` varchar(20) DEFAULT NULL,
+  `re_amound` varchar(20) DEFAULT NULL,
+  `payment_type_id` varchar(20) DEFAULT NULL,
+  `financier_company` varchar(20) DEFAULT NULL,
+  `loaning_year` varchar(20) DEFAULT NULL,
+  `last_loaning_year` varchar(20) DEFAULT NULL,
+  `investment_sector` varchar(20) DEFAULT NULL,
+  `amount` varchar(20) DEFAULT NULL,
+  `recomannd1` varchar(20) DEFAULT NULL,
+  `recomannd2` varchar(20) DEFAULT NULL,
+  `family_type_id` int(11) unsigned DEFAULT NULL,
+  `family_member_no` int(11) unsigned DEFAULT NULL,
+  `male_earned_person` int(11) unsigned DEFAULT NULL,
+  `female_earned_person` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 ALTER TABLE `members`
