@@ -1178,9 +1178,9 @@
                                 </div>
 
                                 <div class="form-group col-sm-3">
-                                    <label>ব্যবসায় নিয়োজিত মূলধনঃ</label>
-                                    <input type="number" class="form-control" name="cultivable_land"
-                                           placeholder="নিয়োজিত মূলধন" style="width: 100%;">
+                                    <label>ট্রেড লাইসেন্সের মেয়াদঃ</label>
+                                    <input type="date" class="form-control" name="cultivable_land"
+                                           placeholder="ট্রেড লাইসেন্সের মেয়াদঃ" style="width: 100%;">
                                 </div>
 
                             </div>
@@ -1190,14 +1190,15 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
-
+                                <div class="form-group col-sm-3">
+                                    <label>ব্যবসায় নিয়োজিত মূলধনঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="নিয়োজিত মূলধন" style="width: 100%;">
+                                </div>
                                 <div class="form-group col-lg-3">
                                     <label>মাসিক গড় বিক্রয়ঃ</label>
                                     <input type="number" class="form-control" name="cultivable_land"
                                            placeholder="গড় বিক্রয়" style="width: 100%;">
-                                </div>
-                                <div class="form-group col-sm-3">
-
                                 </div>
 
                                 <div class="form-group col-lg-3">
