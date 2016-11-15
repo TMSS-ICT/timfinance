@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
         <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h1>
-        <p class="text-blue text-center"><u>ভর্তি ফরম</u></p>
+        <p class="text-blue text-center"><u>ঋণ আবেদন ফরম</u></p>
     </section>
 
     <!-- Main content -->
@@ -67,10 +67,15 @@
                             <div class="">
                                 <div class="form-group col-lg-4">
                                     <div>
-                                        <img  style=" height: 100px; width: 100px;  " class="img-responsive" fallback-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"  ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
+                                        <img style=" height: 100px; width: 100px;  " class="img-responsive"
+                                             fallback-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"
+                                             ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
                                     </div>
-                                    <div style="position: absolute; z-index: 11; top: 25px; height: 100px; width: 100px; background: transparent;overflow: hidden; ">
-                                        <input  class="profile_cover_upload_input"  type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
+                                    <div
+                                        style="position: absolute; z-index: 11; top: 25px; height: 100px; width: 100px; background: transparent;overflow: hidden; ">
+                                        <input class="profile_cover_upload_input" type="file" name="fileInput"
+                                               id="fileInput"
+                                               onchange="angular.element(this).scope().fileChanged(event)"/>
                                     </div>
                                     <div class="profile_cover_upload_img">
                                         <span>Upload a picture</span>
@@ -1421,7 +1426,6 @@
                         <div class="row">
                             <div class="form-inline">
 
-
                                 <div class="form-group col-lg-3">
                                     <label>মোট সময়ঃ</label>
                                     <input type="time" class="form-control" name="cultivable_land"
@@ -1437,9 +1441,6 @@
 
                                 <div class="form-group col-lg-3">
 
-                                </div>
-
-                                <div class="form-group col-sm-3">
 
                                 </div>
 
@@ -1509,6 +1510,142 @@
                                 </div>
 
                                 <div class="form-group col-lg-3">
+                                    <label>প্রতিষ্ঠানে জনবলের সংখ্যা(পুরুষ)</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="প্রতিষ্ঠানে জনবলের সংখ্যা(পুরুষ)" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>প্রতিষ্ঠানে জনবলের সংখ্যা(মহিলা)</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="প্রতিষ্ঠানে জনবলের সংখ্যা(মহিলা)" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>ব্যবসা পরিচালনাকারীঃ</label>
+                                    <select class="form-control" name="member_previous_profession_duration"
+                                            style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option>নিজে</option>
+                                        <option>সন্তান</option>
+                                        <option>আত্মীয়</option>
+                                        <option>কর্মচারী</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>মহাজনের নামঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="মহাজনের নাম" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>মহাজনের ঠিকানাঃ </label>
+                                    <textarea class="form-control" rows="2" name="mohajon_address"
+                                              style="width: 100%"></textarea>
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>মহাজনের মোবাইল/টেলিফোনঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="মহাজনের মোবাইল/টেলিফোনঃ" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-header with-border">
+                        <p class="text-red">চাকুরী সংক্রান্ত তথ্যঃ </p>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>প্রতিষ্ঠানের নামঃ </label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="প্রতিষ্ঠানের নাম" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>প্রতিষ্ঠানের অবস্থানঃ</label>
+
+                                    <textarea class="form-control" rows="2" name="mohajon_address" style="width: 100%">প্রতিষ্ঠানের অবস্থান</textarea>
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>প্রতিষ্ঠানের আইডি নংঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="প্রতিষ্ঠানের আইডি  নং" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>সেনা নংঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="সেনা নং" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>পদবীঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="পদবী" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>ইউনিটের নামঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="ইউনিটের নাম" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+                                    <label>ডিভিশনের নামঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="ডিভিশনের নাম" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>চাকুরীর বয়সঃ((মাস)</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="চাকুরীর বয়সঃ (মাস)" style="width: 100%;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+
+                                <div class="form-group col-lg-3">
+                                    <label>বেতন-ভাতাঃ (টাকা)</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="বেতন-ভাতাঃ (টাকা)" style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
 
                                 </div>
 
@@ -1525,6 +1662,210 @@
             </div>
         </div>
 
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">Cash Flow/ অর্থ প্রবাহ বিবরণী (মাসিক সর্বনিম্ন)</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div class="box-header with-border">
+                        <p class=" text-aqua">উদ্যোগ/ব্যবসার অর্থ প্রবাহঃ (এ ছকে শুধু মাত্র যে ব্যবসার জন্য বিনিয়োগ নিতে
+                            আগ্রহী সেই ব্যবসার মাসিক গড় ক্যাশ প্রবাহের তথ্য যাবে)</p>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-sm-3">
+                                    <label>সেবা পণ্য বিক্রয়ের বিবরণ </label>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>টাকার পরিমাণঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="টাকার বিবরণ" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>কাঁচামাল ক্রয় ও খরচের বিবরণ </label>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>টাকার পরিমাণঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="টাকার পরিমাণঃ" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-1">
+                                    <button type="button" class="btn btn-info btn-flat "><i
+                                            class="fa fa-plus-square"></i>Add More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="4" style="width: 50%">Cash Inflow (অর্থ আগমন) </th>
+                            <th>Cash Outflow (অর্থ বহিঃরগমন)</th>
+                        </tr>
+                        <tr>
+                            <th>ক্রমিক নং</th>
+                            <th>সেবা/পণ্য বিক্রয়ের বিবরণ</th>
+                            <th>টাকার পরিমাণ</th>
+                            <th>ক্রমিক নং</th>
+                            <th>কাঁচামাল ক্রয় ও খরচের বিবরণ</th>
+                            <th>টাকার পরিমাণ</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 4.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td> 4</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 5.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5</td>
+                            <td>C</td>
+                            <td>C</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">Cash Flow/ অর্থ প্রবাহ বিবরণী (মাসিক সর্বনিম্ন)</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div class="box-header with-border">
+                        <p class=" text-aqua">সামগ্রীক অর্থ প্রবাহ ছকঃ (এ ছকে বিনিয়োগ নিতে
+                            আগ্রহী ব্যক্তির সকল ধরনের আয়ের উৎসের মাসিক গড় ক্যাশ প্রবাহের তথ্য যাবে)</p>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-sm-3">
+                                    <label>সেবা পণ্য বিক্রয়ের বিবরণ </label>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>টাকার পরিমাণঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="টাকার বিবরণ" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>কাঁচামাল ক্রয় ও খরচের বিবরণ </label>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>টাকার পরিমাণঃ</label>
+                                    <input type="text" class="form-control" name="cultivable_land"
+                                           placeholder="টাকার পরিমাণঃ" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-1">
+                                    <button type="button" class="btn btn-info btn-flat "><i
+                                            class="fa fa-plus-square"></i>Add More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th colspan="4" style="width: 50%">Cash Inflow (অর্থ আগমন) </th>
+                            <th>Cash Outflow (অর্থ বহিঃরগমন)</th>
+                        </tr>
+                        <tr>
+                            <th>ক্রমিক নং</th>
+                            <th>সেবা/পণ্য বিক্রয়ের বিবরণ</th>
+                            <th>টাকার পরিমাণ</th>
+                            <th>ক্রমিক নং</th>
+                            <th>কাঁচামাল ক্রয় ও খরচের বিবরণ</th>
+                            <th>টাকার পরিমাণ</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 4.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td> 4</td>
+                            <td>X</td>
+                            <td>X</td>
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 5.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5</td>
+                            <td>C</td>
+                            <td>C</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+        </div>
         <div class="row">
 
             <div class="col-md-12">

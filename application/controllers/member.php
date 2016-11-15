@@ -481,10 +481,10 @@ class Member extends CI_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/addmision', $this->data);
     }
 
-    public function loan_admission() {
+    public function loan_application() {
         $this->data['app_name'] = MEMBER_APP;
         $this->data['test'] = "";
-        $this->template->load(MEMBER_TEMPLATE, 'member/loan_form', $this->data);
+        $this->template->load(MEMBER_TEMPLATE, 'member/loan_application', $this->data);
     }
 
     public function add_feedback() {

@@ -184,7 +184,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-3">
-                                    <label>১ম নামঃ</label>
+                                    <label>২য় নামঃ</label>
                                     <input type="text" class="form-control" name="first_name" placeholder=""
                                            style="width: 100%;">
                                 </div>

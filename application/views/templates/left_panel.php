@@ -38,7 +38,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>ঋণ আবেদন</a></li>
+                    <li><a href="<?php echo base_url() . 'member/loan_application' ?>"><i class="fa fa-circle-o"></i>ঋণ আবেদন</a></li>
                     <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> ঋণ অনুমদন</a></li>
                 </ul>
             </li>
