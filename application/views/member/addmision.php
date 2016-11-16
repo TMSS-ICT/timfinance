@@ -962,8 +962,8 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>সর্বশেষ কবে গ্রহণ করেছেন </label>
-                                    <input type="date" class="form-control" name="cultivable_land"
-                                           placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
+                                    <input type="text" id="datepicker" class="form-control" name="cultivable_land"
+                                           placeholder=" " style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
 
@@ -1001,7 +1001,7 @@
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
                                     <input type="number" class="form-control" name="cultivable_land"
-                                           placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
+                                           placeholder="টাকার পরিমানঃ " style="width: 100%;">
                                 </div>
 
                             </div>
@@ -1087,9 +1087,9 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
-                                <div class="form-group col-lg-3">
+                                <div class="form-group date col-lg-3">
                                     <label>বব্যবসা শুরুর তারিখঃ</label>
-                                    <input type="date" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control" id="datepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
@@ -1382,29 +1382,29 @@
 
                     <div class="box-body">
                         <div class="row">
-                            <div class="form-inline">
+                            <div class="form-inline ">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শুরুঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শেষঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" id="timepicker" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শুরুঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" id="timepicker" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শেষঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" id="timepicker" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1421,9 +1421,9 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মোট সময়ঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" id="timepicker" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1435,10 +1435,6 @@
                                 </div>
 
                                 <div class="form-group col-lg-3">
-
-                                </div>
-
-                                <div class="form-group col-sm-3">
 
                                 </div>
 
@@ -1451,26 +1447,26 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" id="timepicker" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান বন্ধ হয়ঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শুরুঃ</label>
-                                    <input type="time" class="form-control " name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শেষঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1542,3 +1538,15 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+    $(function () {
+
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+</script>

@@ -18,17 +18,22 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/skins/_all-skins.css">
 
         <!--<Date picker css>-->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/superadmin/zebra_datePicker.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/superadmin/zebra_datePicker_custom.css" type="text/css">
-
-
+<!--        <link rel="stylesheet" href="--><?php //echo base_url(); ?><!--resources/css/superadmin/zebra_datePicker.css" type="text/css">-->
+<!--        <link rel="stylesheet" href="--><?php //echo base_url(); ?><!--resources/css/superadmin/zebra_datePicker_custom.css" type="text/css">-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/datepicker/datepicker3.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/timepicker/bootstrap-timepicker.min.css">
         <!--<NAV Bar JS>-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/datatables/dataTables.bootstrap.css">
+
         <script src="<?php echo base_url(); ?>resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
         <!-- jQuery UI 1.11.4 -->
         <script src="<?php echo base_url(); ?>resources/js/jquery-ui.js"></script>
-
+        <script src="<?php echo base_url(); ?>resources/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url(); ?>resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>resources/js/bootstrap.min.js"></script>
-
+        <script src="<?php echo base_url(); ?>resources/js/moment.js"></script>
+        <script src="<?php echo base_url(); ?>resources/plugins/datepicker/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url(); ?>resources/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 
         <script src="<?php echo base_url(); ?>resources/js/app.min.js"></script>
         <!--<Date picker js>-->

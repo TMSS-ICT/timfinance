@@ -1006,7 +1006,7 @@
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
                                     <input type="number" class="form-control" name="cultivable_land"
-                                           placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
+                                           placeholder="টাকার পরিমানঃ  " style="width: 100%;">
                                 </div>
 
                             </div>
@@ -1391,26 +1391,26 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শুরুঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শেষঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শুরুঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="input-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শেষঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1426,9 +1426,9 @@
                         <div class="row">
                             <div class="form-inline">
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মোট সময়ঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1453,26 +1453,26 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান বন্ধ হয়ঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শুরুঃ</label>
-                                    <input type="time" class="form-control " name="cultivable_land"
+                                    <input type="text" class="form-control  timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শেষঃ</label>
-                                    <input type="time" class="form-control" name="cultivable_land"
+                                    <input type="text" class="form-control timepicker" name="cultivable_land"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1864,8 +1864,241 @@
                     </table>
                 </div>
 
+                <div class="box-header with-border">
+                    <h3 class="box-title text-aqua">অত্র সংস্থা বা অন্য কোন আর্থিক প্রতিষ্ঠানে আবেদনকারীর বিনিয়োগের তথ্যঃ</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-inline">
+
+                            <div class="form-group col-lg-3">
+                                <label>বিনিয়োগ দাতা প্রতিষ্ঠানের নামঃ</label>
+                                <input type="text" class="form-control" name="cultivable_land"
+                                       placeholder="বিনিয়োগ দাতা প্রতিষ্ঠানের নামঃ" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label>বিনিয়োগ দাতা প্রতিষ্ঠানের ঠিকানাঃ</label>
+                                <textarea class="form-control" name="org_address" style="width: 100%"></textarea>
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label>গৃহীত বিনিয়োগ/ঋনের পরিমানঃ</label>
+                                <input type="number" class="form-control" name="cultivable_land"
+                                       placeholder="গৃহীত বিনিয়োগ/ঋনের পরিমানঃ" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <label>বিনিয়োগ সামগ্রীর নামঃ</label>
+                                <input type="text" class="form-control" name="cultivable_land"
+                                       placeholder="বিনিয়োগ সামগ্রীর নামঃ" style="width: 100%;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-inline">
+
+                            <div class="form-group col-lg-3">
+                                <label>বিনিয়োগের দফা নংঃ</label>
+                                <input type="text" class="form-control" name="cultivable_land"
+                                       placeholder="বিনিয়োগের দফাঃ নংঃ" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label>বিনিয়োগের মেয়াদঃ</label>
+                                <input type="text" class="form-control" name="cultivable_land"
+                                       placeholder="বিনিয়োগের মেয়াদঃ" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label>বিনিয়োগ/ঋণ গ্রহনের তাংঃ</label>
+                                <input type="date" class="form-control" name="cultivable_land"
+                                       placeholder="" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <label>এ পর্যন্ত পরিশোধঃ</label>
+                                <input type="number" class="form-control" name="cultivable_land"
+                                       placeholder="এ পর্যন্ত পরিশোধঃ" style="width: 100%;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-inline">
+
+                            <div class="form-group col-lg-3">
+                                <label>বর্তমান স্থিতিঃ </label>
+                                <input type="text" class="form-control" name="cultivable_land"
+                                       placeholder="বর্তমান স্থিতিঃ " style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label>অবশিষ্ট কিস্তি সংখ্যাঃ</label>
+                                <input type="number" class="form-control" name="cultivable_land"
+                                       placeholder="অবশিষ্ট কিস্তি সংখ্যাঃ" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label>সম্ভাব্য পরিশোধের তারিখঃ</label>
+                                <input type="date" class="form-control" name="cultivable_land"
+                                       placeholder="" style="width: 100%;">
+                            </div>
+
+                            <div class="form-group col-sm-3">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">উদ্যোক্তার মাসিক আয়/ব্যয় বিবরণীঃ</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-sm-3">
+                                    <label>বিবরণঃ</label>
+                                    <select class="form-control " name="zone_name" style="width: 100%;">
+                                        <option selected="selected">ঢাকা</option>
+                                        <option>পাবনা</option>
+                                        <option>বগুড়া</option>
+                                        <option>নাটোর</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>মোট আয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="টাকা" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>মোট ব্যয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="টাকা" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>নীট আয়ঃ</label>
+                                    <input type="number" class="form-control" name="cultivable_land"
+                                           placeholder="নীট আয় টাকা" style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-1">
+                                    <button type="button" class="btn btn-info btn-flat "><i
+                                            class="fa fa-plus-square"></i>Add More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ক্রমিক নং</th>
+                            <th>বিবরণ</th>
+                            <th>মোট আয়</th>
+                            <th>মোট ব্যয় </th>
+                            <th>নীট আয়</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 4.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td> 4</td>
+                            <td>X</td>
+
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 5.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5</td>
+                            <td>C</td>
+
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">দাখিলকৃত দলিল ও কাগজপত্রাদিঃ <small>(জমা সাপেক্ষে ডান পার্শের ঘরে টিক চিনহ দিন)</small></h3>
+                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>মূল দলিল/দলিলের রশিদ</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                            <td> 2</td>
+                            <td>খাজনার DCR</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>মূল দলিল/দলিলের রশিদ</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                            <td> 2</td>
+                            <td>খাজনার DCR</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>মূল দলিল/দলিলের রশিদ</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                            <td> 2</td>
+                            <td>খাজনার DCR</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>মূল দলিল/দলিলের রশিদ</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                            <td> 2</td>
+                            <td>খাজনার DCR</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>মূল দলিল/দলিলের রশিদ</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                            <td> 2</td>
+                            <td>খাজনার DCR</td>
+                            <td><input type="checkbox" name="checkbox" value=""></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
+
+
         <div class="row">
 
             <div class="col-md-12">

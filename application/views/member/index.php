@@ -760,11 +760,17 @@
                                            placeholder="কতদিন যাবৎ গ্রহন করছেন" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-sm-3">
+                                <div class="form-group date col-sm-3">
                                     <label>সর্বশেষ কবে গ্রহণ করেছেন </label>
-                                    <input type="date" class="form-control"  ng-model="memberSurveyInfo.lastLoaningYear"
+                                    <input type="text" class="form-control " id="datepicker"  ng-model="memberSurveyInfo.lastLoaningYear"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
                                 </div>
+<!--                                <div class="input-group date">-->
+<!--                                    <div class="input-group-addon">-->
+<!--                                        <i class="fa fa-calendar"></i>-->
+<!--                                    </div>-->
+<!--                                    <input type="text" class="form-control pull-right" id="datepicker">-->
+<!--                                </div>-->
                                 <div class="form-group col-sm-3">
 
                                 </div>
@@ -802,7 +808,7 @@
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
                                     <input type="number" class="form-control" ng-model="memberSurveyInfo.amount"
-                                           placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
+                                           placeholder="টাকার পরিমানঃ" style="width: 100%;">
                                 </div>
 
                             </div>
@@ -866,3 +872,15 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+    $(function () {
+
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+</script>
