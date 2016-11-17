@@ -157,7 +157,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-3">
                                     <label>নামঃ</label>
-                                    <select class="form-control " name="zone_name" ng-model="memberSurveyInfo.name_title" style="width: 100%;" ng-init="setNameTitleList('<?php echo htmlspecialchars(json_encode($name_title_list)) ?>')">
+                                    <select class="form-control "  ng-model="memberSurveyInfo.name_title" style="width: 100%;" ng-init="setNameTitleList('<?php echo htmlspecialchars(json_encode($name_title_list)) ?>')">
                                         <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="(key,nameTitle) in nameTitleList" value={{nameTitle}} >{{nameTitle}}</option>
                                     </select>
@@ -232,7 +232,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-lg-3">
                                     <label>পিতা/স্বামীর নামঃ</label>
-                                    <select class="form-control" ng-model="memberSurveyInfo.f_sur_name" style="width: 100%;" ng-init="setFTitleList('<?php echo htmlspecialchars(json_encode($f_name_title_list)) ?>')">
+                                    <select class="form-control" ng-model="memberSurveyInfo.f_name_title" style="width: 100%;" ng-init="setFTitleList('<?php echo htmlspecialchars(json_encode($f_name_title_list)) ?>')">
                                         <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="fTitle in fTitleList" value={{fTitle}} >{{fTitle}}</option>
                                     </select>
@@ -268,7 +268,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-lg-3">
                                     <label>মাতার নামঃ</label>
-                                    <select class="form-control"ng-model="memberSurveyInfo.m_sur_name" style="width: 100%;"ng-init="setMTitleList('<?php echo htmlspecialchars(json_encode($m_name_title_list)) ?>')">
+                                    <select class="form-control"ng-model="memberSurveyInfo.m_name_title" style="width: 100%;"ng-init="setMTitleList('<?php echo htmlspecialchars(json_encode($m_name_title_list)) ?>')">
                                         <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="mTitle in mTitleList" value={{mTitle}} >{{mTitle}}</option>
                                     </select>
@@ -328,7 +328,7 @@
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>জাতীয় পরিচয় পত্রের নংঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.nid" placeholder="জাতীয় পরিচয় পত্রের নং"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.nid" placeholder="জাতীয় পরিচয় পত্রের নং"
                                            style="width: 100%;">
                                 </div>
                             </div>
@@ -495,14 +495,14 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-3">
                                     <label>পোষ্ট অফিসঃ</label>
-                                    <select class="form-control "  style="width: 100%;"ng-model="memberSurveyInfo.p_post_id" ng-init="setPostList('<?php echo htmlspecialchars(json_encode($post_list)) ?>')">
+                                    <select class="form-control "  style="width: 100%;"ng-model="memberSurveyInfo.p_post_id" >
                                         <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="postInfo in postList" value={{postInfo.id}} >{{postInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>গ্রাম বা মহল্লাঃ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.p_vill"  placeholder=""
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.p_vill_name"  placeholder=""
                                            style="width: 100%;">
                                 </div>
 
@@ -528,7 +528,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-lg-3">
                                     <label>মোবাইল নংঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.mobile" name="member_mobile" placeholder=""
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.mobile" name="member_mobile" placeholder=""
                                            style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
@@ -538,7 +538,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>অভিভাবকের মোবাইল নংঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.guardian_email"  placeholder=""
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.guardian_email"  placeholder=""
                                            style="width: 100%;">
 
                                 </div>
@@ -650,19 +650,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>আবাদি জমি (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.cultivable_land" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.cultivable_land" 
                                            placeholder="আবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>অনাবাদি জমি (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.un_cultivable_land" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.un_cultivable_land" 
                                            placeholder="অনাবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>পুকুর (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.ponds" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ponds" 
                                            placeholder="পুকুর (শতক)" style="width: 100%;">
                                 </div>
 
@@ -676,12 +676,12 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>বসত বাড়ী(শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.house"  name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.house"  name="cultivable_land"
                                            placeholder="বসত বাড়ী (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label>মোট জমি (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.total_land" name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_land" name="cultivable_land"
                                            placeholder="মোট জমি (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
@@ -707,19 +707,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>কৃষিজ আয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.ag_income" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ag_income" 
                                            placeholder="কৃষিজ আয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>অকৃষিজ আয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.un_ag_income"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.un_ag_income"  
                                            placeholder="অকৃষিজ আয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>মোট আয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.total_income" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_income" 
                                            placeholder="মোট আয় (টাকা)" style="width: 100%;">
                                 </div>
 
@@ -733,13 +733,13 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>মোট ব্যয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.total_expence" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_expence" 
                                            placeholder="মোট ব্যয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>উদ্বৃত্ত/ঘাটতি (টাকা)</label>
-                                    <input type="number" class="form-control"  ng-model="memberSurveyInfo.loss"  
+                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.loss"  
                                            placeholder="উদ্বৃত্ত/ঘাটতি (টাকা)" style="width: 100%;">
                                 </div>
 
@@ -764,19 +764,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>টিনের ঘর (কত টি?)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.tin_house"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.tin_house"  
                                            placeholder="টিনের ঘর (কত টি?)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>খড়ের ঘর (কত টি?)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.straw_house"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.straw_house"  
                                            placeholder="খড়ের ঘর (কত টি?)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>ইটের ঘর (কত টি?)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.brick_house"   name="pond" placeholder="ইটের ঘর (কত টি?)"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.brick_house"   name="pond" placeholder="ইটের ঘর (কত টি?)"
                                            style="width: 100%;">
                                 </div>
 
@@ -799,19 +799,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-3">
                                     <label>গৃহীত টাকার পরিমাণ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.receive_amound" name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.receive_amound" name="cultivable_land"
                                            placeholder="গৃহীত টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>পরিশোধিত টাকার পরিমাণ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.paid_amound"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.paid_amound"
                                            placeholder="পরিশোধিত টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>অবশিষ্ট টাকার পরিমাণ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.re_amound"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.re_amound"
                                            placeholder="অবশিষ্ট টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
@@ -841,7 +841,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>কতদিন যাবৎ গ্রহন করছেন (মাস)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.loaning_year"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.loaning_year"
                                            placeholder="কতদিন যাবৎ গ্রহন করছেন" style="width: 100%;">
                                 </div>
 
@@ -886,7 +886,7 @@
 
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.amount"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.amount"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
                                 </div>
 
@@ -954,7 +954,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>ব্যবসার অভিজ্ঞতাঃ(মাস) </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_business_expre" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_business_expre" 
                                            placeholder="মাস" style="width: 100%;">
                                 </div>
 
@@ -990,9 +990,9 @@
 
                                 <div class="form-group col-sm-6 form-inline">
                                     <label>পরিমাপঃ </label>
-                                    <input type="number" class="form-group" ng-model="memberSurveyInfo.m_bus_from_foot" 
+                                    <input type="text" class="form-group" ng-model="memberSurveyInfo.m_bus_from_foot" 
                                            placeholder="ফুট">
-                                    <input type="number" class="form-group" ng-model="memberSurveyInfo.m_bus_to_foot" 
+                                    <input type="text" class="form-group" ng-model="memberSurveyInfo.m_bus_to_foot" 
                                            placeholder="ফুট">
                                 </div>
 
@@ -1048,7 +1048,7 @@
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>ট্রেড লাইসেন্স নংঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_trade_licence"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_trade_licence"
                                            placeholder="১২৩৪৪৫৬৭" style="width: 100%;">
                                 </div>
 
@@ -1065,7 +1065,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>ব্যবসায় নিয়োজিত মূলধনঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_capital"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_capital"
                                            placeholder="নিয়োজিত মূলধন" style="width: 100%;">
                                 </div>
 
@@ -1079,7 +1079,7 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>মাসিক গড় বিক্রয়ঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_avg_sale"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_avg_sale"
                                            placeholder="গড় বিক্রয়" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
@@ -1107,24 +1107,24 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>ব্যাংক(%)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_bank"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_bank"
                                            placeholder="" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>এন জি ও (%)</label>
-                                    <input type="number" class="form-control"  ng-model="memberSurveyInfo.m_ngo"
+                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.m_ngo"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-lg-3">
                                     <label>নিজঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_self"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_self"
                                            placeholder="নিজঃ" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>ধার/কর্জ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_loan"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_loan"
                                            placeholder="ধার/কর্জ" style="width: 100%;">
                                 </div>
 
@@ -1138,18 +1138,18 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>বব্যবসা থেকে মাসিক আয়ঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_monthly_income"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_monthly_income"
                                            placeholder="বব্যবসা থেকে মাসিক আয়" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>বব্যবসা থেকে মাসিক ব্যয়ঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_monthly_expen"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_monthly_expen"
                                            placeholder="বব্যবসা থেকে মাসিক ব্যয়" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-lg-3">
                                     <label>উদ্বৃত্তঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_surplus"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_surplus"
                                            placeholder="উদ্বৃত্ত" style="width: 100%;">
                                 </div>
 
@@ -1167,7 +1167,7 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>অন্যান্য উৎস থেকে মাসিক আয়ঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_others_m_income"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_others_m_income"
                                            placeholder="অন্যান্য উৎস থেকে মাসিক আয়" style="width: 100%;">
                                 </div>
 
@@ -1186,13 +1186,13 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>অন্যান্য উৎস থেকে মাসিক ব্যয়ঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_others_m_exp"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_others_m_exp"
                                            placeholder="অন্যান্য উৎস মাসিক ব্যয়" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>উদ্বৃত্তঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_extra"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_extra"
                                            placeholder="উদ্বৃত্ত" style="width: 100%;">
                                 </div>
 
@@ -1206,7 +1206,7 @@
                                 <div class="form-group col-sm-3">
 
                                     <label>সর্বমোট উদ্বৃত্তঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.m_total_extra"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_total_extra"
                                            placeholder="সর্বমোট উদ্বৃত্ত" style="width: 100%;">
                                 </div>
 
@@ -1382,7 +1382,7 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>প্রতিষ্ঠানে স্থায়ী জনবলের সংখ্যাঃ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.total_member"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_member"
                                            placeholder="প্রতিষ্ঠানে স্থায়ী জনবলের সংখ্যা" style="width: 100%;">
                                 </div>
 

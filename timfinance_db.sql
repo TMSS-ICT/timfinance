@@ -333,12 +333,12 @@ CREATE TABLE IF NOT EXISTS `surveys` (
 
   `f_first_name` varchar(40) DEFAULT NULL,
   `f_last_name` varchar(40) DEFAULT NULL,
-  `f_sur_name` varchar(40) DEFAULT NULL,
+  `f_name_title` varchar(40) DEFAULT NULL,
   `f_age` int(11) unsigned DEFAULT NULL,
   `f_profession` varchar(40) DEFAULT NULL,
   `m_first_name` varchar(40) DEFAULT NULL,
   `m_last_name` varchar(40) DEFAULT NULL,
-  `m_sur_name` varchar(40) DEFAULT NULL,
+  `m_name_title` varchar(40) DEFAULT NULL,
   `m_age` varchar(40) DEFAULT NULL,
 
   `m_road` varchar(40) DEFAULT NULL,
@@ -350,6 +350,7 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `m_country_id` int(11) unsigned DEFAULT NULL,
   `p_country_id` int(11) unsigned DEFAULT NULL,
 
+  `p_road` varchar(40) DEFAULT NULL,
   `p_vill_name` varchar(40) DEFAULT NULL,
   `p_union_name` varchar(40) DEFAULT NULL,
   `p_post_id`  int(11) unsigned DEFAULT NULL,
@@ -400,7 +401,7 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `member_registration_flag`  boolean DEFAULT 0,
  PRIMARY KEY  (`id`, `nid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-ALTER TABLE `members`
+ALTER TABLE `surveys`
   ADD CONSTRAINT `fk_sur_zone1` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_asur_rea1` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_sur_branch1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -439,7 +440,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 
   `f_first_name` varchar(40) DEFAULT NULL,
   `f_last_name` varchar(40) DEFAULT NULL,
-  `f_sur_name` varchar(40) DEFAULT NULL,
+  `f_name_title` varchar(40) DEFAULT NULL,
   `f_age` int(11) unsigned DEFAULT NULL,
   `f_business` varchar(40) DEFAULT NULL,
   `m_first_name` varchar(40) DEFAULT NULL,
@@ -453,6 +454,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `m_thana_id`  int(11) unsigned DEFAULT NULL,
   `m_district_id` int(11) unsigned DEFAULT NULL,
 
+  `p_road` varchar(40) DEFAULT NULL,
   `p_vill_name` varchar(40) DEFAULT NULL,
   `p_union_name` varchar(40) DEFAULT NULL,
   `p_post_id`  int(11) unsigned DEFAULT NULL,

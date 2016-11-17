@@ -191,6 +191,12 @@ class Member extends CI_Controller {
                     $addisional_data['previous_profession_id'] = $requestInfo->pProfessionId;
                 }
 //need to add database
+                if (property_exists($requestInfo, "fBusinessPlan") != FALSE) {
+                    $addisional_data['future_business_plan'] = $requestInfo->fBusinessPlan;
+                }
+                if (property_exists($requestInfo, "businessTypeId") != FALSE) {
+                    $addisional_data['business_type_id'] = $requestInfo->businessTypeId;
+                }
                 if (property_exists($requestInfo, "mPrePYear") != FALSE) {
                     $addisional_data['previous_p_year_id'] = $requestInfo->mPrePYear;
                 }
@@ -455,8 +461,8 @@ class Member extends CI_Controller {
                 if (property_exists($requestInfo, "pVill") != FALSE) {
                     $addisional_data['p_vill_name'] = $requestInfo->pVill;
                 }
-                if (property_exists($requestInfo, "pUnion") != FALSE) {
-                    $addisional_data['p_union_name'] = $requestInfo->pUnion;
+                if (property_exists($requestInfo, "pUnionId") != FALSE) {
+                    $addisional_data['p_union_name'] = $requestInfo->pUnionId;
                 }
                 if (property_exists($requestInfo, "pPostId") != FALSE) {
                     $addisional_data['p_post_id'] = $requestInfo->pPostId;

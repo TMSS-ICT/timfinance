@@ -84,7 +84,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-3">
-                                    <label>১ম নামঃ</label>
+                                    <label>২য় নামঃ</label>
                                     <input type="text" class="form-control" ng-model="memberSurveyInfo.lastName"  name="first_name" placeholder=""
                                            style="width: 100%;">
                                 </div>
@@ -221,14 +221,14 @@
                                     <label>অভিভাবকের পেশা</label>
                                     <select class="form-control"  ng-model="memberSurveyInfo.gProfessionId" 
                                             style="width: 100%;" ng-init="setProfessionList('<?php echo htmlspecialchars(json_encode($profession_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>বৈবাহিক অবস্থাঃ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.maritalId" style="width: 100%;" ng-init="setMaritalList('<?php echo htmlspecialchars(json_encode($marital_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="maritalInfo in maritalList" value={{maritalInfo.id}} >{{maritalInfo.name}}</option>
                                     </select>
                                 </div>
@@ -478,7 +478,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>পেশা</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.cProfessionId"name="member_profession" style="width: 100%;">
-                                        <option selected="">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
                                     </select>
                                 </div>
@@ -486,15 +486,15 @@
                                 <div class="form-group col-sm-3">
                                     <label>বর্তমান পেশার পূর্বে তিনি কি করতেন</label>
                                     <select class="form-control"  ng-model="memberSurveyInfo.pProfessionId" style="width: 100%;">
-                                        <option selected="">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>সেই পেশায় কতদিন নিয়োজিত ছিলেন(মাস)</label>
-                                    <select class="form-control" ng-model="mPrePYear"
+                                    <select class="form-control" ng-model="memberSurveyInfo.mPrePYear"
                                             style="width: 100%;">
-                                        <option selected="">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="memberInfo in memberNoList" value={{memberInfo}} >{{memberInfo}}</option>
                                     </select>
                                 </div>
