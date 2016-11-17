@@ -13,7 +13,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li ><a href="index.html"><i class="fa fa-user-o"></i> সাধারণ সদস্যের তথ্য জরীপ</a></li>
-                    <li><a href="<?php echo base_url() . 'member/addmission' ?>"><i class="fa fa-user-plus"></i>সদস্য ভর্তি আবেদন ফরম</a></li>
+                    <li><a href="<?php echo base_url() . 'member/add_addmission_info' ?>"><i class="fa fa-user-plus"></i>সদস্য ভর্তি আবেদন ফরম</a></li>
                 </ul>
             </li>
 

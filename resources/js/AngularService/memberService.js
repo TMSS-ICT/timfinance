@@ -11,7 +11,7 @@ angular.module('services.Member', []).
                         memberSurveyInfo: memberSurveyInfo
                     }
                 });
-            }
+            };
             memberService.searchSurveyInfo = function (searchParam) {
                 return $http({
                     method: 'post',
@@ -20,7 +20,16 @@ angular.module('services.Member', []).
                         searchParam: searchParam
                     }
                 });
-            }
+            };
+            memberService.addmissionInfoAdd = function (memberSurveyInfo) {
+               return $http({
+                    method: 'post',
+                    url: $location.path() + $app_name + '/member/add_addmission_info',
+                    data: {
+                        memberSurveyInfo: memberSurveyInfo
+                    }
+                });
+            };
            
             return memberService;
         });

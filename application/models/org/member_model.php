@@ -41,6 +41,13 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['surveys'])
                         ->get();
     }
+    
+    public function add_addmission_info($additional_data) {
+        $data = $this->_filter_data($this->tables['members'], $additional_data);
+        $this->db->insert($this->tables['members'], $data);
+        $id = $this->db->insert_id();
+        return isset($id) ? $id : FALSE;
+    }
 
     /*
      * This method will return zone List

@@ -442,10 +442,8 @@ CREATE TABLE IF NOT EXISTS `members` (
   `f_last_name` varchar(40) DEFAULT NULL,
   `f_name_title` varchar(40) DEFAULT NULL,
   `f_age` int(11) unsigned DEFAULT NULL,
-  `f_business` varchar(40) DEFAULT NULL,
   `m_first_name` varchar(40) DEFAULT NULL,
   `m_last_name` varchar(40) DEFAULT NULL,
-  `m_sur_name` varchar(40) DEFAULT NULL,
   `m_age` varchar(40) DEFAULT NULL,
 
   `m_vill_name` varchar(40) DEFAULT NULL,

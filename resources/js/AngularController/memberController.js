@@ -99,6 +99,7 @@ angular.module('controller.Member', ['services.Member']).
                         success(function (data, status, headers, config) {
                             $scope.allow_action = true;
                             alert(data.message);
+                            $scope.memberSurveyInfo = {};
                         });
             }
             $scope.searchSurveyInfo = function () {
@@ -109,13 +110,23 @@ angular.module('controller.Member', ['services.Member']).
                 memberService.searchSurveyInfo($scope.searchParam).
                         success(function (data, status, headers, config) {
                             $scope.memberSurveyInfo = data['survey_info'];
-                            console.log($scope.memberSurveyInfo);
+                            $scope.allow_action = true;
+                        });
+            }
+            $scope.addmissionInfoAdd = function () {
+                if ($scope.allow_action == false) {
+                    return;
+                }
+                $scope.allow_action = false;
+                memberService.addmissionInfoAdd($scope.memberSurveyInfo).
+                        success(function (data, status, headers, config) {
+                            alert(data.message);
+                            $scope.memberSurveyInfo = {};
+                            $scope.allow_action = true;
                         });
             }
 
-            $scope.Test = function () {
-                console.log($scope.memberSurveyInfo);
-            }
+
 
         });
 

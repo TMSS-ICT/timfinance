@@ -775,8 +775,8 @@
                         padding: '@',
                         maxSize: '@',
                         shape: '@',
-                        imagepath: '@',
-                        reloadpath: '@'
+                        imagepath: '@'
+                       
                     },
                     link: function (scope, element, attributes) {
 
@@ -785,7 +785,6 @@
                         scope.step = scope.step || 1;
                         scope.shape = scope.shape || 'circle';
                         scope.imagepath = scope.imagepath || '/';
-                        scope.reloadpath = scope.reloadpath || '/';
                         scope.width = parseInt(scope.width, 10) || 300;
                         scope.height = parseInt(scope.height, 10) || 300;
 
@@ -1202,7 +1201,7 @@
                                     imageData: scope.result
                                 },
                                 success: function (data) {
-                                    window.location = scope.reloadpath;
+                                    alert("image uploaded successully");
                                 }
                             });
                             scope.resultBlob = dataURItoBlob(dataUrl);

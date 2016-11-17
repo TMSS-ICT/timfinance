@@ -53,30 +53,54 @@
 
         <div class="row">
 
-            <div class="col-md-12">
+            <div class="col-md-12" >
 
                 <div class="box  box-info">
 
-                    <div class="box-header with-border">
+                    <div class="box-header with-border" >
                         <h3 class="box-title text-aqua">ভর্তি ইচ্ছুক সদস্যের ছবি</h3>
                     </div>
 
                     <div class="box-body">
                         <div class="row">
                             <div class="">
-                                <div class="form-group col-lg-4">
-                                    <div>
-                                        <img  style=" height: 100px; width: 100px;  " class="img-responsive" fallback-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"  ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
+                                <div ng-controller="ImageCopperController" style="position: relative;">
+                                    <div  ng-show="imageCropStep == 1" class="fileinput-cover-button">	
+                                        <img class="img-responsive"    ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
+                                        <!--<img class="img-responsive" fallback-src="<?php echo base_url() ?>resources/images/cover.jpg"  ng-src="<?php echo base_url() . COVER_PICTURE_IMAGE_PATH . $user_id . '.jpg'; ?>" />-->
+                                        <input class="profile_cover_upload_input" style="z-index: 1005" type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
+                                        <div class="profile_cover_upload_img">
+                                            <img ng-src="<?php echo base_url() ?>resources/images/upload_icon.png"/>
+                                            <span>Upload Cover Picture</span>
+                                        </div>
+                                    </div>			
+                                    <div style="position: relative; left: -16px; margin: 0 15px; right: 0; top: 0; width: 100%"  ng-show="imageCropStep == 2" class="zoom_disable">
+                                        <image-crop		 
+                                            data-height="150"
+                                            data-width="150"
+                                            data-shape="square"
+                                            data-step="imageCropStep"
+                                            src="imgSrc"
+                                            data-result="result"
+                                            data-result-blob="resultBlob"
+                                            crop="initCrop"
+                                            padding="50"
+                                            max-size="1024"
+                                            imagepath="<?php echo base_url(); ?>member/add_cover_picture/{{searchParam.searchValue}}"
+                                            ></image-crop>		   
                                     </div>
-                                    <div style="position: absolute; z-index: 11; top: 25px; height: 100px; width: 100px; background: transparent;overflow: hidden; ">
-                                        <input  class="profile_cover_upload_input"  type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
+                                    <div ng-show="imageCropStep == 2" >
+                                        <button class="btn btn-sm" style="position: absolute; bottom: 0; left: 42%; bottom: 35px; background-color: #999; color: #fff; z-index: 1001"  ng-click="clear()">Cancel</button>
+                                        <button class="btn btn-sm" style="position: absolute; bottom: 0; right: 42%; bottom: 35px; background-color: #999; color: #fff; z-index: 1001" ng-click="initCrop = true">Crop</button>		
+                                    </div>		  
+                                    <div  ng-show="imageCropStep == 3">
+                                        <div >
+                                            <img ng-src="{{result}}"/>
+                                        </div>
                                     </div>
-                                    <div class="profile_cover_upload_img">
-                                        <span>Upload a picture</span>
-                                    </div>
-
                                 </div>
                             </div>
+
 
 
                         </div>
@@ -479,7 +503,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>ইউনিয়নঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.p_union_name" style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option  value="">নির্বাচন করুন</option>
                                         <option ng-repeat="unionInfo in unionList" value={{unionInfo.id}} >{{unionInfo.name}}</option>
                                     </select>
 
@@ -528,7 +552,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-lg-3">
                                     <label>মোবাইল নংঃ </label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.mobile" name="member_mobile" placeholder=""
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.mobile" placeholder=""
                                            style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
@@ -676,12 +700,12 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>বসত বাড়ী(শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.house"  name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.house"  
                                            placeholder="বসত বাড়ী (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label>মোট জমি (শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_land" name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_land" 
                                            placeholder="মোট জমি (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
@@ -776,7 +800,7 @@
 
                                 <div class="form-group col-sm-4">
                                     <label>ইটের ঘর (কত টি?)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.brick_house"   name="pond" placeholder="ইটের ঘর (কত টি?)"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.brick_house"   placeholder="ইটের ঘর (কত টি?)"
                                            style="width: 100%;">
                                 </div>
 
@@ -799,7 +823,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-3">
                                     <label>গৃহীত টাকার পরিমাণ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.receive_amound" name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.receive_amound" 
                                            placeholder="গৃহীত টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
@@ -848,7 +872,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>সর্বশেষ কবে গ্রহণ করেছেন </label>
 
-                                    <input type="date" class="form-control"  ng-model="memberSurveyInfo.last_loaning_year"
+                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.last_loaning_year"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
 
                                 </div>
@@ -889,7 +913,7 @@
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
 
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.amount"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.amount"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
                                 </div>
 
@@ -1177,7 +1201,7 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>অন্যান্য উৎসঃ</label>
-                                    <select class="form-control" ng-model="memberSurveyInfo.m_others_m_income"
+                                    <select class="form-control" ng-model="memberSurveyInfo.m_others_total_income"
                                             style="width: 100%;">
                                         <option value="">নির্বাচন করুন</option>
                                         <option>চাকুরী</option>
@@ -1268,32 +1292,32 @@
                             <div class="form-inline ">
 
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>১ম অর্ধ শুরুঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.start_first_half"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.start_first_half"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>১ম অর্ধ শেষঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.last_first_half"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.last_first_half"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>২য় অর্ধ শুরুঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.first_second_half"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.first_second_half"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>২য় অর্ধ শেষঃ</label>
 
-                                    <input type="time" class="form-control"  ng-model="memberSurveyInfo.last_second_half"
+                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.last_second_half"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
@@ -1311,10 +1335,10 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>মোট সময়ঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.total_time"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_time"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1338,33 +1362,33 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.opening_time"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.opening_time"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান বন্ধ হয়ঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.closing_time"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.closing_time"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>মাঝে বন্ধ শুরুঃ</label>
 
-                                    <input type="time" class="form-control " ng-model="memberSurveyInfo.intervel_start"
+                                    <input type="text" class="form-control " ng-model="memberSurveyInfo.intervel_start"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-timepicker">
+                                <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>মাঝে বন্ধ শেষঃ</label>
 
-                                    <input type="time" class="form-control" ng-model="memberSurveyInfo.intervel_end"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.intervel_end"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
@@ -1423,7 +1447,7 @@
 
                 <div class="box-body">
                     <div class="col-sm-2 pull-right">
-                        <button type="button" class="btn btn-info btn-flat ">Save</button>
+                        <button type="button" class="btn btn-info btn-flat " ng-click="addmissionInfoAdd()">Save</button>
                     </div>
                 </div>
 
@@ -1435,15 +1459,3 @@
     </section>
     <!-- /.content -->
 </div>
-<script>
-    $(function () {
-
-        $('#datepicker').datepicker({
-            autoclose: true
-        });
-
-        $(".timepicker").timepicker({
-            showInputs: false
-        });
-    });
-</script>
