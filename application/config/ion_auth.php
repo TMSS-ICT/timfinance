@@ -60,6 +60,7 @@ $config['tables']['family_types']       = 'family_types';
 $config['tables']['educations']       = 'educations';
 $config['tables']['unions']       = 'unions';
 $config['tables']['payment_types']       = 'payment_types';
+$config['tables']['surveys']       = 'surveys';
 
 /*
  | Users table column and Group table column you want to join WITH.

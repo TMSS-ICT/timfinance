@@ -369,14 +369,14 @@
                                 <div class="form-group col-lg-3">
                                     <label>দেশ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.pCountryId" style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                           <option ng-repeat="countryInfo in countryList" value={{countryInfo.id}} >{{countryInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>জেলাঃ</label>
                                     <select class="form-control "  ng-model="memberSurveyInfo.pDistrictId"  style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="districtInfo in districtList" value={{districtInfo.id}} >{{districtInfo.name}}</option>
                                     </select>
                                 </div>
@@ -385,15 +385,15 @@
                                     <label>থানাঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.pThanaId"
                                             style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                          <option ng-repeat="thanaInfo in thanaList" value={{thanaInfo.id}} >{{thanaInfo.name}}</option>
                                     </select>
 
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>ইউনিয়নঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.pThanaId" style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
+                                    <select class="form-control " ng-model="memberSurveyInfo.pUnionId" style="width: 100%;">
+                                        <option  value = "">নির্বাচন করুন</option>
                                         <option ng-repeat="unionInfo in unionList" value={{unionInfo.id}} >{{unionInfo.name}}</option>
                                     </select>
 

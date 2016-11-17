@@ -12,6 +12,15 @@ angular.module('services.Member', []).
                     }
                 });
             }
+            memberService.searchSurveyInfo = function (searchParam) {
+                return $http({
+                    method: 'post',
+                    url: $location.path() + $app_name + '/member/get_survey_info',
+                    data: {
+                        searchParam: searchParam
+                    }
+                });
+            }
            
             return memberService;
         });

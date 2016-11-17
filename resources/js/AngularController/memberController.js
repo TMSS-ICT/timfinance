@@ -1,6 +1,7 @@
 angular.module('controller.Member', ['services.Member']).
         controller('memberController', function ($scope, memberService) {
             $scope.memberSurveyInfo = {};
+            $scope.searchParam = {};
             $scope.zoneList = [];
             $scope.areaList = [];
             $scope.branchList = [];
@@ -89,7 +90,7 @@ angular.module('controller.Member', ['services.Member']).
             $scope.setPSList = function (politicalStatusList) {
                 $scope.politicalStatusList = JSON.parse(politicalStatusList);
             }
-            $scope.addSurveyInfo = function (callbackFunction) {
+            $scope.addSurveyInfo = function () {
                 if ($scope.allow_action == false) {
                     return;
                 }
@@ -97,7 +98,18 @@ angular.module('controller.Member', ['services.Member']).
                 memberService.addSurveyInfo($scope.memberSurveyInfo).
                         success(function (data, status, headers, config) {
                             $scope.allow_action = true;
-//                            callbackFunction(data);
+                            alert(data.message);
+                        });
+            }
+            $scope.searchSurveyInfo = function () {
+                if ($scope.allow_action == false) {
+                    return;
+                }
+                $scope.allow_action = false;
+                memberService.searchSurveyInfo($scope.searchParam).
+                        success(function (data, status, headers, config) {
+                            $scope.memberSurveyInfo = data['survey_info'];
+                            console.log($scope.memberSurveyInfo);
                         });
             }
 

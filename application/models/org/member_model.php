@@ -22,10 +22,24 @@ class Member_model extends Ion_auth_model {
      */
 
     public function add_survey($additional_data) {
-        $data = $this->_filter_data($this->tables['members'], $additional_data);
-        $this->db->insert($this->tables['members'], $data);
+        $data = $this->_filter_data($this->tables['surveys'], $additional_data);
+        $this->db->insert($this->tables['surveys'], $data);
         $id = $this->db->insert_id();
         return isset($id) ? $id : FALSE;
+    }
+    public function get_survey_info($nid = "", $email = "", $mobile = 0) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['surveys'] . '.nid', $nid);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['surveys'] . '.email', $email);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['surveys'] . '.mobile', $mobile);
+        }
+        return $this->db->select('*')
+                        ->from($this->tables['surveys'])
+                        ->get();
     }
 
     /*
