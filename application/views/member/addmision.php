@@ -847,8 +847,10 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>সর্বশেষ কবে গ্রহণ করেছেন </label>
+
                                     <input type="date" class="form-control"  ng-model="memberSurveyInfo.last_loaning_year"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
+
                                 </div>
                                 <div class="form-group col-sm-3">
 
@@ -886,7 +888,8 @@
 
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.amount"
+
+                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.amount"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
                                 </div>
 
@@ -973,9 +976,10 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
-                                <div class="form-group col-lg-3">
+                                <div class="form-group date col-lg-3">
                                     <label>বব্যবসা শুরুর তারিখঃ</label>
-                                    <input type="date" class="form-control" ng-model="memberSurveyInfo.m_bus_date" 
+
+                                    <input type="date" class="form-control" ng-model="memberSurveyInfo.m_bus_date"
                                            placeholder="" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
@@ -1261,29 +1265,36 @@
 
                     <div class="box-body">
                         <div class="row">
-                            <div class="form-inline">
+                            <div class="form-inline ">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শুরুঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.start_first_half"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শেষঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.last_first_half"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শুরুঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.first_second_half"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শেষঃ</label>
+
                                     <input type="time" class="form-control"  ng-model="memberSurveyInfo.last_second_half"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1300,8 +1311,9 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মোট সময়ঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.total_time"
                                            placeholder="" style="width: 100%;">
                                 </div>
@@ -1317,10 +1329,6 @@
 
                                 </div>
 
-                                <div class="form-group col-sm-3">
-
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -1330,26 +1338,34 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.opening_time"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান বন্ধ হয়ঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.closing_time"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শুরুঃ</label>
+
                                     <input type="time" class="form-control " ng-model="memberSurveyInfo.intervel_start"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শেষঃ</label>
+
                                     <input type="time" class="form-control" ng-model="memberSurveyInfo.intervel_end"
+
                                            placeholder="" style="width: 100%;">
                                 </div>
 
@@ -1419,3 +1435,15 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+    $(function () {
+
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+</script>
