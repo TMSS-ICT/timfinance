@@ -21,6 +21,15 @@ angular.module('services.Member', []).
                     }
                 });
             };
+            memberService.searchMemberInfo = function (searchParam) {
+                return $http({
+                    method: 'post',
+                    url: $location.path() + $app_name + '/member/get_member_info',
+                    data: {
+                        searchParam: searchParam
+                    }
+                });
+            };
             memberService.addmissionInfoAdd = function (memberSurveyInfo) {
                return $http({
                     method: 'post',

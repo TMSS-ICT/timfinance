@@ -41,6 +41,20 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['surveys'])
                         ->get();
     }
+    public function get_member_info($nid = "", $email = "", $mobile = 0) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['members'] . '.nid', $nid);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['members'] . '.email', $email);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['members'] . '.mobile', $mobile);
+        }
+        return $this->db->select('*')
+                        ->from($this->tables['members'])
+                        ->get();
+    }
     
     public function add_addmission_info($additional_data) {
         $data = $this->_filter_data($this->tables['members'], $additional_data);

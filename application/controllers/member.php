@@ -775,6 +775,43 @@ class Member extends CI_Controller {
             return;
         }
     }
+    
+    public function get_member_info() {
+        if (file_get_contents("php://input") != null) {
+            $user_name = "";
+            $response = array();
+            $postdata = file_get_contents("php://input");
+            $requestData = json_decode($postdata);
+            if (property_exists($requestData, "searchParam") != FALSE) {
+                $search_info = $requestData->searchParam;
+                $searh_param = 0;
+                if (property_exists($search_info, "searchFlag") != FALSE) {
+                    $searh_param = $search_info->searchFlag;
+                }
+                if (property_exists($search_info, "searchValue") != FALSE) {
+                    $search_value = $search_info->searchValue;
+                }
+                $nid = "";
+                $email = "";
+                $mobile = "";
+                if ($searh_param == SEARCH_BY_NID) {
+                    $nid = $search_value;
+                }
+                if ($searh_param == SEARCH_BY_EMAIL) {
+                    $email = $search_value;
+                }
+                if ($searh_param == SEARCH_BY_MOBILE) {
+                    $mobile = $search_value;
+                }
+                $result = $this->member_model->get_member_info($nid, $email, $mobile)->result_array();
+                if (!empty($result)) {
+                    $response['member_info'] = $result[0];
+                }
+            }
+            echo json_encode($response);
+            return;
+        }
+    }
 
     public function addmission_12() {
         $this->data['app_name'] = MEMBER_APP;
@@ -783,8 +820,12 @@ class Member extends CI_Controller {
     }
 
     public function loan_application() {
+        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
+        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
+        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
+        $this->data['name_title_list'] = $this->utility->name_title();
+        $this->data['family_name_list'] = $this->utility->family_name();
         $this->data['app_name'] = MEMBER_APP;
-        $this->data['test'] = "";
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application', $this->data);
     }
 
@@ -959,7 +1000,7 @@ class Member extends CI_Controller {
         $temp_src_name = $nid . '.jpg';
         $user_image_path = USER_ALBUM_IMAGE_PATH;
         $result = $this->upload_picture($image_data, $temp_src_name, $user_image_path);
-        if ($result['status'] != 0 ) {
+        if ($result['status'] != 0) {
             $response["nid"] = $nid;
             echo json_encode($response);
         }

@@ -113,6 +113,17 @@ angular.module('controller.Member', ['services.Member']).
                             $scope.allow_action = true;
                         });
             }
+            $scope.searchMemberInfo = function () {
+                if ($scope.allow_action == false) {
+                    return;
+                }
+                $scope.allow_action = false;
+                memberService.searchMemberInfo($scope.searchParam).
+                        success(function (data, status, headers, config) {
+                            $scope.memberSurveyInfo = data['member_info'];
+                            $scope.allow_action = true;
+                        });
+            }
             $scope.addmissionInfoAdd = function () {
                 if ($scope.allow_action == false) {
                     return;
