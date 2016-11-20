@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+
+
 CREATE TABLE IF NOT EXISTS `account_status` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `description` varchar(200) NOT NULL,
@@ -74,6 +76,15 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
 (2, 2, 2);
 
+CREATE TABLE IF NOT EXISTS `division` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) unsigned NOT NULL,
+  `division_code` int(11) unsigned DEFAULT NULL,
+  `division_name` varchar(200) NOT NULL,
+  `division_name_other` varchar(200) NOT NULL,
+  `is_removed` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `depatments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -83,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `depatments` (
 INSERT INTO `depatments` (`id`, `name`) VALUES
 (1, 'TMMS-ICT'),
 (2, 'TMMS-Account');
+
 CREATE TABLE IF NOT EXISTS `organigations` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -90,6 +102,80 @@ CREATE TABLE IF NOT EXISTS `organigations` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
 INSERT INTO `organigations` (`id`, `name`) VALUES
 (1, 'TMMS');
+CREATE TABLE IF NOT EXISTS `process_types` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `process_types` (`id`, `name`) VALUES
+(1, 'উৎপাদন'),
+(2, 'পরিবহন'),
+(3, 'এন জি ও');
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`code` int(11) unsigned NOT NULL,
+`name` varchar(200) NOT NULL,
+`full_name_eng` varchar(200) NOT NULL,
+`short_name_bgn` varchar(200) NOT NULL,
+`full_name_bgn` varchar(200) NOT NULL,
+`product_type_id`int(11) unsigned NOT NULL,
+`interest_rate`int(11) unsigned NOT NULL,
+`duration`varchar(200) NOT NULL,
+`main_product_code`int(11) unsigned NOT NULL,
+`loan_installment`int(11) unsigned NOT NULL,
+`interest_installment`int(11) unsigned NOT NULL,
+`savings_installment`int(11) unsigned NOT NULL,
+`min_limit`int(11) unsigned NOT NULL,
+`max_limit`int(11) unsigned NOT NULL,
+  `interest_calculation_method` varchar(200) NOT NULL,
+  `payment_frequency_id` int(11) unsigned NOT NULL,
+  `insurance_item_code` int(11) unsigned NOT NULL,
+  `insurance_item_rate` int(11) unsigned NOT NULL,
+  `main_item_name` varchar(200) NOT NULL,
+ `org_id` int(11) unsigned NOT NULL,
+ `is_active`  boolean DEFAULT 0,
+ `is_active_date` int(11) unsigned DEFAULT NULL,
+ `reference_user_id` int(11) unsigned NOT NULL,
+ `created_on` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`, `code`),
+  UNIQUE KEY `uc_org` (`org_id`,`reference_user_id`),
+  KEY `fk_org_product_idx` (`org_id`),
+  KEY `fk_users_product_idx` (`reference_user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+
+
+CREATE TABLE IF NOT EXISTS `organigation_settings` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`office_id` int(11) unsigned NOT NULL,
+`organization_id` int(11) unsigned NOT NULL,
+ `organization_name` varchar(200) NOT NULL,
+ `transaction_date` int(11) unsigned DEFAULT NULL,
+ `month_closing_date` int(11) unsigned DEFAULT NULL,
+ `year_closing_date` int(11) unsigned DEFAULT NULL,
+ `cash_book`  varchar(200) NOT NULL,
+ `pla_aacount`  varchar(200) NOT NULL,
+ `bank_aacount`  varchar(200) NOT NULL,
+ `org_address`  varchar(200) NOT NULL,
+ `phone_no`  varchar(50) NOT NULL,
+ `cell_no`  varchar(50) NOT NULL,
+ `email`  varchar(50) NOT NULL,
+ `operation_start_date` int(11) unsigned DEFAULT NULL,
+ `license_no`  varchar(50) NOT NULL,
+ `license_start_date` int(11) unsigned DEFAULT NULL,
+ `license_end_date` int(11) unsigned DEFAULT NULL,
+ `process_type` int(11) unsigned DEFAULT NULL,
+ `org_id` int(11) unsigned NOT NULL,
+ `is_active`  boolean DEFAULT 0,
+ `is_active_date` int(11) unsigned DEFAULT NULL,
+ `reference_user_id` int(11) unsigned NOT NULL,
+ `created_on` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`, `office_id`, `organization_id`,`license_no`),
+  UNIQUE KEY `uc_org` (`org_id`,`reference_user_id`),
+  KEY `fk_org_org_settings_idx` (`org_id`),
+  KEY `fk_users_org_setting_idx` (`reference_user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+
 
 CREATE TABLE IF NOT EXISTS `employees` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -109,17 +195,18 @@ CREATE TABLE IF NOT EXISTS `investors` (
   `code` varchar(5) NOT NULL,
   `name` varchar(200) NOT NULL,
   `org_id`  int(11) unsigned NOT NULL,
-  `is_active`  int(11) unsigned NOT NULL,
-  `is_active_date`  int(11) unsigned NOT NULL,
+  `is_active`  int(11) unsigned DEFAULT NULL,
+  `is_active_date`  int(11) unsigned DEFAULT NULL,
   `employee_id`  int(11) unsigned NOT NULL,
-  `created_on` int(11) unsigned NOT NULL,
+  `created_on` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
 ALTER TABLE `investors`
 ADD CONSTRAINT `fk_investor_org_id` FOREIGN KEY (`org_id`) REFERENCES `organigations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_investor_emp_id` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 INSERT INTO `investors` (`id`,`code`,`name`,`org_id`, `employee_id` ) VALUES
-(1, '123','TMMS-ICT',1, 1 );
+(1, '001','TMMS-ICT',1, 1 ),
+(2, '002','brack',1, 1 );
 
 CREATE TABLE IF NOT EXISTS `purposes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

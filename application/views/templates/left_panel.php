@@ -25,7 +25,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ><a href="index.html"><i class="fa fa-institution"></i>প্রতিষ্ঠানের তথ্য </a></li>
+                    <li ><a href="<?php echo base_url() . 'configuration/organization_settings' ?>"><i class="fa fa-institution"></i>প্রতিষ্ঠানের তথ্য </a></li>
                 </ul>
             </li>
 
@@ -42,10 +42,11 @@
                     <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> ঋণ অনুমদন</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>প্রোডাক্ট</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>পারপোজ</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>বিনিয়োগকারী</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-green"></i> <span>গ্রেচ</span></a></li>
+            <li><a href="<?php echo base_url() . 'configuration/product' ?>"><i class="fa fa-circle-o text-aqua"></i> <span>প্রোডাক্ট</span></a></li>
+            <li><a href="<?php echo base_url() . 'configuration/purpose' ?>"><i class="fa fa-circle-o text-red"></i> <span>পারপোজ</span></a></li>
+            <li><a href="<?php echo base_url() . 'configuration/investor' ?>"><i class="fa fa-circle-o text-yellow"></i> <span>বিনিয়োগকারী</span></a></li>
+            <li><a href="<?php echo base_url() . 'configuration/grace' ?>"><i class="fa fa-circle-o text-green"></i> <span>গ্রেচ</span></a></li>
+            <li><a href="<?php // echo base_url() . 'configuration/organization' ?>"><i class="fa fa-circle-o text-green"></i> <span>Organization</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

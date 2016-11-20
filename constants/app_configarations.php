@@ -1,4 +1,4 @@
 <?php
     define("MEMBER_APP",                                              "app.Member");
-//    define("HEADER_APP",                                              "app.Header");
+    define("CONFIGURATION_APP",                                    "app.Configuration");
 //    define("PHOTO_APP",                                               "app.Photo");

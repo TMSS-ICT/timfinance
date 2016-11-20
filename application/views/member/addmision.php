@@ -1365,9 +1365,9 @@
                                 <div class="form-group col-lg-3 bootstrap-textpicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
 
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.opening_time"
+                                    <input  id="opening_time" type="text" class="form-control" ng-model="memberSurveyInfo.opening_time"
 
-                                           placeholder="" style="width: 100%;">
+                                            placeholder="" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-lg-3 bootstrap-textpicker">

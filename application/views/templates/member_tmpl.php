@@ -18,8 +18,8 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/skins/_all-skins.css">
 
         <!--<Date picker css>-->
-<!--        <link rel="stylesheet" href="--><?php //echo base_url(); ?><!--resources/css/superadmin/zebra_datePicker.css" type="text/css">-->
-<!--        <link rel="stylesheet" href="--><?php //echo base_url(); ?><!--resources/css/superadmin/zebra_datePicker_custom.css" type="text/css">-->
+        <link rel="stylesheet" href="<?php //echo base_url(); ?><!--resources/css/superadmin/zebra_datePicker.css" type="text/css">-->
+        <link rel="stylesheet" href="<?php //echo base_url(); ?><!--resources/css/superadmin/zebra_datePicker_custom.css" type="text/css">-->
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/datepicker/datepicker3.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/timepicker/bootstrap-timepicker.min.css">
         <!--<NAV Bar JS>-->
@@ -49,12 +49,15 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image-crop.js"></script>
         <!--<angular Services>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularService/memberService.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularService/configurationService.js"></script>
         <!--<angular Controller>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/memberController.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/configurationController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/imageCropController.js"></script>
 
         <!--<angular Apps>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularApp/memberApp.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularApp/configarationApp.js"></script>
 
     </head>
 
