@@ -24,14 +24,14 @@
                                 <div class="form-group col-lg-4" ng-init="setZoneList('<?php echo htmlspecialchars(json_encode($zone_list)) ?>')">
                                     <label>জোনঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.zoneId" style="width: 100%;">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="zoneInfo in zoneList" value={{zoneInfo.id}} >{{zoneInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-4" ng-init="setAreaList('<?php echo htmlspecialchars(json_encode($area_list)) ?>')">
                                     <label>এলাকাঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.areaId" style="width: 100%;">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="areaInfo in areaList" value={{areaInfo.id}} >{{areaInfo.name}}</option>
 
                                     </select>
@@ -40,7 +40,7 @@
                                 <div class="form-group col-sm-4" ng-init="setBranchList('<?php echo htmlspecialchars(json_encode($branch_list)) ?>')">
                                     <label>শাখাঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.branchId" style="width: 100%;">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="branchInfo in branchList" value={{branchInfo.id}} >{{branchInfo.name}}</option>
                                     </select>
                                 </div>
@@ -72,7 +72,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>নামঃ</label>
                                     <select class="form-control " name="zone_name" ng-model="memberSurveyInfo.nameTitle" style="width: 100%;" ng-init="setNameTitleList('<?php echo htmlspecialchars(json_encode($name_title_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="(key,nameTitle) in nameTitleList" value={{nameTitle}} >{{nameTitle}}</option>
                                     </select>
 
@@ -91,7 +91,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>পারিবারিক নামঃ</label>
                                     <select class="form-control " name="zone_name" style="width: 100%;" ng-model="memberSurveyInfo.fimilyTitle" style="width: 100%;" ng-init="setFamilyTitleList('<?php echo htmlspecialchars(json_encode($family_name_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="(key,fimilyTitle) in familyTitleList" value={{fimilyTitle}} >{{fimilyTitle}}</option>
                                     </select>
 
@@ -108,14 +108,14 @@
                                 <div class="form-group col-lg-3">
                                     <label>লিঙ্গঃ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.genderId" style="width: 100%;"ng-init="setGenderList('<?php echo htmlspecialchars(json_encode($gender_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="genderInfo in genderList" value={{genderInfo.id}} >{{genderInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>বয়সঃ</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.age" style="width: 100%;" ng-init="setAgeList('<?php echo htmlspecialchars(json_encode($age_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="ageInfo in ageList" value={{ageInfo}} >{{ageInfo}}</option>
                                     </select>
                                 </div>
@@ -124,14 +124,14 @@
                                     <label>শিক্ষাগত যোগ্যতা(সর্বোচ্চ)</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.educationId" 
                                             style="width: 100%;"ng-init="setEducationList('<?php echo htmlspecialchars(json_encode($educations_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="educationInfo in educationList" value={{educationInfo.id}} >{{educationInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>উত্তীর্ণ হওয়ার সাল</label>
                                     <select class="form-control " ng-model="memberSurveyInfo.passingYear"  style="width: 100%;" ng-init="setYearList('<?php echo htmlspecialchars(json_encode($passing_year_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="yearInfo in yearList" value={{yearInfo}} >{{yearInfo}}</option>
                                     </select>
                                 </div>
@@ -147,7 +147,7 @@
                                 <div class="form-group col-lg-3">
                                     <label>পিতা/স্বামীর নামঃ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.fNameTitle" style="width: 100%;" ng-init="setFTitleList('<?php echo htmlspecialchars(json_encode($f_name_title_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="fTitle in fTitleList" value={{fTitle}} >{{fTitle}}</option>
                                     </select>
                                 </div>
@@ -165,8 +165,8 @@
 
                                  <div class="form-group col-sm-3">
                                     <label> পিতার/স্বামীর বয়সঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.fAge">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                    <select class="form-control " ng-model="memberSurveyInfo.fAge" style="width: 100%;">
+                                       <option value="">নির্বাচন করুন</option>
                                        <option ng-repeat="ageInfo in ageList" value={{ageInfo}} >{{ageInfo}}</option>
                                     </select>
 
@@ -183,7 +183,7 @@
                                 <div class="form-group col-lg-3">
                                     <label>মাতার নামঃ</label>
                                     <select class="form-control"ng-model="memberSurveyInfo.mNameTitle" style="width: 100%;"ng-init="setMTitleList('<?php echo htmlspecialchars(json_encode($m_name_title_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="mTitle in mTitleList" value={{mTitle}} >{{mTitle}}</option>
                                     </select>
                                 </div>
@@ -201,8 +201,8 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>মায়ের বয়সঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.mAge">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                    <select class="form-control " ng-model="memberSurveyInfo.mAge" style="width: 100%;">
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="ageInfo in ageList" value={{ageInfo}} >{{ageInfo}}</option>
                                     </select>
 
@@ -236,13 +236,13 @@
                                 <div class="form-group col-sm-3">
                                     <label>রাজনীতির সাথে জরিত কি না? </label>
                                     <select class="form-control" style="width: 100%;"ng-model="memberSurveyInfo.politicalStatusId" style="width: 100%;" ng-init="setPSList('<?php echo htmlspecialchars(json_encode($political_status_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="pStatusInfo in politicalStatusList" value={{pStatusInfo.id}} >{{pStatusInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>জাতীয় পরিচয় পত্রের নংঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.nid" placeholder="জাতীয় পরিচয় পত্রের নং"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.nid" placeholder="জাতীয় পরিচয় পত্রের নং"
                                            style="width: 100%;">
                                 </div>
                             </div>
@@ -260,14 +260,14 @@
                                 <div class="form-group col-lg-3">
                                     <label>দেশ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.mCountryId" style="width: 100%;" style="width: 100%;" ng-init="setCountryList('<?php echo htmlspecialchars(json_encode($country_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>/option>
+                                       <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="countryInfo in countryList" value={{countryInfo.id}} >{{countryInfo.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>জেলাঃ</label>
                                     <select class="form-control " name="age" style="width: 100%;" ng-model="memberSurveyInfo.mDistrictId" style="width: 100%;" ng-init="setDistrictList('<?php echo htmlspecialchars(json_encode($district_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="districtInfo in districtList" value={{districtInfo.id}} >{{districtInfo.name}}</option>
                                     </select>
                                 </div>
@@ -276,7 +276,7 @@
                                     <label>থানাঃ</label>
                                     <select class="form-control "
                                             style="width: 100%;" ng-model="memberSurveyInfo.mThanaId" style="width: 100%;" ng-init="setThanaList('<?php echo htmlspecialchars(json_encode($thana_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="thanaInfo in thanaList" value={{thanaInfo.id}} >{{thanaInfo.name}}</option>
                                     </select>
 
@@ -284,7 +284,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>ইউনিয়নঃ</label>
                                     <select class="form-control "  style="width: 100%;"ng-model="memberSurveyInfo.mUnion" ng-init="setUnionList('<?php echo htmlspecialchars(json_encode($union_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="unionInfo in unionList" value={{unionInfo.id}} >{{unionInfo.name}}</option>
                                     </select>
 
@@ -301,7 +301,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>পোষ্ট অফিসঃ</label>
                                   <select class="form-control "  style="width: 100%;"ng-model="memberSurveyInfo.mPostId" ng-init="setPostList('<?php echo htmlspecialchars(json_encode($post_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="postInfo in postList" value={{postInfo.id}} >{{postInfo.name}}</option>
                                     </select>
                                 </div>
@@ -333,14 +333,14 @@
                                 <div class="form-group col-sm-3">
                                     <label>পরিবারের সদস্য সংখ্যাঃ </label>
                                     <select class="form-control " style="width: 100%;" ng-model="memberSurveyInfo.totalMemberNo" ng-init="setMemberList('<?php echo htmlspecialchars(json_encode($member_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="memberInfo in memberNoList" value={{memberInfo}} >{{memberInfo}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>উপার্জনক্ষম পুরুষের সংখ্যা</label>
                                     <select class="form-control " name="zone_name" style="width: 100%;" ng-model="memberSurveyInfo.earnedMMNo" >
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                          <option ng-repeat="memberInfo in memberNoList" value={{memberInfo}} >{{memberInfo}}</option>
                                     </select>
                                 </div>
@@ -348,7 +348,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>উপার্জনক্ষম মহিলার সংখ্যা</label>
                                     <select class="form-control " name="zone_name" style="width: 100%;"ng-model="memberSurveyInfo.earnedFMNo">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="memberInfo in memberNoList" value={{memberInfo}} >{{memberInfo}}</option>
                                     </select>
                                 </div>
@@ -410,7 +410,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>পোষ্ট অফিসঃ</label>
                                       <select class="form-control "  style="width: 100%;"ng-model="memberSurveyInfo.pPostId" ng-init="setPostList('<?php echo htmlspecialchars(json_encode($post_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="postInfo in postList" value={{postInfo.id}} >{{postInfo.name}}</option>
                                     </select>
                                 </div>
@@ -442,7 +442,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-lg-3">
                                     <label>মোবাইল নংঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.mobile" name="member_mobile" placeholder=""
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.mobile" name="member_mobile" placeholder=""
                                            style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
@@ -452,7 +452,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>অভিভাবকের মোবাইল নংঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.fEmail"  placeholder=""
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.fEmail"  placeholder=""
                                            style="width: 100%;">
 
                                 </div>
@@ -525,7 +525,7 @@
                                     <label>ব্যবসার ধরনঃ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.businessTypeId"
                                             style="width: 100%;"ng-init="setBTypeList('<?php echo htmlspecialchars(json_encode($business_type_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="bType in bTypeList" value={{bType.id}} >{{bType.name}}</option>
                                     </select>
                                     </select>
@@ -565,19 +565,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>আবাদি জমি (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.cultivableLand" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.cultivableLand"
                                            placeholder="আবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>অনাবাদি জমি (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.unCultivableLand" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.unCultivableLand"
                                            placeholder="অনাবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>পুকুর (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.ponds" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ponds"
                                            placeholder="পুকুর (শতক)" style="width: 100%;">
                                 </div>
 
@@ -591,12 +591,12 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>বসত বাড়ী(শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.house"  name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.house"  name="cultivable_land"
                                            placeholder="বসত বাড়ী (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label>মোট জমি (শতক)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.totalLand" name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.totalLand" name="cultivable_land"
                                            placeholder="মোট জমি (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
@@ -622,19 +622,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>কৃষিজ আয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.agIncome" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.agIncome"
                                            placeholder="কৃষিজ আয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>অকৃষিজ আয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.unAgIncome"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.unAgIncome"
                                            placeholder="অকৃষিজ আয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>মোট আয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.totalIncome" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.totalIncome"
                                            placeholder="মোট আয় (টাকা)" style="width: 100%;">
                                 </div>
 
@@ -648,13 +648,13 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>মোট ব্যয় (টাকা)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.totalExpenditure" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.totalExpenditure"
                                            placeholder="মোট ব্যয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>উদ্বৃত্ত/ঘাটতি (টাকা)</label>
-                                    <input type="number" class="form-control"  ng-model="memberSurveyInfo.loss"  
+                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.loss"
                                            placeholder="উদ্বৃত্ত/ঘাটতি (টাকা)" style="width: 100%;">
                                 </div>
 
@@ -679,19 +679,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>টিনের ঘর (কত টি?)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.tinHouse"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.tinHouse"
                                            placeholder="টিনের ঘর (কত টি?)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>খড়ের ঘর (কত টি?)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.strawHouse"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.strawHouse"
                                            placeholder="খড়ের ঘর (কত টি?)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>ইটের ঘর (কত টি?)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.brickHouse"   name="pond" placeholder="ইটের ঘর (কত টি?)"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.brickHouse"   name="pond" placeholder="ইটের ঘর (কত টি?)"
                                            style="width: 100%;">
                                 </div>
 
@@ -714,19 +714,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-3">
                                     <label>গৃহীত টাকার পরিমাণ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.receiveAmound" name="cultivable_land"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.receiveAmound" name="cultivable_land"
                                            placeholder="গৃহীত টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>পরিশোধিত টাকার পরিমাণ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.paidAmound"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.paidAmound"
                                            placeholder="পরিশোধিত টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>অবশিষ্ট টাকার পরিমাণ</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.remainningAmound"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.remainningAmound"
                                            placeholder="অবশিষ্ট টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
@@ -734,7 +734,7 @@
                                     <label>পরিশোধের ধরণঃ </label>
                                     <select class="form-control" 
                                             style="width: 100%;" ng-model="memberSurveyInfo.paymentTypeId" ng-init="setPaymentTypeList('<?php echo htmlspecialchars(json_encode($payment_types)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="paymentType in paymentTypeList" value={{paymentType.id}} >{{paymentType.name}}</option>
                                     </select>
                                 </div>
@@ -756,7 +756,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>কতদিন যাবৎ গ্রহন করছেন (মাস)</label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.loaningYear"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.loaningYear"
                                            placeholder="কতদিন যাবৎ গ্রহন করছেন" style="width: 100%;">
                                 </div>
 
@@ -765,12 +765,7 @@
                                     <input type="text" class="form-control " id="datepicker"  ng-model="memberSurveyInfo.lastLoaningYear"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
                                 </div>
-<!--                                <div class="input-group date">-->
-<!--                                    <div class="input-group-addon">-->
-<!--                                        <i class="fa fa-calendar"></i>-->
-<!--                                    </div>-->
-<!--                                    <input type="text" class="form-control pull-right" id="datepicker">-->
-<!--                                </div>-->
+
                                 <div class="form-group col-sm-3">
 
                                 </div>
@@ -807,7 +802,7 @@
 
                                 <div class="form-group col-sm-4">
                                     <label>টাকার পরিমানঃ </label>
-                                    <input type="number" class="form-control" ng-model="memberSurveyInfo.amount"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.amount"
                                            placeholder="টাকার পরিমানঃ" style="width: 100%;">
                                 </div>
 
@@ -870,7 +865,7 @@
 
 
     </section>
-    <!-- /.content -->
+
 </div>
 <script>
     $(function () {

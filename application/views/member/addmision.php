@@ -65,7 +65,7 @@
                         <div class="row">
                             <div class="">
                                 <div ng-controller="ImageCopperController" style="position: relative;">
-                                    <div  ng-show="imageCropStep == 1" class="fileinput-cover-button">	
+                                    <div  ng-show="imageCropStep == 1" class="fileinput-cover-button">
                                         <img class="img-responsive"    ng-src="<?php echo base_url() ?>resources/images/add_photo_album.jpg"/>
                                         <!--<img class="img-responsive" fallback-src="<?php echo base_url() ?>resources/images/cover.jpg"  ng-src="<?php echo base_url() . COVER_PICTURE_IMAGE_PATH . $user_id . '.jpg'; ?>" />-->
                                         <input class="profile_cover_upload_input" style="z-index: 1005" type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)"/>
@@ -73,9 +73,9 @@
                                             <img ng-src="<?php echo base_url() ?>resources/images/upload_icon.png"/>
                                             <span>Upload Cover Picture</span>
                                         </div>
-                                    </div>			
+                                    </div>
                                     <div style="position: relative; left: -16px; margin: 0 15px; right: 0; top: 0; width: 100%"  ng-show="imageCropStep == 2" class="zoom_disable">
-                                        <image-crop		 
+                                        <image-crop
                                             data-height="150"
                                             data-width="150"
                                             data-shape="square"
@@ -87,12 +87,12 @@
                                             padding="50"
                                             max-size="1024"
                                             imagepath="<?php echo base_url(); ?>member/add_cover_picture/{{searchParam.searchValue}}"
-                                            ></image-crop>		   
+                                            ></image-crop>
                                     </div>
                                     <div ng-show="imageCropStep == 2" >
                                         <button class="btn btn-sm" style="position: absolute; bottom: 0; left: 42%; bottom: 35px; background-color: #999; color: #fff; z-index: 1001"  ng-click="clear()">Cancel</button>
-                                        <button class="btn btn-sm" style="position: absolute; bottom: 0; right: 42%; bottom: 35px; background-color: #999; color: #fff; z-index: 1001" ng-click="initCrop = true">Crop</button>		
-                                    </div>		  
+                                        <button class="btn btn-sm" style="position: absolute; bottom: 0; right: 42%; bottom: 35px; background-color: #999; color: #fff; z-index: 1001" ng-click="initCrop = true">Crop</button>
+                                    </div>
                                     <div  ng-show="imageCropStep == 3">
                                         <div >
                                             <img ng-src="{{result}}"/>
@@ -232,9 +232,9 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>শিক্ষাগত যোগ্যতা(সর্বোচ্চ)</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.education_id" 
+                                    <select class="form-control " ng-model="memberSurveyInfo.education_id"
                                             style="width: 100%;"ng-init="setEducationList('<?php echo htmlspecialchars(json_encode($educations_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="educationInfo in educationList" value={{educationInfo.id}} >{{educationInfo.name}}</option>
                                     </select>
                                 </div>
@@ -257,26 +257,26 @@
                                 <div class="form-group col-lg-3">
                                     <label>পিতা/স্বামীর নামঃ</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.f_name_title" style="width: 100%;" ng-init="setFTitleList('<?php echo htmlspecialchars(json_encode($f_name_title_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="fTitle in fTitleList" value={{fTitle}} >{{fTitle}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>পিতার/স্বামীর ১ম নামঃ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.f_first_name" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.f_first_name"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>পিতার/স্বামীর ২য় নামঃ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.f_last_name" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.f_last_name"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label> পিতার/স্বামীর বয়সঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.f_age">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                    <select class="form-control " ng-model="memberSurveyInfo.f_age" style="width: 100%">
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="ageInfo in ageList" value={{ageInfo}} >{{ageInfo}}</option>
                                     </select>
 
@@ -293,7 +293,7 @@
                                 <div class="form-group col-lg-3">
                                     <label>মাতার নামঃ</label>
                                     <select class="form-control"ng-model="memberSurveyInfo.m_name_title" style="width: 100%;"ng-init="setMTitleList('<?php echo htmlspecialchars(json_encode($m_name_title_list)) ?>')">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="mTitle in mTitleList" value={{mTitle}} >{{mTitle}}</option>
                                     </select>
                                 </div>
@@ -311,15 +311,13 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>মায়ের বয়সঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.m_age">
-                                        <option value="">নির্বাচন করুন</option>/option>
+                                    <select class="form-control " ng-model="memberSurveyInfo.m_age" style="width: 100%">
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="ageInfo in ageList" value={{ageInfo}} >{{ageInfo}}</option>
                                     </select>
 
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -329,7 +327,7 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>অভিভাবকের পেশা</label>
-                                    <select class="form-control"  ng-model="memberSurveyInfo.f_profession" 
+                                    <select class="form-control"  ng-model="memberSurveyInfo.f_profession"
                                             style="width: 100%;" ng-init="setProfessionList('<?php echo htmlspecialchars(json_encode($profession_list)) ?>')">
                                         <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
@@ -627,7 +625,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>ব্যবসা ছাড়া আয়ের উৎস থাকলে তার বিবরণঃ</label>
-                                    <textarea rows="3" class="form-control" ng-model="memberSurveyInfo.alt_earning_source" 
+                                    <textarea rows="3" class="form-control" ng-model="memberSurveyInfo.alt_earning_source"
                                               style="width: 100%;"></textarea>
                                 </div>
 
@@ -674,19 +672,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>আবাদি জমি (শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.cultivable_land" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.cultivable_land"
                                            placeholder="আবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>অনাবাদি জমি (শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.un_cultivable_land" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.un_cultivable_land"
                                            placeholder="অনাবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>পুকুর (শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ponds" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ponds"
                                            placeholder="পুকুর (শতক)" style="width: 100%;">
                                 </div>
 
@@ -700,12 +698,12 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>বসত বাড়ী(শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.house"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.house"
                                            placeholder="বসত বাড়ী (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label>মোট জমি (শতক)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_land" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_land"
                                            placeholder="মোট জমি (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-4">
@@ -731,19 +729,19 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>কৃষিজ আয় (টাকা)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ag_income" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.ag_income"
                                            placeholder="কৃষিজ আয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>অকৃষিজ আয় (টাকা)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.un_ag_income"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.un_ag_income"
                                            placeholder="অকৃষিজ আয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>মোট আয় (টাকা)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_income" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_income"
                                            placeholder="মোট আয় (টাকা)" style="width: 100%;">
                                 </div>
 
@@ -757,13 +755,13 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>মোট ব্যয় (টাকা)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_expence" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.total_expence"
                                            placeholder="মোট ব্যয় (টাকা)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>উদ্বৃত্ত/ঘাটতি (টাকা)</label>
-                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.loss"  
+                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.loss"
                                            placeholder="উদ্বৃত্ত/ঘাটতি (টাকা)" style="width: 100%;">
                                 </div>
 
@@ -788,13 +786,13 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-4">
                                     <label>টিনের ঘর (কত টি?)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.tin_house"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.tin_house"
                                            placeholder="টিনের ঘর (কত টি?)" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label>খড়ের ঘর (কত টি?)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.straw_house"  
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.straw_house"
                                            placeholder="খড়ের ঘর (কত টি?)" style="width: 100%;">
                                 </div>
 
@@ -823,7 +821,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-3">
                                     <label>গৃহীত টাকার পরিমাণ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.receive_amound" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.receive_amound"
                                            placeholder="গৃহীত টাকার পরিমাণ" style="width: 100%;">
                                 </div>
 
@@ -841,7 +839,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label>পরিশোধের ধরণঃ </label>
-                                    <select class="form-control" 
+                                    <select class="form-control"
                                             style="width: 100%;" ng-model="memberSurveyInfo.payment_type_id" ng-init="setPaymentTypeList('<?php echo htmlspecialchars(json_encode($payment_types)) ?>')">
                                         <option value="">নির্বাচন করুন</option>/option>
                                         <option ng-repeat="paymentType in paymentTypeList" value={{paymentType.id}} >{{paymentType.name}}</option>
@@ -872,7 +870,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>সর্বশেষ কবে গ্রহণ করেছেন </label>
 
-                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.last_loaning_year"
+                                    <input type="text" class="form-control"  id="last_receive_date" ng-model="memberSurveyInfo.last_loaning_year"
                                            placeholder="সর্বশেষ কবে গ্রহণ করেছেন " style="width: 100%;">
 
                                 </div>
@@ -931,13 +929,13 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-6">
                                     <label>প্রথম ব্যক্তির মন্তব্যঃ </label>
-                                    <textarea rows="3" class="form-control" ng-model="memberSurveyInfo.recomannd1" 
+                                    <textarea rows="3" class="form-control" ng-model="memberSurveyInfo.recomannd1"
                                               style="width: 100%;"></textarea>
                                 </div>
 
                                 <div class="form-group col-sm-6">
                                     <label>দ্বিতীয় ব্যক্তির মন্তব্যঃ </label>
-                                    <textarea rows="3" class="form-control" ng-model="memberSurveyInfo.recomannd2"  
+                                    <textarea rows="3" class="form-control" ng-model="memberSurveyInfo.recomannd2"
                                               style="width: 100%;"></textarea>
                                 </div>
 
@@ -970,24 +968,24 @@
                             <div class="form-inline">
                                 <div class="form-group col-lg-3">
                                     <label>ব্যবসার নামঃ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_business_name" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_business_name"
                                            placeholder="আবাদি জমি (শতক)" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>ব্যবসার প্রকৃতিঃ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_bus_type_name" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_bus_type_name"
                                            placeholder="ব্যবসার প্রকৃতিঃ" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>ব্যবসার অভিজ্ঞতাঃ(মাস) </label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_business_expre" 
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.m_business_expre"
                                            placeholder="মাস" style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
                                     <label>ব্যবসা কেন্দ্রের ঠিকানাঃ </label>
-                                    <textarea rows="2" class="form-control" ng-model="memberSurveyInfo.m_business_adds" 
+                                    <textarea rows="2" class="form-control" ng-model="memberSurveyInfo.m_business_adds"
                                               style="width: 100%;"></textarea>
                                 </div>
 
@@ -1003,12 +1001,12 @@
                                 <div class="form-group date col-lg-3">
                                     <label>বব্যবসা শুরুর তারিখঃ</label>
 
-                                    <input type="date" class="form-control" ng-model="memberSurveyInfo.m_bus_date"
+                                    <input type="text" class="form-control" id="business_start_date" ng-model="memberSurveyInfo.m_bus_date"
                                            placeholder="" style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>অবকাঠামোঃ</label>
-                                    <select class="form-control"  ng-model="memberSurveyInfo.m_bus_infrastructure" 
+                                    <select class="form-control"  ng-model="memberSurveyInfo.m_bus_infrastructure"
                                             style="width: 100%;">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="পাকা">পাকা</option>
@@ -1018,9 +1016,9 @@
 
                                 <div class="form-group col-sm-6 form-inline">
                                     <label>পরিমাপঃ </label>
-                                    <input type="text" class="form-group" ng-model="memberSurveyInfo.m_bus_from_foot" 
+                                    <input type="text" class="form-group" ng-model="memberSurveyInfo.m_bus_from_foot"
                                            placeholder="ফুট">
-                                    <input type="text" class="form-group" ng-model="memberSurveyInfo.m_bus_to_foot" 
+                                    <input type="text" class="form-group" ng-model="memberSurveyInfo.m_bus_to_foot"
                                            placeholder="ফুট">
                                 </div>
 
@@ -1036,7 +1034,7 @@
 
                                 <div class="form-group col-sm-3">
                                     <label> দিকঃ</label>
-                                    <select class="form-control" ng-model="memberSurveyInfo.m_bus_direction" 
+                                    <select class="form-control" ng-model="memberSurveyInfo.m_bus_direction"
                                             style="width: 100%;">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="পূর্ব">পূর্ব</option>
@@ -1065,7 +1063,7 @@
 
                                 <div class="form-group col-lg-3">
                                     <label>বব্যবসা স্থানঃ</label>
-                                    <select class="form-control" ng-model="memberSurveyInfo.m_bus_place" 
+                                    <select class="form-control" ng-model="memberSurveyInfo.m_bus_place"
                                             style="width: 100%;">
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="নিজেস্ব">নিজেস্ব</option>
@@ -1292,32 +1290,32 @@
                             <div class="form-inline ">
 
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="input-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শুরুঃ</label>
 
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.start_first_half"
+                                    <input type="text" class="form-control timepicker" id="first_half_start_time" ng-model="memberSurveyInfo.start_first_half"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>১ম অর্ধ শেষঃ</label>
 
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.last_first_half"
+                                    <input type="text" class="form-control timepicker" id="first_half_end_time" ng-model="memberSurveyInfo.last_first_half"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শুরুঃ</label>
 
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.first_second_half"
+                                    <input type="text" class="form-control" id="second_half_start_time" ng-model="memberSurveyInfo.first_second_half"
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>২য় অর্ধ শেষঃ</label>
 
-                                    <input type="text" class="form-control"  ng-model="memberSurveyInfo.last_second_half"
+                                    <input type="text" class="form-control" id="second_half_end_time"  ng-model="memberSurveyInfo.last_second_half"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
@@ -1335,7 +1333,7 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মোট সময়ঃ</label>
 
                                     <input type="text" class="form-control" ng-model="memberSurveyInfo.total_time"
@@ -1362,22 +1360,22 @@
                             <div class="form-inline">
 
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান খোলা হয়ঃ</label>
 
-                                    <input  id="opening_time" type="text" class="form-control" ng-model="memberSurveyInfo.opening_time"
+                                    <input  id="opening_time" type="text" class="form-control timepicker"  ng-model="memberSurveyInfo.opening_time"
 
                                             placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>প্রতিদিন প্রতিষ্ঠান বন্ধ হয়ঃ</label>
 
                                     <input type="text" class="form-control" ng-model="memberSurveyInfo.closing_time"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শুরুঃ</label>
 
                                     <input type="text" class="form-control " ng-model="memberSurveyInfo.intervel_start"
@@ -1385,10 +1383,10 @@
                                            placeholder="" style="width: 100%;">
                                 </div>
 
-                                <div class="form-group col-lg-3 bootstrap-textpicker">
+                                <div class="form-group col-lg-3 bootstrap-timepicker">
                                     <label>মাঝে বন্ধ শেষঃ</label>
 
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.intervel_end"
+                                    <input type="text" class="form-control bootstrap-timepicker" ng-model="memberSurveyInfo.intervel_end"
 
                                            placeholder="" style="width: 100%;">
                                 </div>
@@ -1459,3 +1457,22 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+    $(function () {
+
+        $('#last_receive_date').datepicker({
+            autoclose: true
+        });
+
+        $('#business_start_date').datepicker({
+            autoclose: true
+        });
+
+//        $(".timepicker").timepicker({
+//            showInputs: false
+//        });
+        $(".first_half_start_time").timepicker({
+            showInputs: false
+        });
+    });
+</script>
