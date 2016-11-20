@@ -13,6 +13,15 @@ angular.module('services.Configuration', []).
                     }
                 });
             };
+            configurationService.addProduct = function (productInfo) {
+               return $http({
+                    method: 'post',
+                    url: $location.path() + $app_name + '/configuration/product',
+                    data: {
+                        productInfo: productInfo
+                    }
+                });
+            };
            
             return configurationService;
         });

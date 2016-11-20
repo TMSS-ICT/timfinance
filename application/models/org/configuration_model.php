@@ -21,9 +21,9 @@ class Configuration_model extends Ion_auth_model {
      * @author rashida sultana
      */
 
-    public function organization_settings($additional_data) {
-        $data = $this->_filter_data($this->tables['organigation_settings'], $additional_data);
-        $this->db->insert($this->tables['organigation_settings'], $data);
+    public function add_product_info($additional_data) {
+        $data = $this->_filter_data($this->tables['products'], $additional_data);
+        $this->db->insert($this->tables['products'], $data);
         $id = $this->db->insert_id();
         return isset($id) ? $id : FALSE;
     }
@@ -36,6 +36,11 @@ class Configuration_model extends Ion_auth_model {
     public function get_process_type_list() {
         return $this->db->select('*')
                         ->from($this->tables['process_types'])
+                        ->get();
+    }
+    public function get_payment_frequency_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['payment_frequency'])
                         ->get();
     }
 

@@ -81,6 +81,25 @@ class Utility {
         return $passing_year;
     }
 
+    public function get_product_types() {
+        $product_types = array();
+        $savings_obj = new stdClass();
+        $savings_obj->id = PRODUCT_TYPE_Id_SAVINGS;
+        $savings_obj->name = PRODUCT_TYPE_NAME_FOR_SAVINGS;
+        $loan_obj = new stdClass();
+        $loan_obj->id = PRODUCT_TYPE_Id_LOAN;
+        $loan_obj->name = PRODUCT_TYPE_NAME_FOR_LOAN;
+        $product_types[] = $savings_obj;
+        $product_types[] = $loan_obj;
+        return $product_types;
+    }
+    public function get_interest_calculation_methods() {
+        $interset_cal_methods = array();
+       $interset_cal_methods[] =  INTEREST_CALCULATION_METHOD_DECLINE;
+       $interset_cal_methods[] =  INTEREST_CALCULATION_METHOD_FLAT;
+        return $interset_cal_methods;
+    }
+
 }
 
 ?>

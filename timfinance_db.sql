@@ -111,14 +111,27 @@ INSERT INTO `process_types` (`id`, `name`) VALUES
 (1, 'উৎপাদন'),
 (2, 'পরিবহন'),
 (3, 'এন জি ও');
+CREATE TABLE IF NOT EXISTS `payment_frequency` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `short_name` varchar(20) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+INSERT INTO `payment_frequency` (`id`, `short_name`,`name`) VALUES
+(1, 'W','Weekly'),
+(2,'F', 'Fortnightly'),
+(3, 'M','Monthly'),
+(4, 'H',' Half Yearly'),
+(5, 'Y', 'Yearly'),
+(6, 'O','Once in a life');
 
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 `code` int(11) unsigned NOT NULL,
 `name` varchar(200) NOT NULL,
-`full_name_eng` varchar(200) NOT NULL,
-`short_name_bgn` varchar(200) NOT NULL,
-`full_name_bgn` varchar(200) NOT NULL,
+`bang_short_name` varchar(200) DEFAULT NULL,
+`bang_full_name` varchar(200) DEFAULT NULL,
+`eng_name` varchar(200) DEFAULT NULL,
 `product_type_id`int(11) unsigned NOT NULL,
 `interest_rate`int(11) unsigned NOT NULL,
 `duration`varchar(200) NOT NULL,

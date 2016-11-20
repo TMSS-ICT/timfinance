@@ -64,6 +64,8 @@ $config['tables']['surveys']       = 'surveys';
 $config['tables']['investors']       = 'investors';
 $config['tables']['process_types']       = 'process_types';
 $config['tables']['organigation_settings']       = 'organigation_settings';
+$config['tables']['payment_frequency']       = 'payment_frequency';
+$config['tables']['products']       = 'products';
 
 /*
  | Users table column and Group table column you want to join WITH.
