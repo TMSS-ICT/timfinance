@@ -19,7 +19,20 @@ class Member extends CI_Controller {
 
     public function test() {
         $this->data['test'] = "";
+        $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, '', $this->data);
+    }
+
+    public function survey_list() {
+        $this->data['test'] = "";
+        $this->data['app_name'] = MEMBER_APP;
+        $this->template->load(MEMBER_TEMPLATE, 'member/survey_list', $this->data);
+    }
+
+    public function member_list() {
+        $this->data['test'] = "";
+        $this->data['app_name'] = MEMBER_APP;
+        $this->template->load(MEMBER_TEMPLATE, 'member/member_list', $this->data);
     }
 
     public function index() {

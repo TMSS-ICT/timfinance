@@ -13,7 +13,7 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">ব্যাংক সংক্রান্ত তথ্য </h3>
+                        <h3 class="box-title ">ব্রাঞ্চের তথ্য </h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -21,25 +21,25 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
-                                <div class="form-group col-lg-4" ng-init="setZoneList('<?php echo htmlspecialchars(json_encode($zone_list)) ?>')">
+                                <div class="form-group col-lg-3" ng-init="setZoneList('<?php echo htmlspecialchars(json_encode($zone_list)) ?>')">
                                     <label>জোনঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.zoneId" style="width: 100%;">
+                                    <select class="form-control " ng-model="memberSurveyInfo.zoneId" >
                                         <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="zoneInfo in zoneList" value={{zoneInfo.id}} >{{zoneInfo.name}}</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-sm-4" ng-init="setAreaList('<?php echo htmlspecialchars(json_encode($area_list)) ?>')">
+                                <div class="form-group col-sm-3" ng-init="setAreaList('<?php echo htmlspecialchars(json_encode($area_list)) ?>')">
                                     <label>এলাকাঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.areaId" style="width: 100%;">
+                                    <select class="form-control " ng-model="memberSurveyInfo.areaId" >
                                         <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="areaInfo in areaList" value={{areaInfo.id}} >{{areaInfo.name}}</option>
 
                                     </select>
                                 </div>
 
-                                <div class="form-group col-sm-4" ng-init="setBranchList('<?php echo htmlspecialchars(json_encode($branch_list)) ?>')">
+                                <div class="form-group col-sm-3" ng-init="setBranchList('<?php echo htmlspecialchars(json_encode($branch_list)) ?>')">
                                     <label>শাখাঃ</label>
-                                    <select class="form-control " ng-model="memberSurveyInfo.branchId" style="width: 100%;">
+                                    <select class="form-control " ng-model="memberSurveyInfo.branchId">
                                         <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="branchInfo in branchList" value={{branchInfo.id}} >{{branchInfo.name}}</option>
                                     </select>
@@ -61,7 +61,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের ব্যক্তিগত তথ্য</h3>
+                        <h2 class="box-title ">ব্যক্তিগত তথ্য</h2>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -69,32 +69,55 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
+                                <div class="form-group col-sm-12">
+                                    <h4><u>Name:</u></h4>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
                                 <div class="form-group col-sm-3">
-                                    <label>নামঃ</label>
+                                    <label>Name Title:</label>
                                     <select class="form-control " name="zone_name" ng-model="memberSurveyInfo.nameTitle" style="width: 100%;" ng-init="setNameTitleList('<?php echo htmlspecialchars(json_encode($name_title_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>
+                                        <option value="">Select</option>
                                         <option ng-repeat="(key,nameTitle) in nameTitleList" value={{nameTitle}} >{{nameTitle}}</option>
                                     </select>
 
                                 </div>
                                 <div class="form-group col-sm-3">
-                                    <label>১ম নামঃ</label>
+                                    <label>First Name:</label>
                                     <input type="text" class="form-control" ng-model="memberSurveyInfo.firstName" name="first_name" placeholder=""
                                            style="width: 100%;">
                                 </div>
 
                                 <div class="form-group col-sm-3">
-                                    <label>২য় নামঃ</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.lastName"  name="first_name" placeholder=""
+                                    <label>Last Name:</label>
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.lastName"  name="last_name" placeholder=""
                                            style="width: 100%;">
                                 </div>
                                 <div class="form-group col-sm-3">
-                                    <label>পারিবারিক নামঃ</label>
-                                    <select class="form-control " name="zone_name" style="width: 100%;" ng-model="memberSurveyInfo.fimilyTitle" style="width: 100%;" ng-init="setFamilyTitleList('<?php echo htmlspecialchars(json_encode($family_name_list)) ?>')">
-                                       <option value="">নির্বাচন করুন</option>
-                                        <option ng-repeat="(key,fimilyTitle) in familyTitleList" value={{fimilyTitle}} >{{fimilyTitle}}</option>
-                                    </select>
+                                    <label>Sur Name:</label>
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.lastName"  name="sur_name" placeholder="sur name"
+                                           style="width: 100%;">
+                                </div>
+                            </div>
 
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-sm-12">
+                                    <label>Full Name(বাংলায়)</label>
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.firstName" name="first_name" placeholder="পূর্ণ নাম(বাংলায়)"
+                                           style="width: 100%;">
                                 </div>
                             </div>
 
@@ -252,7 +275,7 @@
                     </div>
 
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সম্ভাব্য সদস্যের বর্তমান ঠিকানা</u></h3>
+                        <h3 class="box-title "><u>বর্তমান ঠিকানা</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -325,7 +348,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সম্ভাব্য সদস্যের পারিবারিক তথ্য</u></h3>
+                        <h3 class="box-title "><u>পারিবারিক তথ্য</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -361,7 +384,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সম্ভাব্য সদস্যের স্থায়ী ঠিকানা</u></h3>
+                        <h3 class="box-title "><u>স্থায়ী ঠিকানা</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -435,7 +458,7 @@
                     </div>
 
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>যোগাযোগঃ</u></h3>
+                        <h3 class="box-title "><u>যোগাযোগঃ</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -469,7 +492,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সদস্যের পেশা সংক্রান্ত তথ্যঃ </u></h3>
+                        <h3 class="box-title "><u>সদস্যের পেশা সংক্রান্ত তথ্যঃ </u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -557,7 +580,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের জমির পরিমান</h3>
+                        <h3 class="box-title ">জমির পরিমান</h3>
                     </div>
 
                     <div class="box-body">
@@ -614,7 +637,7 @@
                 </div>
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের বাৎসরিক মোট আয় ও ব্যয়</h3>
+                        <h3 class="box-title ">বাৎসরিক মোট আয় ও ব্যয়</h3>
                     </div>
 
                     <div class="box-body">
@@ -671,7 +694,7 @@
                 </div>
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">পরিবারের গৃহের ধরনঃ</h3>
+                        <h3 class="box-title ">পরিবারের গৃহের ধরনঃ</h3>
                     </div>
 
                     <div class="box-body">
@@ -705,7 +728,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">বিনিয়োগ সংক্রান্ত তথ্যঃ </h3>
+                        <h3 class="box-title ">বিনিয়োগ সংক্রান্ত তথ্যঃ </h3>
                         <h5 class="text-red">সম্ভাব্য সদস্য যোদি কোন এন জি ও / ব্যাংক থেকে বিনিয়োগ/ঋণ গ্রহন করে থাকে
                             তাহলে নিম্ন লিখিত তথ্য গুলো প্রদান করবে </h5>
                     </div>

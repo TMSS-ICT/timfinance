@@ -1,7 +1,7 @@
 <div class="content-wrapper" ng-controller="memberController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h1>
+        <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h1>
         <p class="text-blue text-center"><u>ভর্তি ফরম</u></p>
     </section>
 
@@ -14,7 +14,7 @@
                 <div class="box  box-info">
 
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">অনুসন্ধানঃ</h3>
+                        <h3 class="box-title ">অনুসন্ধানঃ</h3>
                     </div>
 
                     <div class="box-body">
@@ -38,17 +38,10 @@
                                     <button type="button" class="btn btn-block btn-success" ng-click="searchSurveyInfo()">অনুসন্ধান করুন</button>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="row">
@@ -58,7 +51,7 @@
                 <div class="box  box-info">
 
                     <div class="box-header with-border" >
-                        <h3 class="box-title text-aqua">ভর্তি ইচ্ছুক সদস্যের ছবি</h3>
+                        <h3 class="box-title ">ভর্তি ইচ্ছুক সদস্যের ছবি</h3>
                     </div>
 
                     <div class="box-body">
@@ -100,18 +93,10 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="row">
@@ -120,10 +105,8 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">ব্যাংক সংক্রান্ত তথ্য </h3>
+                        <h3 class="box-title ">ব্যাংক সংক্রান্ত তথ্য </h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
 
                     <div class="box-body">
                         <div class="row">
@@ -152,17 +135,10 @@
                                     </select>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="row">
@@ -171,11 +147,8 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের ব্যক্তিগত তথ্য</h3>
+                        <h3 class="box-title ">সম্ভাব্য সদস্যের ব্যক্তিগত তথ্য</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
@@ -207,8 +180,6 @@
 
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -246,8 +217,6 @@
                                     </select>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -360,7 +329,7 @@
                     </div>
 
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সম্ভাব্য সদস্যের বর্তমান ঠিকানা</u></h3>
+                        <h3 class="box-title "><u>সম্ভাব্য সদস্যের বর্তমান ঠিকানা</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -433,7 +402,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সম্ভাব্য সদস্যের পারিবারিক তথ্য</u></h3>
+                        <h3 class="box-title "><u>সম্ভাব্য সদস্যের পারিবারিক তথ্য</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -469,7 +438,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সম্ভাব্য সদস্যের স্থায়ী ঠিকানা</u></h3>
+                        <h3 class="box-title "><u>সম্ভাব্য সদস্যের স্থায়ী ঠিকানা</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -543,7 +512,7 @@
                     </div>
 
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>যোগাযোগঃ</u></h3>
+                        <h3 class="box-title "><u>যোগাযোগঃ</u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -577,7 +546,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua"><u>সদস্যের পেশা সংক্রান্ত তথ্যঃ </u></h3>
+                        <h3 class="box-title "><u>সদস্যের পেশা সংক্রান্ত তথ্যঃ </u></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -664,7 +633,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের জমির পরিমান</h3>
+                        <h3 class="box-title ">সম্ভাব্য সদস্যের জমির পরিমান</h3>
                     </div>
 
                     <div class="box-body">
@@ -721,7 +690,7 @@
                 </div>
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের বাৎসরিক মোট আয় ও ব্যয়</h3>
+                        <h3 class="box-title ">সম্ভাব্য সদস্যের বাৎসরিক মোট আয় ও ব্যয়</h3>
                     </div>
 
                     <div class="box-body">
@@ -778,7 +747,7 @@
                 </div>
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">পরিবারের গৃহের ধরনঃ</h3>
+                        <h3 class="box-title ">পরিবারের গৃহের ধরনঃ</h3>
                     </div>
 
                     <div class="box-body">
@@ -812,7 +781,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">বিনিয়োগ সংক্রান্ত তথ্যঃ </h3>
+                        <h3 class="box-title ">বিনিয়োগ সংক্রান্ত তথ্যঃ </h3>
                         <h5 class="text-red">সম্ভাব্য সদস্য যোদি কোন এন জি ও / ব্যাংক থেকে বিনিয়োগ/ঋণ গ্রহন করে থাকে
                             তাহলে নিম্ন লিখিত তথ্য গুলো প্রদান করবে </h5>
                     </div>
@@ -958,7 +927,7 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">সম্ভাব্য সদস্যের ব্যবসায়িক তথ্য </h3>
+                        <h3 class="box-title ">সম্ভাব্য সদস্যের ব্যবসায়িক তথ্য </h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -1124,7 +1093,7 @@
                         </div>
                     </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title text-aqua">ব্যবসায় নিয়োজিত মূলধনের উৎসঃ</h3>
+                        <h3 class="box-title ">ব্যবসায় নিয়োজিত মূলধনের উৎসঃ</h3>
                     </div>
 
                     <div class="box-body">

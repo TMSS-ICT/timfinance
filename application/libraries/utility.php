@@ -19,28 +19,24 @@ class Utility {
 
     public function name_title() {
         $name_title = array(
-            0 => "মোঃ",
-            1 => "মোছাঃ",
-            2 => "শ্রী",
-            3 => "শ্রীমতী"
+            0 => "Mr",
+            1 => "Mrs",
+            2 => "Mss"
         );
         return $name_title;
     }
 
     public function father_name_title() {
         $father_name_title = array(
-            0 => "মোঃ",
-            1 => "মৃত",
-            2 => "শ্রী"
+            0 => "Mr"
         );
         return $father_name_title;
     }
 
     public function mother_name_title() {
         $mother_name_title = array(
-            0 => "মোছাঃ",
-            1 => "মৃত",
-            2 => "শ্রীমতী"
+            0 => "Mrs",
+            1 => "Ms"
         );
         return $mother_name_title;
     }
