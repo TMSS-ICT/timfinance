@@ -27,6 +27,13 @@ class Configuration_model extends Ion_auth_model {
         $id = $this->db->insert_id();
         return isset($id) ? $id : FALSE;
     }
+    public function add_purpose_info($additional_data) {
+        $data = $this->_filter_data($this->tables['purposes'], $additional_data);
+        $this->db->insert($this->tables['purposes'], $data);
+        $id = $this->db->insert_id();
+        return isset($id) ? $id : FALSE;
+    }
+
 
     public function get_investor_list() {
         return $this->db->select('*')

@@ -19,8 +19,8 @@
 
                                 <div class="form group inline col-lg-6">
                                     <label>Search</label>
-                                    <input type="text" class="form-control"ng-model="searchParam.searchValue" placeholder="">
-                                    <button type="button" class="btn bg-navy btn-flat margin" ng-click="searchSurveyInfo()">অনুসন্ধান করুন</button>
+                                    <input type="text" class="form-control" id="search_member_id" name="search_member_name" onchange="get_class_subject_nid" ng-model="searchParam.searchValue" placeholder="">
+                                    <button type="button" class="btn bg-navy btn-flat margin"  onclick="">অনুসন্ধান করুন</button>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <a href="index.html"> <button type="button" class="btn bg-purple btn-flat margin pull-right" value="">Add a New Survey</button></a>
@@ -78,3 +78,43 @@
     </section>
     <!-- /.content -->
 </div>
+<script type="text/javascript">
+    console.log('survey record search');
+    $(this).ready(function () {
+        $("#search_member_id").autocomplete({
+
+            minLength: 1,
+            source: function (req, add) {
+                console.log('Inside function source()');
+                $.ajax({
+                    url: "<?php echo base_url(); ?>index.php/member/survey_list_autocomplet",
+                    dataType: 'json',
+                    type: 'POST',
+                    data: req,
+                    success: function (data) {
+                        console.log('Inside function success()');
+                        if (data.response == "true") {
+                            add(data.message);
+                            console.log(data.message);
+                        }
+                    }
+                });
+            }
+
+        });
+
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    function get_class_subject_nid(search_member_name) {
+        $.ajax({
+            url: '<?php echo base_url();?>index.php/member/survey_search/' + search_member_name,
+            success: function (response) {
+                jQuery('#subject_selection_holder').html(response);
+            }
+        });
+    }
+</script>

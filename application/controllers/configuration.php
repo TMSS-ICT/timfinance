@@ -108,6 +108,31 @@ class configuration extends CI_Controller {
     }
 
     public function purpose() {
+        if (file_get_contents("php://input") != null) {
+
+            $response = array();
+            $postdata = file_get_contents("php://input");
+            $requestData = json_decode($postdata);
+            if (property_exists($requestData, "purposeInfo") != FALSE) {
+                $requestInfo = $requestData->purposeInfo;
+                $addisional_data = array();
+                if (property_exists($requestInfo, "purpose_name") != FALSE) {
+                    $addisional_data['purpose_name'] = $requestInfo->purpose_name;
+                }
+
+                $addisional_data['org_id'] = $this->session->userdata('user_id');
+                $addisional_data['employee_id'] = $this->session->userdata('user_id');
+
+                $insert_id = $this->configuration_model->add_purpose_info($addisional_data);
+            if ($insert_id != -1) {
+                $response["message"] = "Product Info  is Added Successfully!";
+            } else {
+                $response["message"] = "Sorry! Error While Adding Product Info!";
+            }
+            echo json_encode($response);
+            return;
+        }
+        }
         $this->data['test'] = "";
         $this->data['app_name'] = CONFIGURATION_APP;
         $this->template->load(MEMBER_TEMPLATE, 'configuration/purpose', $this->data);

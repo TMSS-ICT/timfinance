@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label>Sur Name:</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.lastName"  name="sur_name" placeholder="sur name"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.surName"  name="sur_name" placeholder="sur name"
                                            style="width: 100%;">
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                             <div class="form-inline">
                                 <div class="form-group col-sm-12">
                                     <label>Full Name(বাংলায়)</label>
-                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.firstName" name="first_name" placeholder="পূর্ণ নাম(বাংলায়)"
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.NameBangla" name="first_name" placeholder="পূর্ণ নাম(বাংলায়)"
                                            style="width: 100%;">
                                 </div>
                             </div>

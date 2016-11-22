@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="content-wrapper" ng-controller="configurationController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
         <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSS)</h1>
@@ -17,14 +17,9 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="form-inline">
-                                <div class="form-group col-lg-6">
-                                    <label>পারপোজ কোডঃ</label>
-                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>পারপোজ নামঃ</label>
-                                    <input type="number" class="form-control" name="dateclosing" style="width: 100%" required>
+                                <div class="form-group col-lg-12">
+                                    <label>উদ্দেশ্যের নামঃ</label>
+                                    <input type="text" class="form-control" ng-model="purposeInfo.purpose_name"  style="width: 100%" required>
                                 </div>
 
                             </div>
@@ -46,7 +41,7 @@
 
                 <div class="box-body">
                     <div class="col-sm-2 pull-right">
-                        <button type="button" class="btn btn-info btn-flat ">Save</button>
+                        <button type="button" class="btn btn-info btn-flat " ng-click="addPurpose()">Save</button>
                     </div>
                 </div>
 

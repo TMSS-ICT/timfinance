@@ -22,7 +22,15 @@ angular.module('services.Configuration', []).
                     }
                 });
             };
-           
+    configurationService.addPurpose = function (purposeInfo) {
+        return $http({
+            method: 'post',
+            url: $location.path() + $app_name + '/configuration/purpose',
+            data: {
+                purposeInfo: purposeInfo
+            }
+        });
+    };
             return configurationService;
         });
 

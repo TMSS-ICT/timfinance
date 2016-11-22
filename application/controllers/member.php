@@ -35,6 +35,36 @@ class Member extends CI_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/member_list', $this->data);
     }
 
+    public function survey_list_autocomplet()
+    {
+        $keyword = $this->input->post('term');
+        $this->db->select('nid');
+        $this->db->distinct();
+        $this->db->like('nid', $keyword);
+        $result = $this->db->get('surveys')->result();
+        $data['response'] = 'false';
+        if (!empty($result)) {
+            $data['response'] = 'true';
+            foreach ($result as $row) {
+                $data['message'][] = $row->nid;
+            }
+        }
+        echo json_encode($data); //echo json string if ajax request
+
+    }
+
+    public function survey_search($nid)
+    {
+        $this->db->select('*');
+        $this->db->from('surveys');
+        $this->db->where('nid',$nid);
+        $result=$this->get_result();
+        return $result();
+
+        print_r($result);
+        die();
+    }
+
     public function index() {
         if (file_get_contents("php://input") != null) {
             $user_name = "";
