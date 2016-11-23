@@ -29,6 +29,12 @@ class Member extends CI_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/survey_list', $this->data);
     }
 
+    public function jamindar_info() {
+        $this->data['test'] = "";
+        $this->data['app_name'] = MEMBER_APP;
+        $this->template->load(MEMBER_TEMPLATE, 'member/granter_info', $this->data);
+    }
+
     public function member_list() {
         $this->data['test'] = "";
         $this->data['app_name'] = MEMBER_APP;

@@ -60,6 +60,7 @@
             <li><a href="<?php echo base_url() . 'configuration/investor' ?>"><i class="fa fa-circle-o text-yellow"></i> <span>বিনিয়োগকারী</span></a></li>
             <li><a href="<?php echo base_url() . 'configuration/grace' ?>"><i class="fa fa-circle-o text-green"></i> <span>গ্রেছ</span></a></li>
             <li><a href="<?php echo base_url() . 'auth/logout' ?>"><i class="glyphicon glyphicon-log-out text-red"></i> <span>Logout</span></a></li>
+
 <!--            <li><a href="--><?php //// echo base_url() . 'configuration/organization' ?><!--"><i class="fa fa-circle-o text-green"></i> <span>Organization</span></a></li>-->
         </ul>
     </section>
