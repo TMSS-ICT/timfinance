@@ -121,6 +121,7 @@ angular.module('controller.Member', ['services.Member']).
                 memberService.searchMemberInfo($scope.searchParam).
                         success(function (data, status, headers, config) {
                             $scope.memberSurveyInfo = data['member_info'];
+                            console.log($scope.memberSurveyInfo);
                             $scope.allow_action = true;
                         });
             }

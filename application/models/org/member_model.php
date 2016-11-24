@@ -52,15 +52,90 @@ class Member_model extends Ion_auth_model {
         if (!empty($email)) {
             $this->db->where($this->tables['members'] . '.email', $email);
         }
-        if (!empty($email)) {
+        if (!empty($mobile)) {
             $this->db->where($this->tables['members'] . '.mobile', $mobile);
         }
         return $this->db->select('*')
                         ->from($this->tables['members'])
                         ->get();
-           return $this->db->select($this->tables['members'] . '.*,' . $this->tables['member_family_info'] . '.*'. $this->tables['member_addresses'] . '.*'. $this->tables['member_profession_info'] . '.*'. $this->tables['member_land_info'] . '.*')
-                        ->from($this->tables['members'])
-                        ->join($this->tables['members'], $this->tables['user_payment_types'] . '.id=' . $this->tables['user_payments'] . '.type_id')
+    }
+
+    public function get_member_family_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_family_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_family_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_family_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_family_info'])
+                        ->limit(1)
+                        ->get();
+    }
+    public function get_member_addresse_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_addresses'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_addresses'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_addresses'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_addresses'])
+                        ->limit(1)
+                        ->get();
+    }
+    public function get_member_profession_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_profession_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_profession_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_profession_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_profession_info'])
+                        ->limit(1)
+                        ->get();
+    }
+    public function get_member_land_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_land_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_land_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_land_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_land_info'])
+                        ->limit(1)
+                        ->get();
+    }
+    public function get_member_investment_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_investment_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_investment_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_investment_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_investment_info'])
+                        ->limit(1)
+                        ->get();
+    }
+    public function get_member_business_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_business_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_business_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_business_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_business_info'])
+                        ->limit(1)
                         ->get();
     }
 

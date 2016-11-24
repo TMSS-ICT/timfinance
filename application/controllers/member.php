@@ -19,8 +19,9 @@ class Member extends Role_Controller {
     }
 
     public function test() {
-        var_dump($this->office_info['zone_id']);
-        $this->data['test'] = "";
+        $this->load->library('member_library');
+        $member_info = $this->member_library->get_member_info(123, "", "");
+        var_dump($member_info);
         exit;
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, '', $this->data);
@@ -44,8 +45,7 @@ class Member extends Role_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/member_list', $this->data);
     }
 
-    public function survey_list_autocomplet()
-    {
+    public function survey_list_autocomplet() {
         $keyword = $this->input->post('term');
         $this->db->select('nid');
         $this->db->distinct();
@@ -59,15 +59,13 @@ class Member extends Role_Controller {
             }
         }
         echo json_encode($data); //echo json string if ajax request
-
     }
 
-    public function survey_search($nid)
-    {
+    public function survey_search($nid) {
         $this->db->select('*');
         $this->db->from('surveys');
-        $this->db->where('nid',$nid);
-        $result=$this->get_result();
+        $this->db->where('nid', $nid);
+        $result = $this->get_result();
         return $result();
 
         print_r($result);
@@ -372,7 +370,6 @@ class Member extends Role_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/index', $this->data);
     }
 
-
     public function add_addmission_info() {
         if (file_get_contents("php://input") != null) {
             $user_name = "";
@@ -578,8 +575,8 @@ class Member extends Role_Controller {
                 if (property_exists($requestInfo, "alt_earning_source") != FALSE) {
                     $member_profession_info['alt_earning_source'] = $requestInfo->alt_earning_source;
                 }
-                
-                
+
+
                 //land info
                 if (property_exists($requestInfo, "cultivable_land") != FALSE) {
                     $member_land_info['cultivable_land'] = $requestInfo->cultivable_land;
@@ -770,7 +767,7 @@ class Member extends Role_Controller {
                     $addisional_data['total_member'] = $requestInfo->total_member;
                 }
             }
-            $insert_id = $this->member_model->add_addmission_info($member_info, $member_family_info, $member_address_info, $member_profession_info,$member_land_info, $member_investment_info,  $addisional_data);
+            $insert_id = $this->member_model->add_addmission_info($member_info, $member_family_info, $member_address_info, $member_profession_info, $member_land_info, $member_investment_info, $addisional_data);
             if ($insert_id != -1) {
                 $response["message"] = "Member Addmission Information is Added Successfully!";
             } else {
@@ -846,6 +843,7 @@ class Member extends Role_Controller {
     }
 
     public function get_member_info() {
+        $this->load->library('member_library');
         if (file_get_contents("php://input") != null) {
             $user_name = "";
             $response = array();
@@ -872,10 +870,7 @@ class Member extends Role_Controller {
                 if ($searh_param == SEARCH_BY_MOBILE) {
                     $mobile = $search_value;
                 }
-                $member_info = $this->member_model->get_member_info($nid, $email, $mobile)->result_array();
-                if (!empty($result)) {
-                    $response['member_info'] = $result[0];
-                }
+                $response['member_info'] = $this->member_library->get_member_info($nid, $email, $mobile);
             }
             echo json_encode($response);
             return;
