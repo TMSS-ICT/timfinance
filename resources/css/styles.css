@@ -14,8 +14,13 @@ and open the template in the editor.
 
 /*================================  tmpl  ================================*/
 
-
-
+.btn-primary{
+    margin-right: 10px;
+}
+.container{
+  margin: 20px 0;
+}
+/*
 html, body {
     margin:0;
     padding:0;
@@ -34,7 +39,7 @@ html, body {
     left:0;
 }
 
-/*================================  COMPONENTS  ================================*/
+================================  COMPONENTS  ================================
 .mm_input{
     width:100%;  
     height:30px;  
@@ -66,7 +71,7 @@ html, body {
     display: inline-block;
 }
 
-/*================================  SECTIONS  ================================*/
+================================  SECTIONS  ================================
 #mm_friend_request {
     display: inline-block;
     cursor: pointer;
@@ -91,7 +96,7 @@ html, body {
 }
 
 
-/*================================  pagelets  ================================*/
+================================  pagelets  ================================
 .comment_box{
 
 }
@@ -118,8 +123,8 @@ html, body {
 
 
 
-/*================================  Landing Page  ================================*/
-/*================================  Hridoys css  ================================*/
+================================  Landing Page  ================================
+================================  Hridoys css  ================================
 
 .ticker_friends{
     background-color: #E9EAED;
@@ -157,7 +162,7 @@ html, body {
     border-top: 1px solid lightgray;
 }
 
-/*================================  Left Menu  ================================*/
+================================  Left Menu  ================================
 .video_ul{
     list-style-type:none;
     line-height: 28px;
@@ -184,7 +189,7 @@ html, body {
     border-bottom: 1px solid lightgray;
 }
 
-/*================================  Admin Panel  ================================*/
+================================  Admin Panel  ================================
 .borber_box_full,.borber_box_others{
     padding: 10px;
     border: 1px solid lightgray;
@@ -203,7 +208,7 @@ html, body {
 .pagelet_padding{
     padding: 0px!important;
 }
-/*================================  Search video icon ================================*/
+================================  Search video icon ================================
 
 .left-inner-addon {
     position: relative;
@@ -216,7 +221,7 @@ html, body {
     padding: 6px;
 }
 
-/*================================  Member templete ================================*/
+================================  Member templete ================================
 .body_wrapper{
     position: relative; 
     background-color: #E9EAED;
@@ -248,7 +253,7 @@ html, body {
     width: 18%;
 }
 
-/*================================  font size ================================*/
+================================  font size ================================
 .font_10px{
     font-size: 10px;
 }
@@ -262,7 +267,7 @@ html, body {
     font-size: 13px;
 }
 
-/*================================  Middle column section  ================================*/
+================================  Middle column section  ================================
 .pagination_margin{
     margin: 0!important;
 }
@@ -278,7 +283,7 @@ html, body {
     padding: 10px; 
     border-radius: 5px;
 }
-/*------------------------------------------------------------------------------------------------*/
+------------------------------------------------------------------------------------------------
 .padding_top_over_row{
     padding-top: 20px; 
 }
@@ -289,7 +294,7 @@ html, body {
     padding-top: 30px; 
 }
 
-/*================================  Left Menu  ================================*/
+================================  Left Menu  ================================
 .video_ul,.category_ul{
     list-style-type:none;
     font-weight: bold;
@@ -323,7 +328,7 @@ html, body {
 }
 
 
-/*------------------------------------invite (footer)-------------------------------------*/
+------------------------------------invite (footer)-------------------------------------
 
 .invite_item_style{
     padding: 8px 0;
@@ -335,7 +340,7 @@ html, body {
 }
 
 
-/*-------------------------------------msg box--------------------------------------*/
+-------------------------------------msg box--------------------------------------
 
 .style_left_box{
     margin-left: 30px;
@@ -410,7 +415,7 @@ html, body {
     width: 10px;
 }
 
-/*-------------------------------------CK editor--------------------------------------*/
+-------------------------------------CK editor--------------------------------------
 .cke_1 .cke_top {
     background-image: -moz-linear-gradient(center top , #A848CE, #CA79EA)!important;
     border-bottom-color: lightgrey!important;
@@ -459,7 +464,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
 
 }
 
-/*-------------------------------------Header (Auth)--------------------------------------*/
+-------------------------------------Header (Auth)--------------------------------------
 
 .margin_style{
     margin-left: -12px;
@@ -477,7 +482,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
     }
 }
 
-/*================================  Admin Panel  ================================*/
+================================  Admin Panel  ================================
 .admin_panel_left_menu_ul{
     list-style-type:none;
     line-height: 20px;
@@ -510,7 +515,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
     border-bottom: 1px solid lightgray;
 }
 
-/*--------------------------------------Non Friend Profile----------------------------------*/
+--------------------------------------Non Friend Profile----------------------------------
 .dropdown_style{
     position: absolute; 
     bottom: 20px; 
@@ -555,7 +560,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
     padding-bottom: 10px;
 }
 
-/*------------------------------------------- Admin --------------------------------- */
+------------------------------------------- Admin --------------------------------- 
 .button-custom {
     background-color: #00B050;
     color: #fff;
@@ -565,7 +570,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
     line-height: 15px;
 }
 
-/*------------------------------------------- Member (About) --------------------------------- */
+------------------------------------------- Member (About) --------------------------------- 
 
 .header_label_style{
     font-size: 18px;
@@ -606,15 +611,15 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
     font-weight: bold;
     padding: 5px 8px;
 }
-/*.user_brief_card
+.user_brief_card
 {
     border: 4px solid lightgray; 
     padding: 6px; 
     background-color: white;
-}*/
+}
 
 
-/* ------------------------- sign up page's single image style ----------------------------*/
+ ------------------------- sign up page's single image style ----------------------------
 
 .user_brief_card:hover
 {
@@ -658,7 +663,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
 .overflow-y{
     width: 8px;
 }
-/* ------------------------- reponsive style ----------------------------*/
+ ------------------------- reponsive style ----------------------------
 
 @media all and (max-width: 767px){
 
@@ -673,7 +678,7 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
 
 }
 
-/* ------------------------- newsfeed ----------------------------*/
+ ------------------------- newsfeed ----------------------------
 
 .dropdown-menu {
     font-size: 11px;
@@ -808,11 +813,11 @@ a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active, a.cke_b
 
 
 
-/*author: Salma
+author: Salma
 modified: A.K.M. NAZMUL ISLAM
 version:3.5/*
 
-/*--------------------- member ------------------------------*/
+/*--------------------- member ------------------------------
 
 @font-face {
     font-family: IcelandRegular;
@@ -825,9 +830,9 @@ version:3.5/*
 .reg_form_bg{
     background-color: #FFFFFF!important;
 }
-/*.volunteer_form_bg{
+.volunteer_form_bg{
     background-color: #EDF0F5; 
-}*/
+}
 .reg_form_content_bg{
     font-family: OswaldLight;
     background-color: #009D00!important;
@@ -855,13 +860,13 @@ version:3.5/*
     padding: 20px 40px;
     border-radius: 5px; 
 }
-/*.volunterform_bg_style{
+.volunterform_bg_style{
    background-color:#52B5CE;
    padding-bottom: 16px;
    height: 300px; 
    overflow-y: scroll; 
    overflow-x: hidden;
-}*/
+}
 
 .big_header_text{
     font-family: monospace;
@@ -1172,13 +1177,13 @@ body {
     padding-bottom:10px;
 }
 
-/* navbar */
+ navbar 
 .navbar {
     margin-bottom: 0px !important;
 }
 
 
-/* title */
+ title 
 .navbar-default .navbar-brand {
     color: #fff;
     font-weight:bold;
@@ -1188,7 +1193,7 @@ body {
 .navbar-default .navbar-brand:focus {
     color: #fff;
 }
-/* link */
+ link 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }
@@ -1208,7 +1213,7 @@ body {
     color: #fff;
     background-color: #005798;
 }
-/* caret */
+ caret 
 .navbar-default .navbar-nav > .dropdown > a .caret {
     border-top-color: #fff;
     border-bottom-color: #fff;
@@ -1233,7 +1238,7 @@ body {
 }
 
 
-/* mobile version */
+ mobile version 
 .navbar-default .navbar-toggle {
     border-color: #fff;
 }
@@ -1653,9 +1658,9 @@ ul.shortcurt li:hover{border:1px solid #898F9C}
 ul.shortcurt li a:hover{color:#333;}
 
 
-/***********************************************/
-/*    Color Theme Choose                       /*
-/***********************************************/
+*********************************************
+    Color Theme Choose                       /*
+/**********************************************
 
 .colorbox{
     width:134px;
@@ -1686,29 +1691,29 @@ ul.shortcurt li a:hover{color:#333;}
     float: left;
 }
 
-/*default*/
+default
 
 .colorbox.default span.hover{background: #005798 !important;}
 
-/*red*/
+red
 .colorbox.red span.base{background: #db4437 !important;}
 .colorbox.red span.hover{background: #c53929 !important;}
 
-/*green*/
+green
 .colorbox.green span.base{background: #009688 !important;}
 .colorbox.green span.hover{background: #00796B !important;}
 
-/*pink*/
+pink
 .colorbox.pink span.base{background: #E91E63 !important;}
 .colorbox.pink span.hover{background: #C2185B !important;}
 
-/*brown*/
+brown
 .colorbox.brown span.base{background: #795548 !important;}
 .colorbox.brown span.hover{background: #5D4037 !important;}
 
-/*gray*/
+gray
 .colorbox.gray span.base{background: #607D8B !important;}
 .colorbox.gray span.hover{background: #546E7A !important;}
 
 
-
+*/

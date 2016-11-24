@@ -11,7 +11,7 @@
  *
  * @author rashida
  */
-class configuration extends CI_Controller {
+class configuration extends Role_Controller {
 
     function __construct() {
         parent::__construct();

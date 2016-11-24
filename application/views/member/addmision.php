@@ -327,6 +327,40 @@
 
                         </div>
                     </div>
+                      <div class="box-header with-border">
+                        <h3 class="box-title "><u>যোগাযোগঃ</u></h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-inline">
+                                <div class="form-group col-lg-3">
+                                    <label>মোবাইল নংঃ </label>
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.mobile" placeholder=""
+                                           style="width: 100%;">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>ইমেইলঃ </label>
+                                    <input type="email" class="form-control" ng-model="memberSurveyInfo.email" placeholder=""   style="width: 100%;">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>অভিভাবকের মোবাইল নংঃ </label>
+                                    <input type="text" class="form-control" ng-model="memberSurveyInfo.guardian_mobile"  placeholder=""
+                                           style="width: 100%;">
+
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label>শাখা অফিসের দুরুত্ব (কিঃ মিঃ)</label>
+                                    <select class="form-control" ng-model="memberSurveyInfo.s_distance"  style="width: 100%;">
+                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option ng-repeat="memberInfo in memberNoList" value={{memberInfo}} >{{memberInfo}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
 
                     <div class="box-header with-border">
                         <h3 class="box-title "><u>সম্ভাব্য সদস্যের বর্তমান ঠিকানা</u></h3>
@@ -511,7 +545,7 @@
                         </div>
                     </div>
 
-                    <div class="box-header with-border">
+<!--                    <div class="box-header with-border">
                         <h3 class="box-title "><u>যোগাযোগঃ</u></h3>
                     </div>
                     <div class="box-body">
@@ -544,7 +578,7 @@
 
 
                         </div>
-                    </div>
+                    </div>-->
                     <div class="box-header with-border">
                         <h3 class="box-title "><u>সদস্যের পেশা সংক্রান্ত তথ্যঃ </u></h3>
                     </div>
@@ -555,7 +589,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>পেশা</label>
                                     <select class="form-control" ng-model="memberSurveyInfo.current_profession_id"name="member_profession" style="width: 100%;">
-                                        <option selected="">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
                                     </select>
                                 </div>
@@ -563,7 +597,7 @@
                                 <div class="form-group col-sm-3">
                                     <label>বর্তমান পেশার পূর্বে তিনি কি করতেন</label>
                                     <select class="form-control"  ng-model="memberSurveyInfo.previous_profession_id" style="width: 100%;">
-                                        <option selected="">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="professionInfo in proList" value={{professionInfo.id}} >{{professionInfo.name}}</option>
                                     </select>
                                 </div>
@@ -571,7 +605,7 @@
                                     <label>সেই পেশায় কতদিন নিয়োজিত ছিলেন(মাস)</label>
                                     <select class="form-control" ng-model="previous_p_year_id"
                                             style="width: 100%;">
-                                        <option selected="">নির্বাচন করুন</option>
+                                        <option value="">নির্বাচন করুন</option>
                                         <option ng-repeat="memberInfo in memberNoList" value={{memberInfo}} >{{memberInfo}}</option>
                                     </select>
                                 </div>

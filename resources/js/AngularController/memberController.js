@@ -136,8 +136,50 @@ angular.module('controller.Member', ['services.Member']).
                             $scope.allow_action = true;
                         });
             }
-
-
+//list dynamic view
+            $scope.personalDetails = [
+    	        {
+    	            'fname':'Muhammed',
+    	            'lname':'Shanid',
+    	            'email':'shanid@shanid.com'
+    	        },
+    	        {
+    	            'fname':'John',
+    	            'lname':'Abraham',
+    	            'email':'john@john.com'
+    	        },
+    	        {
+    	            'fname':'Roy',
+    	            'lname':'Mathew',
+    	            'email':'roy@roy.com'
+    	        }];
+    	    
+    	        $scope.addNew = function(personalDetails){
+                    var testObj = {};
+                    $scope.personalDetails.push({});
+    	        };
+    	    
+    	        $scope.remove = function(){
+    	            var newDataList=[];
+    	            $scope.selectedAll = false;
+    	            angular.forEach($scope.personalDetails, function(selected){
+    	                if(!selected.selected){
+    	                    newDataList.push(selected);
+    	                }
+    	            }); 
+    	            $scope.personalDetails = newDataList;
+    	        };
+    	    
+    	        $scope.checkAll = function () {
+    	            if (!$scope.selectedAll) {
+    	                $scope.selectedAll = true;
+    	            } else {
+    	                $scope.selectedAll = false;
+    	            }
+    	            angular.forEach($scope.personalDetails, function (personalDetails) {
+    	                personalDetails.selected = $scope.selectedAll;
+    	            });
+    	        }; 
 
         });
 

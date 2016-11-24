@@ -1,4 +1,5 @@
 angular.module("app.Member", [
+    'controller.Header',
     'controller.Member',
     'controllers.ImageCopper',
     'ui.bootstrap'

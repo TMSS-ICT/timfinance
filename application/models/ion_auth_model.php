@@ -803,12 +803,10 @@ class Ion_auth_model extends CI_Model {
         }
 
         $this->trigger_events('extra_where');
-
-        $query = $this->db->select($this->identity_column . ', username, email, id, password, account_status_id, last_login')
+        $query = $this->db->select($this->identity_column . ', username, email, id, password, account_status_id, last_login, office_id, dept_id, designation')
                 ->where($this->identity_column, $this->db->escape_str($identity))
                 ->limit(1)
                 ->get($this->tables['users']);
-
         if ($this->is_time_locked_out($identity)) {
             //Hash something anyway, just to take up time
             $this->hash_password($password);
@@ -1464,12 +1462,13 @@ class Ion_auth_model extends CI_Model {
             'identity' => $user->{$this->identity_column},
             'username' => $user->username,
             'email' => $user->email,
+            'dept_id' => $user->dept_id,
+            'office_id' => $user->office_id,
+            'designation' => $user->designation,
             'user_id' => $user->id, //everyone likes to overwrite id so we'll use user_id
             'old_last_login' => $user->last_login
         );
-
         $this->session->set_userdata($session_data);
-
         $this->trigger_events('post_set_session');
 
         return TRUE;

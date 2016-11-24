@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/AdminLTE.css">
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/skins/_all-skins.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/styles.css">
 
         <!--<Date picker css>-->
 <!--        <link rel="stylesheet" href="--><?php ////echo base_url(); ?><!--<!--resources/css/superadmin/zebra_datePicker.css" type="text/css">-->
@@ -54,6 +55,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/memberController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/configurationController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/imageCropController.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/headerController.js"></script>
 
         <!--<angular Apps>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularApp/memberApp.js"></script>

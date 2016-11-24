@@ -13,6 +13,8 @@ class Member_model extends Ion_auth_model {
 
     public function __construct() {
         parent::__construct();
+        $this->load->config('ion_auth', TRUE);
+        $this->lang->load('ion_auth');
     }
 
     /*
@@ -27,6 +29,7 @@ class Member_model extends Ion_auth_model {
         $id = $this->db->insert_id();
         return isset($id) ? $id : FALSE;
     }
+
     public function get_survey_info($nid = "", $email = "", $mobile = 0) {
         if (!empty($nid)) {
             $this->db->where($this->tables['surveys'] . '.nid', $nid);
@@ -41,6 +44,7 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['surveys'])
                         ->get();
     }
+
     public function get_member_info($nid = "", $email = "", $mobile = 0) {
         if (!empty($nid)) {
             $this->db->where($this->tables['members'] . '.nid', $nid);
@@ -54,13 +58,43 @@ class Member_model extends Ion_auth_model {
         return $this->db->select('*')
                         ->from($this->tables['members'])
                         ->get();
+           return $this->db->select($this->tables['members'] . '.*,' . $this->tables['member_family_info'] . '.*'. $this->tables['member_addresses'] . '.*'. $this->tables['member_profession_info'] . '.*'. $this->tables['member_land_info'] . '.*')
+                        ->from($this->tables['members'])
+                        ->join($this->tables['members'], $this->tables['user_payment_types'] . '.id=' . $this->tables['user_payments'] . '.type_id')
+                        ->get();
     }
-    
-    public function add_addmission_info($additional_data) {
-        $data = $this->_filter_data($this->tables['members'], $additional_data);
-        $this->db->insert($this->tables['members'], $data);
-        $id = $this->db->insert_id();
-        return isset($id) ? $id : FALSE;
+
+    public function add_addmission_info($member_info, $member_family_info, $member_address_info, $member_profession_info, $member_land_info, $member_investment_info, $additional_data) {
+        $this->db->trans_begin();
+        $member_info = $this->_filter_data($this->tables['members'], $member_info);
+        $this->db->insert($this->tables['members'], $member_info);
+        $member_id = $this->db->insert_id();
+        $member_family_info['member_id'] = $member_id;
+        $member_address_info['member_id'] = $member_id;
+        $member_profession_info['member_id'] = $member_id;
+        $member_land_info['member_id'] = $member_id;
+        $member_investment_info['member_id'] = $member_id;
+        $additional_data['member_id'] = $member_id;
+        $nid = $member_info['nid'];
+        $member_family_info['nid'] = $nid;
+        $member_address_info['nid'] = $nid;
+        $member_profession_info['nid'] = $nid;
+        $member_land_info['nid'] = $nid;
+        $member_investment_info['nid'] = $nid;
+        $additional_data['nid'] = $nid;
+        $member_family_info = $this->_filter_data($this->tables['member_family_info'], $member_family_info);
+        $this->db->insert($this->tables['member_family_info'], $member_family_info);
+        $member_address_info = $this->_filter_data($this->tables['member_addresses'], $member_address_info);
+        $this->db->insert($this->tables['member_addresses'], $member_address_info);
+        $member_profession_info = $this->_filter_data($this->tables['member_profession_info'], $member_profession_info);
+        $this->db->insert($this->tables['member_profession_info'], $member_profession_info);
+        $member_land_info = $this->_filter_data($this->tables['member_land_info'], $member_land_info);
+        $this->db->insert($this->tables['member_land_info'], $member_land_info);
+        $member_investment_info = $this->_filter_data($this->tables['member_investment_info'], $member_investment_info);
+        $this->db->insert($this->tables['member_investment_info'], $member_investment_info);
+        $additional_data = $this->_filter_data($this->tables['member_business_info'], $additional_data);
+        $this->db->insert($this->tables['member_business_info'], $additional_data);
+        $this->db->trans_commit();
     }
 
     /*
@@ -69,7 +103,10 @@ class Member_model extends Ion_auth_model {
      * @author rashida on 12th Nov 2016
      */
 
-    public function get_zone_list() {
+    public function get_zone_list($zone_id = 0) {
+        if ($zone_id != 0) {
+            $this->db->where($this->tables['zones'] . '.id', $zone_id);
+        }
         return $this->db->select('*')
                         ->from($this->tables['zones'])
                         ->get();
@@ -81,9 +118,12 @@ class Member_model extends Ion_auth_model {
      * @author rashida on 12th Nov 2016
      */
 
-    public function get_area_list($zone_id = 0) {
+    public function get_area_list($zone_id = 0, $area_id = 0) {
         if ($zone_id != 0) {
             $this->db->where($this->tables['areas'] . '.zone_id', $zone_id);
+        }
+        if ($area_id != 0) {
+            $this->db->where($this->tables['areas'] . '.id', $area_id);
         }
         return $this->db->select('*')
                         ->from($this->tables['areas'])
@@ -96,9 +136,12 @@ class Member_model extends Ion_auth_model {
      * @author rashida on 12th Nov 2016
      */
 
-    public function get_branch_list($area_id = 0) {
+    public function get_branch_list($area_id = 0, $branch_id = 0) {
         if ($area_id != 0) {
-            $this->db->where($this->tables['areas'] . '.area_id', $area_id);
+            $this->db->where($this->tables['branches'] . '.area_id', $area_id);
+        }
+        if ($branch_id != 0) {
+            $this->db->where($this->tables['branches'] . '.id', $branch_id);
         }
         return $this->db->select('*')
                         ->from($this->tables['branches'])
@@ -146,8 +189,7 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['thanas'])
                         ->get();
     }
-    
-    
+
     public function get_country_list() {
         return $this->db->select('*')
                         ->from($this->tables['countries'])
@@ -166,11 +208,12 @@ class Member_model extends Ion_auth_model {
                         ->get();
     }
 
-      public function get_union_list() {
+    public function get_union_list() {
         return $this->db->select('*')
                         ->from($this->tables['unions'])
                         ->get();
     }
+
     /*
      * This method will return gender List
      * @return gender List
@@ -242,7 +285,7 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['educations'])
                         ->get();
     }
-    
+
     public function get_payment_type_list() {
         return $this->db->select('*')
                         ->from($this->tables['payment_types'])
