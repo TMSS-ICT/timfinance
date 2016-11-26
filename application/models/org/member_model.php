@@ -382,6 +382,26 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['payment_types'])
                         ->get();
     }
+    public function get_member_groups_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['member_groups'])
+                        ->get();
+    }
+    public function get_member_cash_inflow_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['member_cash_inflow'])
+                        ->get();
+    }
+    public function get_member_cash_outflow_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['member_cash_outflow'])
+                        ->get();
+    }
+    public function get_monthly_income_expence_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['monthly_income_expence'])
+                        ->get();
+    }
 
 }
 

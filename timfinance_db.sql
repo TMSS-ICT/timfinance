@@ -424,24 +424,6 @@ INSERT INTO `m_groups` (`id`, `branch_id`, `name`) VALUES
 
 
 
--- CREATE TABLE IF NOT EXISTS `loan_application` (
---   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
---   `member_id` int(11) unsigned NOT NULL,
---   `group_id` int(11) unsigned NOT NULL,
---   `created_on` int(11) unsigned NOT NULL,
---   `member_no` int(11) unsigned NOT NULL,
---    `group_no` int(11) unsigned NOT NULL,
---    `investment_date` int(11) unsigned NOT NULL,
---    `daphah_deduction` int(11) DEFAULT NULL,
---    `application_subject` int(11) DEFAULT NULL,
---   `name` varchar(200) NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
--- ALTER TABLE `m_groups`
---   ADD CONSTRAINT `fk_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
--- INSERT INTO `m_groups` (`id`, `branch_id`, `name`) VALUES
--- (1, 1, "Ranigong");
-
 
 
 
@@ -575,9 +557,11 @@ CREATE TABLE IF NOT EXISTS `members` (
   `mobile` varchar(20) DEFAULT NULL,
   `email` varchar(20) DEFAULT NULL,
 `s_distance` int(11) unsigned DEFAULT NULL,
+`reference_id` int(11) unsigned NOT NULL,
  PRIMARY KEY  (`id`, `nid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 ALTER TABLE `members`
+  ADD CONSTRAINT `fk_reference_user_id_member` FOREIGN KEY (`reference_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_zone1` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_area1` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_branch1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -765,6 +749,139 @@ CREATE TABLE IF NOT EXISTS `member_business_info` (
 ALTER TABLE `member_business_info`
   ADD CONSTRAINT `fk_business_member_id` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+CREATE TABLE IF NOT EXISTS `cash_inflow` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+INSERT INTO `cash_inflow` (`id`, `name`, `description`) VALUES
+(1, 'test', 'test'),
+(2, ' member', 'test Member');
+CREATE TABLE IF NOT EXISTS `cash_outflow` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+INSERT INTO `cash_outflow` (`id`, `name`, `description`) VALUES
+(1, 'test', 'test'),
+(2, ' member', 'test Member');
 
+CREATE TABLE IF NOT EXISTS `member_parties` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `branch_id` int(11) unsigned NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+INSERT INTO `member_parties` (`id`, `name`, `description`) VALUES
+(1, 'beli', 'beli'),
+(2, ' Chamily', 'Chamily');
+
+
+CREATE TABLE IF NOT EXISTS `loan_applications` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) unsigned NOT NULL,
+ `zone_id` int(11) unsigned NOT NULL,
+  `area_id` int(11) unsigned NOT NULL,
+  `branch_id` int(11) unsigned NOT NULL,
+  `nid` varchar(50) NOT NULL,
+  `party_id` mediumint(11) unsigned NOT NULL,
+  `created_on` int(11) unsigned NOT NULL,
+  `member_no` int(11) unsigned NOT NULL,
+  `group_no` int(11) unsigned NOT NULL,
+   `investment_date` int(11) unsigned NOT NULL,
+   `point_deduction` int(11) unsigned NOT NULL,
+   `application_subject` int(11) DEFAULT NULL,
+  `name_title` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `sur_name` varchar(100) DEFAULT NULL,
+  `gender_id` int(11) unsigned DEFAULT NULL,
+  `age` int(11) unsigned DEFAULT NULL,
+  `education_id` int(11) unsigned DEFAULT NULL,
+  `passing_year` int(11) unsigned DEFAULT NULL,
+ `marital_id` int(11) unsigned DEFAULT NULL,
+ `political_status_id` int(11) unsigned DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  `email` varchar(20) DEFAULT NULL,
+`s_distance` int(11) unsigned DEFAULT NULL,
+`reference_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
+ALTER TABLE `loan_applications`
+  ADD CONSTRAINT `fk_user_loan_idx` FOREIGN KEY (`reference_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_member_loan` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_zone_loan` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_area_loan` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_branch_loan` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_group_loan` FOREIGN KEY (`party_id`) REFERENCES `member_parties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_gender_loan` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_education_loan` FOREIGN KEY (`education_id`) REFERENCES `educations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_marital_loan` FOREIGN KEY (`marital_id`) REFERENCES `marital_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_political_status_loan` FOREIGN KEY (`political_status_id`) REFERENCES `political_statuses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+
+CREATE TABLE IF NOT EXISTS `member_cash_inflow` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+   `member_id` int(11) unsigned NOT NULL,
+  `loan_id` int(11) unsigned NOT NULL,
+  `cash_flow_id` int(11) unsigned NOT NULL,
+  `amount` varchar(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `member_cash_inflow`
+ADD CONSTRAINT `fk_loan_inflow_idx` FOREIGN KEY (`loan_id`) REFERENCES `loan_applications` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_member_inflow_indx` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE IF NOT EXISTS `member_cash_outflow` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+   `member_id` int(11) unsigned NOT NULL,
+  `loan_id` int(11) unsigned NOT NULL,
+  `cash_flow_id` int(11) unsigned NOT NULL,
+  `amount` varchar(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `member_cash_inflow`
+ADD CONSTRAINT `fk_loan_outflow_idx` FOREIGN KEY (`loan_id`) REFERENCES `loan_applications` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_member_outflow` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+CREATE TABLE IF NOT EXISTS `monthly_income_expence` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+   `member_id` int(11) unsigned NOT NULL,
+  `loan_id` int(11) unsigned NOT NULL,
+  `project_type_id` int(11) unsigned NOT NULL,
+  `amount` varchar(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `monthly_income_expence`
+ADD CONSTRAINT `fk_loan_in_ex_idx` FOREIGN KEY (`loan_id`) REFERENCES `loan_applications` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_member_in_ex_idx` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE IF NOT EXISTS `member_documentation` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+   `member_id` int(11) unsigned NOT NULL,
+  `loan_id` int(11) unsigned NOT NULL,
+  `type_id` int(11) unsigned NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `member_documentation`
+ADD CONSTRAINT `fk_loan_docu_idx` FOREIGN KEY (`loan_id`) REFERENCES `loan_applications` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_member_docu_idx` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE IF NOT EXISTS `assets_debt_info` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) unsigned NOT NULL,
+  `loan_id` int(11) unsigned NOT NULL,
+  `type_id` int(11) unsigned NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `amount` varchar(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `assets_debt_info`
+ADD CONSTRAINT `fk_loan_asset_dept` FOREIGN KEY (`loan_id`) REFERENCES `loan_applications` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `fk_member_asset_dept` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
  
