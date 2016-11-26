@@ -22,10 +22,22 @@ angular.module('controller.Member', ['services.Member']).
             $scope.postList = [];
             $scope.paymentTypeList = [];
             $scope.memberNoList = [];
+            $scope.surveyList = [];
+            $scope.memberList = [];
             $scope.allow_action = true;
 
             $scope.setPaymentTypeList = function (paymentTypeList) {
                 $scope.paymentTypeList = JSON.parse(paymentTypeList);
+            }
+
+            $scope.setSurveyList = function (surveyList) {
+                $scope.surveyList = JSON.parse(surveyList);
+                console.log($scope.surveyList);
+            }
+
+            $scope.setMemberInfoList = function (memberList) {
+                $scope.memberList = JSON.parse(memberList);
+                console.log($scope.memberList);
             }
             $scope.setUnionList = function (unionList) {
                 $scope.unionList = JSON.parse(unionList);

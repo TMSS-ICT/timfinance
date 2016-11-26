@@ -37,6 +37,12 @@ class configuration extends Role_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'configuration/investor', $this->data);
     }
 
+    public function welcome_page() {
+        $this->data['test'] = "";
+        $this->data['app_name'] = CONFIGURATION_APP;
+        $this->template->load(MEMBER_TEMPLATE, 'dashboard/dashboard', $this->data);
+    }
+
     public function product() {
         if (file_get_contents("php://input") != null) {
             $user_name = "";

@@ -45,6 +45,22 @@ class Member_model extends Ion_auth_model {
                         ->get();
     }
 
+
+    public function get_survey_list()
+    {
+        return $this->db->select('*')
+            ->from($this->tables['surveys'])
+            ->get();
+    }
+
+    public function get_member_list()
+    {
+        return $this->db->select('*')
+            ->from($this->tables['members'])
+            ->get();
+    }
+
+
     public function get_member_info($nid = "", $email = "", $mobile = 0) {
         if (!empty($nid)) {
             $this->db->where($this->tables['members'] . '.nid', $nid);

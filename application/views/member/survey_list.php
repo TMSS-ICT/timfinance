@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example2" class="table table-bordered table-hover" ng-init="setSurveyList('<?php echo htmlspecialchars(json_encode($survey_list)) ?>')">
                             <thead>
                             <tr>
                                 <th>Sl No</th>
@@ -57,15 +57,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>X</td>
-                                <td>X</td>
+                            <tr ng-repeat="(key, surveyInfo) in surveyList">
+                                <td>{{key+1}}</td>
+                                <td>{{surveyInfo.id}}</td>
+                                <td>{{surveyInfo.nid}}</td>
+                                <td>{{surveyInfo.name_title}} {{surveyInfo.first_name}} {{surveyInfo.last_name}}</td>
+                                <td>{{surveyInfo.mobile}}</td>
+                                <td>{{surveyInfo.email}}</td>
                             </tr>
 
                             </tbody>

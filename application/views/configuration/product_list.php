@@ -23,7 +23,7 @@
                                     <button type="button" class="btn bg-navy btn-flat margin" ng-click="searchSurveyInfo()">অনুসন্ধান করুন</button>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <a href="<?php echo base_url() . 'member/add_addmission_info' ?>"><button type="button" class="btn bg-purple btn-flat margin pull-right" value="">Add a New Member</button></a>
+                                    <a href="<?php echo base_url() . 'member/product' ?>"><button type="button" class="btn bg-purple btn-flat margin pull-right" value="">Add a New Product</button></a>
                                 </div>
 
 
