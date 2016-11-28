@@ -54,6 +54,8 @@
                                 <th>Name</th>
                                 <th>Phone No</th>
                                 <th>Email ID</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -64,6 +66,8 @@
                                 <td>{{memberInfo.name_title}} {{memberInfo.first_name}} {{memberInfo.last_name}}</td>
                                 <td>{{memberInfo.mobile}}</td>
                                 <td>{{memberInfo.email}}</td>
+                                <td>Edit</td>
+                                <td>Delete</td>
                             </tr>
 
                             </tbody>

@@ -1,8 +1,8 @@
 <div class="content-wrapper" ng-controller="memberController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h4 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TIMF)</h4>
-        <p class="text-blue text-center"><u>সদস্য তালিকা</u></p>
+        <h4 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h4>
+        <p class="text-blue text-center"><u>প্রতিষ্ঠানের তালিকা</u></p>
     </section>
 
     <!-- Main content -->
@@ -23,7 +23,7 @@
                                     <button type="button" class="btn bg-navy btn-flat margin" ng-click="searchSurveyInfo()">অনুসন্ধান করুন</button>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <a href="<?php echo base_url() . 'member/add_addmission_info' ?>"><button type="button" class="btn bg-purple btn-flat margin pull-right" value="">Add a New Member</button></a>
+                                    <a href="<?php echo base_url() . 'configuration/organization_settings' ?>"><button type="button" class="btn bg-purple btn-flat margin pull-right" value="">Add a New Organization</button></a>
                                 </div>
 
 
@@ -41,7 +41,7 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title ">Member List</h3>
+                        <h3 class="box-title ">Organizations List</h3>
                     </div>
 
                     <div class="box-body">

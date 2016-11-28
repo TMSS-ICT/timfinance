@@ -46,5 +46,5 @@ angular.module('controller.List', []).
     	            angular.forEach($scope.personalDetails, function (personalDetails) {
     	                personalDetails.selected = $scope.selectedAll;
     	            });
-    	        };    
+    	        };
     	}]);

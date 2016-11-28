@@ -1,7 +1,7 @@
 <div class="content-wrapper" ng-controller="memberController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h1>
+        <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMIMF)</h1>
         <p class="text-blue text-center"><u>ঋণ আবেদন ফরম</u></p>
     </section>
 
@@ -82,56 +82,66 @@
                 </div>
 
                 <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title text-aqua">দাখিল্কৃত দলিল ও কাগজপত্রাদি</h3>
+                    </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <form ng-submit="addNew()">
-                                            <table class="table table-striped table-bordered">
-                                                <tbody>
-                                                <tr ng-repeat="personalDetail in personalDetails">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <tbody>
+                            <tr>
+                                <td><input type="checkbox" ></td>
+                                <td>মূল দলিল/দলিলের রশিদ</td>
+                                <td><input type="file" >Upload </td>
 
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.sl_no" required/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.amount_taka" required/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" ng-model="personalDetail.selected"/>
-                                                    </td>
+                                <td><input type="checkbox" ></td>
+                                <td>খাজনার DCR</td>
+                                <td><input type="file" >Upload </td>
 
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.sl_no" required/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.amount_taka" required/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="checkbox" ng-model="personalDetail.selected"/>
-                                                    </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" ></td>
+                                <td>মাঠ পরচা, খতিয়ান/খারিজের CDR</td>
+                                <td><input type="file" >Upload </td>
 
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                <td><input type="checkbox" ></td>
 
-                                            <div class="form-group">
-                                                <input ng-hide="!personalDetails.length" type="button"
-                                                       class="btn btn-danger pull-right" ng-click="remove()"
-                                                       value="Remove">
-                                                <input type="submit" class="btn btn-primary addnew pull-right"
-                                                       value="Add New">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                <td>দোকানের ডিড</td>
+                                <td><input type="file" >Upload </td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" ></td>
+                                <td>ট্রেড লাইসেন্স</td>
+                                <td><input type="file" >Upload </td>
+
+                                <td><input type="checkbox" ></td>
+
+                                <td>গাড়ির রেজিঃ বা মূল কাগজ</td>
+                                <td><input type="file" >Upload </td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" ></td>
+                                <td>নাগইত্ত্ব সনদ</td>
+                                <td><input type="file" >Upload </td>
+                                <td><input type="checkbox" ></td>
+
+                                <td>ব্যাংক হিসাবের ব্লাঙ্ক চেক (MICR)</td>
+                                <td><input type="file" >Upload </td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" ></td>
+                                <td>অঙ্গীকারনামা (ষ্ট্যাম্পে)</td>
+                                <td><input type="file" >Upload </td>
+                                <td><input type="checkbox" ></td>
+
+                                <td>জামিন্দারের তথ্য</td>
+                                <td><input type="file" >Upload </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
