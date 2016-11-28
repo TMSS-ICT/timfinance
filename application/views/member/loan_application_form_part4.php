@@ -1,7 +1,7 @@
 <div class="content-wrapper" ng-controller="memberController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h1>
+        <h1 class="text-aqua text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMIMF)</h1>
         <p class="text-blue text-center"><u>ঋণ আবেদন ফরম</u></p>
     </section>
 

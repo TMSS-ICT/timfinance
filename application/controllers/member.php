@@ -45,6 +45,12 @@ class Member extends Role_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/member_list', $this->data);
     }
 
+    public function loan_list() {
+        $this->data['loan_list'] = $this->member_model->get_loan_list()->result_array();
+        $this->data['app_name'] = MEMBER_APP;
+        $this->template->load(MEMBER_TEMPLATE, 'member/loan_list', $this->data);
+    }
+
     public function survey_list_autocomplet() {
         $keyword = $this->input->post('term');
         $this->db->select('nid');

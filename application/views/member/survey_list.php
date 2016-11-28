@@ -54,6 +54,8 @@
                                 <th>Name</th>
                                 <th>Phone No</th>
                                 <th>Email ID</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -64,6 +66,11 @@
                                 <td>{{surveyInfo.name_title}} {{surveyInfo.first_name}} {{surveyInfo.last_name}}</td>
                                 <td>{{surveyInfo.mobile}}</td>
                                 <td>{{surveyInfo.email}}</td>
+                                <td><a class="btn btn-app">
+                                        <i class="fa fa-edit"></i> Edit
+                                    </a>
+                                </td>
+                                <td>Delete</td>
                             </tr>
 
                             </tbody>

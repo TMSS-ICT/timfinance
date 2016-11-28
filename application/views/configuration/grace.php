@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSS)</h1>
+        <h1 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TIMF)</h1>
         <p class="text-aqua text-center"><u>প্রতিষ্ঠানের তথ্য প্রদান করুন</u></p>
     </section>
 
@@ -20,7 +20,7 @@
                                 <div class="form-group col-lg-6">
                                     <label>গ্রেচ আইডিঃ</label>
                                     <select class="form-control " name="zone_name" style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
+                                        <option selected="selected">..Select..</option>
                                         <option>001</option>
                                         <option>002</option>
                                         <option>003</option>
@@ -42,11 +42,10 @@
                                 <div class="form-group col-lg-12">
                                     <label>সমিতির নামঃ</label>
                                     <select class="form-control " name="zone_name" style="width: 100%;">
-                                        <option selected="selected">নির্বাচন করুন</option>
-                                        <option>টি এম এস এস</option>
-                                        <option>ব্রাক</option>
-                                        <option>আশা</option>
-
+                                        <option selected="selected">..Select..</option>
+                                        <option>TMSS</option>
+                                        <option>Brac</option>
+                                        <option>Asha</option>
                                     </select>
                                 </div>
                             </div>

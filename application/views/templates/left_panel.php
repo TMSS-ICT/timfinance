@@ -26,7 +26,6 @@
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url() . 'member/survey_list' ?>"><i class="fa fa-user-o"></i>Survey
                             List</a></li>
-                    <li><a href="index.html"><i class="fa fa-user-plus"></i>New Survey</a></li>
                 </ul>
             </li>
 
@@ -40,8 +39,6 @@
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url() . 'member/member_list' ?>"><i class="fa fa-user-o"></i>সদস্য
                             তালিকা</a></li>
-                    <li><a href="<?php echo base_url() . 'member/add_addmission_info' ?>"><i
-                                class="fa fa-user-plus"></i>সদস্য যোগ করুণ</a></li>
                 </ul>
             </li>
 

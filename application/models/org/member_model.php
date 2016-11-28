@@ -60,6 +60,13 @@ class Member_model extends Ion_auth_model {
             ->get();
     }
 
+    public function get_loan_list()
+    {
+        return $this->db->select('*')
+            ->from($this->tables['loan_application'])
+            ->get();
+    }
+
 
     public function get_member_info($nid = "", $email = "", $mobile = 0, $member_id = 0) {
         if (!empty($nid)) {
