@@ -12,7 +12,7 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class="box box-primary" >
                     <div class="box-header with-border">
                         <h3 class="box-title ">Cash Flow/ অর্থ প্রবাহ বিবরণী (মাসিক সর্বনিম্ন)</h3>
                     </div>
@@ -26,10 +26,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <form ng-submit="addNew()">
-                                            <table class="table table-striped table-bordered">
-                                                <thead>
+                                    <div class="panel-body" ng-init="setInflowList('<?php echo htmlspecialchars(json_encode($inflow_list)) ?>')">
+                                        <!--<form ng-submit="addNew()">-->
+                                        <table class="table table-striped table-bordered">
+                                            <thead>
                                                 <tr class="">
                                                     <th colspan="4" style="width: 50% ;text-align: center">Cash Inflow
                                                         (অর্থ আগমন)
@@ -42,42 +42,42 @@
                                                     <th>সেবা/পণ্য বিক্রয়ের বিবরণ</th>
                                                     <th>টাকার পরিমাণ</th>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr ng-repeat="personalDetail in personalDetails">
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="(key, infowInfo) in inflowsRow">
                                                     <td>
-                                                        <input type="checkbox" ng-model="personalDetail.selected"/>
+                                                        <input type="checkbox" ng-model="infowInfo.selected"/>
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.sl_no" required/>
+                                                        {{key + 1}}
                                                     </td>
                                                     <td>
-                                                        <select class="form-control" ng-model="personalDetail.fname"
-                                                                required>
-                                                            <option selected="selected">ঢাকা</option>
-                                                            <option>পাবনা</option>
-                                                            <option>বগুড়া</option>
-                                                            <option>নাটোর</option>
+                                                        <input id="name_{{key}}" type="text" class="form-control" onclick="showDropdown(angular.element(this).scope().key)"
+                                                               ng-model="infowInfo.name" required/>
+                                                        <select class="form-control " style="width: 100%; display: none" id="option_{{key}}" ng-model="infowInfo.cash_inflow_id" ng-change="inflowValidation(infowInfo)">
+                                                            <option value="">নির্বাচন করুন</option>/option>
+                                                            <option ng-repeat="branchInfo in infowList" value={{branchInfo.id}} >{{branchInfo.name}}</option>
                                                         </select>
                                                     </td>
                                                     <td>
                                                         <input type="text" class="form-control"
-                                                               ng-model="personalDetail.amount_taka" required/>
+                                                               ng-model="infowInfo.amount" required/>
                                                     </td>
-
                                                 </tr>
-                                                </tbody>
-                                            </table>
+                                            </tbody>
+                                        </table>
 
-                                            <div class="form-group">
-                                                <input ng-hide="!personalDetails.length" type="button"
-                                                       class="btn btn-danger pull-right" ng-click="remove()"
-                                                       value="Remove">
-                                                <input type="submit" class="btn btn-primary addnew pull-right"
-                                                       value="Add New">
-                                            </div>
-                                        </form>
+                                        <div class="form-group">
+
+                                            <input ng-hide="!inflowsRow.length" type="button"
+                                                   class="btn btn-danger pull-right" ng-click="remove()"
+                                                   value="Remove">
+                                            <input type="submit" class="btn btn-primary addnew pull-right"
+                                                   value="Add New" ng-click="addNew()">
+                                            <input type="submit" class="btn btn-primary addnew pull-right"
+                                                   value="Submit" ng-click="addInflow()">
+                                        </div>
+                                        <!--</form>-->
                                     </div>
                                 </div>
                             </div>
@@ -99,56 +99,55 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
-                                    <div class="panel-body">
+                                    <div class="panel-body" ng-init="setOutflowList('<?php echo htmlspecialchars(json_encode($outflow_list)) ?>')">
                                         <form ng-submit="addNew()">
                                             <table class="table table-striped table-bordered">
                                                 <thead>
-                                                <tr class="">
-                                                    <th colspan="4" style="width: 50% ;text-align: center">Cash OutFlow
-                                                        (অর্থ বহিঃরগমন)
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th><input type="checkbox" ng-model="selectedAll"
-                                                               ng-click="checkAll()"/></th>
-                                                    <th>ক্রমিক নং</th>
-                                                    <th>কাঁচামাল ক্রয় ও খরচের বিবরণ</th>
-                                                    <th>টাকার পরিমাণ</th>
-                                                </tr>
+                                                    <tr class="">
+                                                        <th colspan="4" style="width: 50% ;text-align: center">Cash OutFlow
+                                                            (অর্থ বহিঃরগমন)
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><input type="checkbox" ng-model="selectedAll"
+                                                                   ng-click="checkAll()"/></th>
+                                                        <th>ক্রমিক নং</th>
+                                                        <th>কাঁচামাল ক্রয় ও খরচের বিবরণ</th>
+                                                        <th>টাকার পরিমাণ</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr ng-repeat="personalDetail in personalDetails">
-                                                    <td>
-                                                        <input type="checkbox" ng-model="personalDetail.selected"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.sl_no" required/>
-                                                    </td>
-                                                    <td>
-                                                        <select class="form-control" ng-model="personalDetail.fname"
-                                                                style="width: 100%;" required>
-                                                            <option selected="selected">ঢাকা</option>
-                                                            <option>পাবনা</option>
-                                                            <option>বগুড়া</option>
-                                                            <option>নাটোর</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.amount_taka" required/>
-                                                    </td>
-
-                                                </tr>
+                                                    <tr ng-repeat="(key, outfowInfo) in outflowsRow">
+                                                        <td>
+                                                            <input type="checkbox" ng-model="outfowInfo.selected"/>
+                                                        </td>
+                                                        <td>
+                                                            {{key + 1}}
+                                                        </td>
+                                                        <td>
+                                                            <input id="name_out_{{key}}" type="text" class="form-control" onclick="showOutFlow(angular.element(this).scope().key)"
+                                                                   ng-model="outfowInfo.name" />
+                                                            <select class="form-control " style="width: 100%; display: none" id="option_out_{{key}}" ng-model="outfowInfo.cash_outflow_id" ng-change="outflowValidation(outfowInfo)">
+                                                                <option value="">নির্বাচন করুন</option>/option>
+                                                                <option ng-repeat="outInfo in outfowList" value={{outInfo.id}} >{{outInfo.name}}</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="outfowInfo.amount" required/>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
 
                                             <div class="form-group">
-                                                <input ng-hide="!personalDetails.length" type="button"
-                                                       class="btn btn-danger pull-right" ng-click="remove()"
+                                                <input ng-hide="!outflowsRow.length" type="button"
+                                                       class="btn btn-danger pull-right" ng-click="removeOutFlow()"
                                                        value="Remove">
                                                 <input type="submit" class="btn btn-primary addnew pull-right"
-                                                       value="Add New">
+                                                       value="Add New" ng-click="addOutNew()">
+                                                <input type="submit" class="btn btn-primary addnew pull-right"
+                                                       value="Submit" ng-click="addOutflow()">
                                             </div>
                                         </form>
                                     </div>
@@ -177,43 +176,40 @@
                                         <form ng-submit="addNew()">
                                             <table class="table table-striped table-bordered">
                                                 <thead>
-                                                <tr class="">
-                                                    <th colspan="4" style="width: 50% ;text-align: center">Cash Inflow
-                                                        (অর্থ আগমন)
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th><input type="checkbox" ng-model="selectedAll"
-                                                               ng-click="checkAll()"/></th>
-                                                    <th>ক্রমিক নং</th>
-                                                    <th>আয়ের বিবরণ</th>
-                                                    <th>টাকার পরিমাণ</th>
-                                                </tr>
+                                                    <tr class="">
+                                                        <th colspan="4" style="width: 50% ;text-align: center">Cash Inflow
+                                                            (অর্থ আগমন)
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><input type="checkbox" ng-model="selectedAll"
+                                                                   ng-click="checkAll()"/></th>
+                                                        <th>ক্রমিক নং</th>
+                                                        <th>আয়ের বিবরণ</th>
+                                                        <th>টাকার পরিমাণ</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr ng-repeat="personalDetail in personalDetails">
-                                                    <td>
-                                                        <input type="checkbox" ng-model="personalDetail.selected"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.sl_no" required/>
-                                                    </td>
-                                                    <td>
-                                                        <select class="form-control" ng-model="personalDetail.fname"
-                                                                required>
-                                                            <option selected="selected">ঢাকা</option>
-                                                            <option>পাবনা</option>
-                                                            <option>বগুড়া</option>
-                                                            <option>নাটোর</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.amount_taka" required/>
-                                                    </td>
-
-                                                </tr>
+                                                    <tr ng-repeat="(key, infowInfo) in inflowsRow">
+                                                        <td>
+                                                            <input type="checkbox" ng-model="infowInfo.selected"/>
+                                                        </td>
+                                                        <td>
+                                                            {{key + 1}}
+                                                        </td>
+                                                        <td>
+                                                            <input id="name_{{key}}" type="text" class="form-control" onclick="showDropdown(angular.element(this).scope().key)"
+                                                                   ng-model="infowInfo.name" required/>
+                                                            <select class="form-control " style="width: 100%; display: none" id="option_{{key}}" ng-model="infowInfo.cash_inflow_id">
+                                                                <option value="">নির্বাচন করুন</option>/option>
+                                                                <option ng-repeat="branchInfo in infowList" value={{branchInfo.id}} >{{branchInfo.name}}</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="infowInfo.amount" required/>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
 
@@ -251,43 +247,43 @@
                                         <form ng-submit="addNew()">
                                             <table class="table table-striped table-bordered">
                                                 <thead>
-                                                <tr class="">
-                                                    <th colspan="4" style="width: 50% ;text-align: center">Cash OutFlow
-                                                        (অর্থ বহিঃরগমন)
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th><input type="checkbox" ng-model="selectedAll"
-                                                               ng-click="checkAll()"/></th>
-                                                    <th>ক্রমিক নং</th>
-                                                    <th>খরচের বিবরণ</th>
-                                                    <th>টাকার পরিমাণ</th>
-                                                </tr>
+                                                    <tr class="">
+                                                        <th colspan="4" style="width: 50% ;text-align: center">Cash OutFlow
+                                                            (অর্থ বহিঃরগমন)
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><input type="checkbox" ng-model="selectedAll"
+                                                                   ng-click="checkAll()"/></th>
+                                                        <th>ক্রমিক নং</th>
+                                                        <th>খরচের বিবরণ</th>
+                                                        <th>টাকার পরিমাণ</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr ng-repeat="personalDetail in personalDetails">
-                                                    <td>
-                                                        <input type="checkbox" ng-model="personalDetail.selected"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.sl_no" required/>
-                                                    </td>
-                                                    <td>
-                                                        <select class="form-control" ng-model="personalDetail.fname"
-                                                                style="width: 100%;" required>
-                                                            <option selected="selected">ঢাকা</option>
-                                                            <option>পাবনা</option>
-                                                            <option>বগুড়া</option>
-                                                            <option>নাটোর</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control"
-                                                               ng-model="personalDetail.amount_taka" required/>
-                                                    </td>
+                                                    <tr ng-repeat="personalDetail in personalDetails">
+                                                        <td>
+                                                            <input type="checkbox" ng-model="personalDetail.selected"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="personalDetail.sl_no" required/>
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control" ng-model="personalDetail.fname"
+                                                                    style="width: 100%;" required>
+                                                                <option selected="selected">ঢাকা</option>
+                                                                <option>পাবনা</option>
+                                                                <option>বগুড়া</option>
+                                                                <option>নাটোর</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="personalDetail.amount_taka" required/>
+                                                        </td>
 
-                                                </tr>
+                                                    </tr>
                                                 </tbody>
                                             </table>
 
@@ -428,7 +424,17 @@
     <!-- /.content -->
 </div>
 
-<script>
+<script type="text/javascript">
+    function showDropdown(key) {
+        $("#name_" + key).hide();
+        $("#option_" + key).show();
+    }
+    function showOutFlow(key) {
+        $("#name_out_" + key).hide();
+        $("#option_out_" + key).show();
+    }
+
+
     $(function () {
 
         $('#application_date').datepicker({

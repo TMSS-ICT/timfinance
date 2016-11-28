@@ -24,6 +24,8 @@ angular.module('controller.Member', ['services.Member']).
             $scope.memberNoList = [];
             $scope.surveyList = [];
             $scope.memberList = [];
+            $scope.inflowList = [];
+            $scope.inflows = [];
             $scope.allow_action = true;
 
             $scope.setPaymentTypeList = function (paymentTypeList) {
@@ -32,12 +34,10 @@ angular.module('controller.Member', ['services.Member']).
 
             $scope.setSurveyList = function (surveyList) {
                 $scope.surveyList = JSON.parse(surveyList);
-                console.log($scope.surveyList);
             }
 
             $scope.setMemberInfoList = function (memberList) {
                 $scope.memberList = JSON.parse(memberList);
-                console.log($scope.memberList);
             }
             $scope.setUnionList = function (unionList) {
                 $scope.unionList = JSON.parse(unionList);
@@ -133,7 +133,6 @@ angular.module('controller.Member', ['services.Member']).
                 memberService.searchMemberInfo($scope.searchParam).
                         success(function (data, status, headers, config) {
                             $scope.memberSurveyInfo = data['member_info'];
-                            console.log($scope.memberSurveyInfo);
                             $scope.allow_action = true;
                         });
             }
@@ -149,50 +148,129 @@ angular.module('controller.Member', ['services.Member']).
                             $scope.allow_action = true;
                         });
             }
+
+            $scope.addLoanInfo = function (requestFunction) {
+                requestFunction();
+                alert("here");
+//                if ($scope.allow_action == false) {
+//                    return;
+//                }
+//                $scope.allow_action = false;
+//                memberService.addLoanInfo($scope.memberSurveyInfo).
+//                        success(function (data, status, headers, config) {
+//                            $scope.allow_action = true;
+//                            alert(data.message);
+//                            
+//                            $scope.memberSurveyInfo = {};
+//                        });
+            }
 //list dynamic view
-            $scope.personalDetails = [
-    	        {
-    	            'fname':'Muhammed',
-    	            'lname':'Shanid',
-    	            'email':'shanid@shanid.com'
-    	        },
-    	        {
-    	            'fname':'John',
-    	            'lname':'Abraham',
-    	            'email':'john@john.com'
-    	        },
-    	        {
-    	            'fname':'Roy',
-    	            'lname':'Mathew',
-    	            'email':'roy@roy.com'
-    	        }];
-    	    
-    	        $scope.addNew = function(personalDetails){
-                    var testObj = {};
-                    $scope.personalDetails.push({});
-    	        };
-    	    
-    	        $scope.remove = function(){
-    	            var newDataList=[];
-    	            $scope.selectedAll = false;
-    	            angular.forEach($scope.personalDetails, function(selected){
-    	                if(!selected.selected){
-    	                    newDataList.push(selected);
-    	                }
-    	            }); 
-    	            $scope.personalDetails = newDataList;
-    	        };
-    	    
-    	        $scope.checkAll = function () {
-    	            if (!$scope.selectedAll) {
-    	                $scope.selectedAll = true;
-    	            } else {
-    	                $scope.selectedAll = false;
-    	            }
-    	            angular.forEach($scope.personalDetails, function (personalDetails) {
-    	                personalDetails.selected = $scope.selectedAll;
-    	            });
-    	        }; 
+            $scope.inflowsRow = [];
+
+            var showCounter = 3;
+
+            $scope.setInflowList = function (infowList) {
+                var counter = 0;
+                $scope.infowList = JSON.parse(infowList);
+                angular.forEach($scope.infowList, function (item) {
+                    if (counter < showCounter) {
+                        item.cash_inflow_id = item.id;
+                        $scope.inflowsRow.push(item);
+                    }
+                    counter++;
+                }, $scope.infowList);
+            }
+
+            $scope.addNew = function () {
+                $scope.inflowsRow.push({});
+            }
+            $scope.inflowValidation = function (infowInfo) {
+                var counter = 0
+                angular.forEach($scope.inflowsRow, function (item) {
+                    if (item.cash_inflow_id === infowInfo.cash_inflow_id) {
+                        counter++;
+                        if (counter === 2) {
+                            alert("You already select this item!");
+                            infowInfo.selected = true;
+                            $scope.remove();
+                        }
+                    }
+                });
+            }
+            $scope.remove = function () {
+                var newDataList = [];
+                $scope.selectedAll = false;
+                angular.forEach($scope.inflowsRow, function (selected) {
+                    if (!selected.selected) {
+                        newDataList.push(selected);
+                    }
+                });
+                $scope.inflowsRow = newDataList;
+            };
+            $scope.addInflow = function () {
+                angular.forEach($scope.inflowsRow, function (item) {
+                });
+            };
+            //outflow
+            $scope.outflowsRow = [];
+            $scope.setOutflowList = function (outfowList) {
+                var counter = 0;
+                $scope.outfowList = JSON.parse(outfowList);
+                angular.forEach($scope.outfowList, function (item) {
+                    if (counter < showCounter) {
+                        item.cash_outflow_id = item.id;
+                        $scope.outflowsRow.push(item);
+                    }
+                    counter++;
+                }, $scope.outfowList);
+            }
+
+            $scope.outflowValidation = function (infowInfo) {
+                var counter = 0
+                angular.forEach($scope.outflowsRow, function (item) {
+                    if (item.cash_inflow_id == infowInfo.cash_inflow_id) {
+                        counter++;
+                        if (counter == 2) {
+                            alert("You already select this item!");
+                            infowInfo.selected = true;
+                            $scope.removeOutFlow();
+                        }
+                    }
+                });
+            }
+            $scope.addOutNew = function () {
+                $scope.outflowsRow.push({});
+            }
+            $scope.removeOutFlow = function () {
+                var newDataList = [];
+                $scope.selectedAll = false;
+                angular.forEach($scope.outflowsRow, function (selected) {
+                    if (!selected.selected) {
+                        newDataList.push(selected);
+                    }
+                });
+                $scope.outflowsRow = newDataList;
+            };
+            $scope.addOutflow = function () {
+                angular.forEach($scope.outflowsRow, function (item) {
+                });
+            };
+
+
+            $scope.checkAll = function () {
+                if (!$scope.selectedAll) {
+                    $scope.selectedAll = true;
+                } else {
+                    $scope.selectedAll = false;
+                }
+                angular.forEach($scope.personalDetails, function (personalDetails) {
+                    personalDetails.selected = $scope.selectedAll;
+                });
+            };
+          
+
+           
+
 
         });
 

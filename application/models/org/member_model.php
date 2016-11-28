@@ -61,7 +61,7 @@ class Member_model extends Ion_auth_model {
     }
 
 
-    public function get_member_info($nid = "", $email = "", $mobile = 0) {
+    public function get_member_info($nid = "", $email = "", $mobile = 0, $member_id = 0) {
         if (!empty($nid)) {
             $this->db->where($this->tables['members'] . '.nid', $nid);
         }
@@ -70,6 +70,9 @@ class Member_model extends Ion_auth_model {
         }
         if (!empty($mobile)) {
             $this->db->where($this->tables['members'] . '.mobile', $mobile);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['members'] . '.member_id', $member_id);
         }
         return $this->db->select('*')
                         ->from($this->tables['members'])
@@ -157,6 +160,7 @@ class Member_model extends Ion_auth_model {
 
     public function add_addmission_info($member_info, $member_family_info, $member_address_info, $member_profession_info, $member_land_info, $member_investment_info, $additional_data) {
         $this->db->trans_begin();
+        $member_info['reference_id'] = $this->session->userdata('user_id');
         $member_info = $this->_filter_data($this->tables['members'], $member_info);
         $this->db->insert($this->tables['members'], $member_info);
         $member_id = $this->db->insert_id();
@@ -387,14 +391,14 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['member_groups'])
                         ->get();
     }
-    public function get_member_cash_inflow_list() {
+    public function get_cash_inflow_list() {
         return $this->db->select('*')
-                        ->from($this->tables['member_cash_inflow'])
+                        ->from($this->tables['cash_inflow'])
                         ->get();
     }
-    public function get_member_cash_outflow_list() {
+    public function get_cash_outflow_list() {
         return $this->db->select('*')
-                        ->from($this->tables['member_cash_outflow'])
+                        ->from($this->tables['cash_outflow'])
                         ->get();
     }
     public function get_monthly_income_expence_list() {

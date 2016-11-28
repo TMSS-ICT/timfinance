@@ -768,16 +768,30 @@ INSERT INTO `cash_outflow` (`id`, `name`, `description`) VALUES
 (1, 'test', 'test'),
 (2, ' member', 'test Member');
 
-CREATE TABLE IF NOT EXISTS `member_parties` (
+CREATE TABLE IF NOT EXISTS `centers` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `branch_id` int(11) unsigned NOT NULL,
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-INSERT INTO `member_parties` (`id`, `name`, `description`) VALUES
-(1, 'beli', 'beli'),
-(2, ' Chamily', 'Chamily');
+ALTER TABLE `centers`
+  ADD CONSTRAINT `fk_branch_center_idx` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+INSERT INTO `centers` (`id`, `branch_id`, `name`,`description`) VALUES
+(1, 1,'beli', 'beli'),
+(2, 1,' Chamily', 'Chamily');
+CREATE TABLE IF NOT EXISTS `member_groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `center_id` int(11) unsigned NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+ALTER TABLE `member_groups`
+  ADD CONSTRAINT `fk_center_group_idx` FOREIGN KEY (`branch_id`) REFERENCES `member_centers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+INSERT INTO `member_groups` (`id`, `center_id`, `name`,`description`) VALUES
+(1, 1,'beli', 'beli'),
+(2, 1,' Chamily', 'Chamily');
 
 
 CREATE TABLE IF NOT EXISTS `loan_applications` (
@@ -787,7 +801,7 @@ CREATE TABLE IF NOT EXISTS `loan_applications` (
   `area_id` int(11) unsigned NOT NULL,
   `branch_id` int(11) unsigned NOT NULL,
   `nid` varchar(50) NOT NULL,
-  `party_id` mediumint(11) unsigned NOT NULL,
+  `center_id` mediumint(11) unsigned NOT NULL,
   `created_on` int(11) unsigned NOT NULL,
   `member_no` int(11) unsigned NOT NULL,
   `group_no` int(11) unsigned NOT NULL,
@@ -816,7 +830,7 @@ ALTER TABLE `loan_applications`
   ADD CONSTRAINT `fk_zone_loan` FOREIGN KEY (`zone_id`) REFERENCES `zones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_area_loan` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_branch_loan` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_group_loan` FOREIGN KEY (`party_id`) REFERENCES `member_parties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_group_loan` FOREIGN KEY (`center_id`) REFERENCES `member_parties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_gender_loan` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_education_loan` FOREIGN KEY (`education_id`) REFERENCES `educations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_marital_loan` FOREIGN KEY (`marital_id`) REFERENCES `marital_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

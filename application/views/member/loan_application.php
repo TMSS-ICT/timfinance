@@ -1,3 +1,22 @@
+<script type="text/javascript">
+    function save_loan_info(memberId){
+    angular.element($('#loan_saving_id')).scope().addLoanInfo( function(data) {
+    window.location = '<?php echo base_url(); ?>member/loan_application_01/' + memberId;
+    });
+    }
+    $(function () {
+
+    $('#application_date').datepicker({
+    autoclose: true
+    });
+    $('#investment_date').datepicker({
+    autoclose: true
+    });
+    $(".timepicker").timepicker({
+    showInputs: false
+    });
+    });</script>
+
 <div class="content-wrapper" ng-controller="memberController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
@@ -26,6 +45,7 @@
                                         <option value="">নির্বাচন করুন</option>
                                         <option value="<?php echo SEARCH_BY_NID; ?>">জাতীয় পরিচয় পত্র</option>
                                         <option value="<?php echo SEARCH_BY_MOBILE; ?>">মোবাইল নং</option>
+                                        <option value="<?php echo SEARCH_BY_MEMBER_ID; ?>">Member ID</option>
                                         <option value="<?php echo SEARCH_BY_EMAIL; ?>">ইমেইল</option>
                                     </select>
                                 </div>
@@ -1512,7 +1532,7 @@
 
                 <div class="box-body">
                     <div class="col-sm-2 pull-right">
-                        <button type="button" class="btn btn-info btn-flat ">Save</button>
+                        <button type="button" class="btn btn-info btn-flat " id="loan_saving_id" onclick="save_loan_info(angular.element(this).scope().memberSurveyInfo.member_id)">Save</button>
                     </div>
                 </div>
 
@@ -1525,17 +1545,3 @@
     <!-- /.content -->
 </div>
 
-<script>
-    $(function () {
-
-    $('#application_date').datepicker({
-    autoclose: true
-    });
-    $('#investment_date').datepicker({
-    autoclose: true
-    });
-    $(".timepicker").timepicker({
-    showInputs: false
-    });
-    });
-</script>

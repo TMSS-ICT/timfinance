@@ -28,7 +28,7 @@ class Member extends Role_Controller {
     }
 
     public function survey_list() {
-        $this->data['survey_list']=$this->member_model->get_survey_list()->result_array();
+        $this->data['survey_list'] = $this->member_model->get_survey_list()->result_array();
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/survey_list', $this->data);
     }
@@ -861,6 +861,7 @@ class Member extends Role_Controller {
                 $nid = "";
                 $email = "";
                 $mobile = "";
+                $member_id = "";
                 if ($searh_param == SEARCH_BY_NID) {
                     $nid = $search_value;
                 }
@@ -870,7 +871,10 @@ class Member extends Role_Controller {
                 if ($searh_param == SEARCH_BY_MOBILE) {
                     $mobile = $search_value;
                 }
-                $response['member_info'] = $this->member_library->get_member_info($nid, $email, $mobile);
+                if ($searh_param == SEARCH_BY_MEMBER_ID) {
+                    $member_id = $search_value;
+                }
+                $response['member_info'] = $this->member_library->get_member_info($nid, $email, $mobile, $member_id);
             }
             echo json_encode($response);
             return;
@@ -884,23 +888,49 @@ class Member extends Role_Controller {
     }
 
     public function loan_application() {
-        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
-        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
-        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
+        $this->data['family_name_list'] = $this->utility->family_name();
+        $this->data['name_title_list'] = $this->utility->name_title();
+        $this->data['f_name_title_list'] = $this->utility->father_name_title();
+        $this->data['m_name_title_list'] = $this->utility->mother_name_title();
+        $this->data['age_list'] = $this->utility->age();
+        $this->data['f_member_list'] = $this->utility->family_member();
+        $this->data['passing_year_list'] = $this->utility->passing_year();
+        $this->data['member_list'] = $this->utility->get_member_list();
+        $this->data['zone_list'] = $this->member_model->get_zone_list($this->office_info['zone_id'])->result_array();
+        $this->data['area_list'] = $this->member_model->get_area_list($this->office_info['zone_id'], $this->office_info['area_id'])->result_array();
+        $this->data['branch_list'] = $this->member_model->get_branch_list($this->office_info['area_id'], $this->office_info['branch_id'])->result_array();
         $this->data['name_title_list'] = $this->utility->name_title();
         $this->data['family_name_list'] = $this->utility->family_name();
+        $this->data['gender_list'] = $this->member_model->get_gender_list()->result_array();
+        $this->data['post_list'] = $this->member_model->get_post_list()->result_array();
+        $this->data['thana_list'] = $this->member_model->get_thana_list()->result_array();
+        $this->data['district_list'] = $this->member_model->get_district_list()->result_array();
+        $this->data['union_list'] = $this->member_model->get_union_list()->result_array();
+        $this->data['country_list'] = $this->member_model->get_country_list()->result_array();
+        $this->data['marital_list'] = $this->member_model->get_marital_list()->result_array();
+        $this->data['profession_list'] = $this->member_model->get_profession_list()->result_array();
+        $this->data['political_status_list'] = $this->member_model->get_political_statuses()->result_array();
+        $this->data['business_type_list'] = $this->member_model->get_business_types()->result_array();
+        $this->data['family_type_list'] = $this->member_model->get_family_types()->result_array();
+        $this->data['educations_list'] = $this->member_model->get_education_list()->result_array();
+        $this->data['payment_types'] = $this->member_model->get_payment_type_list()->result_array();
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application', $this->data);
     }
-    public function loan_application1() {
-        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
-        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
-        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
-        $this->data['name_title_list'] = $this->utility->name_title();
-        $this->data['family_name_list'] = $this->utility->family_name();
+
+    public function loan_application_01($member_id = 0) {
+//        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
+//        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
+//        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
+//        $this->data['name_title_list'] = $this->utility->name_title();
+//        $this->data['family_name_list'] = $this->utility->family_name();
+        $this->data['inflow_list'] = $this->member_model->get_cash_inflow_list()->result_array();
+        $this->data['outflow_list'] = $this->member_model->get_cash_outflow_list()->result_array();
         $this->data['app_name'] = MEMBER_APP;
+        $this->data['member_id'] = $member_id;
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application_form_part1', $this->data);
     }
+
     public function loan_application2() {
         $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
         $this->data['area_list'] = $this->member_model->get_area_list()->result_array();

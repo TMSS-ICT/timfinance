@@ -8,11 +8,9 @@ angular.module('controller.Header', []).
 
             $scope.setGroupInfo = function (groupInfo) {
                 $scope.groupInfo = JSON.parse(groupInfo);
-                console.log($scope.groupInfo);
             }
             $scope.setOfficeInfo = function (officeInfo) {
                 $scope.officeInfo = JSON.parse(officeInfo);
-                 console.log($scope.officeInfo);
             }
         });
 
