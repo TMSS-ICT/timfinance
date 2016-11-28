@@ -1,7 +1,7 @@
 <div class="content-wrapper" ng-controller="memberController">
     <!-- Content Header (Page header) -->
     <section class="content-header" style="padding-top: 1%">
-        <h4 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TMSSIMF)</h4>
+        <h4 class="text-center">টিএমএসএস ইসলামিক মাইক্রো ফাইনান্স (TIMF)</h4>
         <p class="text-blue text-center"><u>জামিনদারের তালিকা</u></p>
     </section>
 
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover" ng-init="setMemberInfoList('<?php echo htmlspecialchars(json_encode($member_list)) ?>')">
+                        <table id="example2" class="table table-bordered table-hover" ng-init="setGrantorInfoList('<?php echo htmlspecialchars(json_encode($grantor_list)) ?>')">
                             <thead>
                             <tr>
                                 <th>Sl No</th>

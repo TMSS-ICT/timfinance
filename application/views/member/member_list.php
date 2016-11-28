@@ -70,7 +70,7 @@
                                         <i class="fa fa-edit"></i> Edit
                                     </a>
                                 </td>
-                                <td>Delete</td>
+                                <td><i class="glyphicon glyphicon-trash"></i>Delete</td>
                             </tr>
 
                             </tbody>

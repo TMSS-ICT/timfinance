@@ -25,6 +25,7 @@ controller('memberController', function ($scope, memberService) {
     $scope.surveyList = [];
     $scope.memberList = [];
     $scope.loanList = [];
+    $scope.grantorList = [];
     $scope.inflowList = [];
     $scope.inflows = [];
     $scope.allow_action = true;
@@ -41,9 +42,14 @@ controller('memberController', function ($scope, memberService) {
         $scope.memberList = JSON.parse(memberList);
     }
 
-    $scope.setLoanList = function (LoanList) {
-        $scope.LoanList = JSON.parse(LoanList);
-        console.log($scope.LoanList);
+    $scope.setLoanList = function (loanList) {
+        $scope.loanList = JSON.parse(loanList);
+        console.log($scope.loanList);
+    }
+
+    $scope.setGrantorInfoList = function (grantorList) {
+        $scope.grantorList = JSON.parse(grantorList);
+        console.log($scope.grantorList);
     }
 
     $scope.setUnionList = function (unionList) {

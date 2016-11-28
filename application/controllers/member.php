@@ -34,7 +34,7 @@ class Member extends Role_Controller {
     }
 
     public function jamindar_info() {
-        $this->data['test'] = "";
+        $this->data['grantor_list'] = $this->member_model->get_grantor_list()->result_array();
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/granter_info', $this->data);
     }

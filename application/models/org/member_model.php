@@ -67,6 +67,13 @@ class Member_model extends Ion_auth_model {
             ->get();
     }
 
+    public function get_grantor_list()
+    {
+        return $this->db->select('*')
+            ->from($this->tables['grantor_info'])
+            ->get();
+    }
+
 
     public function get_member_info($nid = "", $email = "", $mobile = 0, $member_id = 0) {
         if (!empty($nid)) {
