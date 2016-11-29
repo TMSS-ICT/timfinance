@@ -158,12 +158,11 @@ CREATE TABLE IF NOT EXISTS `products` (
  `is_active_date` int(11) unsigned DEFAULT NULL,
  `reference_user_id` int(11) unsigned NOT NULL,
  `created_on` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`, `code`),
-  UNIQUE KEY `uc_org` (`org_id`,`reference_user_id`),
-  KEY `fk_org_product_idx` (`org_id`),
-  KEY `fk_users_product_idx` (`reference_user_id`)
+  PRIMARY KEY (`id`, `code`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;   
-
+ALTER TABLE `products`
+ADD CONSTRAINT `fk_product_user_id` FOREIGN KEY (`reference_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_product_org_id` FOREIGN KEY (`org_id`) REFERENCES `organigations` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 CREATE TABLE IF NOT EXISTS `organigation_settings` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -841,6 +840,7 @@ CREATE TABLE IF NOT EXISTS `member_cash_inflow` (
    `member_id` int(11) unsigned NOT NULL,
   `loan_id` int(11) unsigned NOT NULL,
   `cash_flow_id` int(11) unsigned NOT NULL,
+  `inflow_type_id` int(11) unsigned NOT NULL,
   `amount` varchar(100) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
@@ -853,6 +853,7 @@ CREATE TABLE IF NOT EXISTS `member_cash_outflow` (
    `member_id` int(11) unsigned NOT NULL,
   `loan_id` int(11) unsigned NOT NULL,
   `cash_flow_id` int(11) unsigned NOT NULL,
+  `outflow_type_id` int(11) unsigned NOT NULL,
   `amount` varchar(100) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

@@ -39,6 +39,15 @@ angular.module('services.Member', []).
                     }
                 });
             };
+            memberService.saveLoanInflowOutFlow = function (inflowOutFlow,memberId, loanId) {
+               return $http({
+                    method: 'post',
+                    url: $location.path() + $app_name + '/member/loan_application_01/' + memberId +'/'+ loanId,
+                    data: {
+                        inflowOutFlow: inflowOutFlow
+                    }
+                });
+            };
            
             return memberService;
         });

@@ -14,12 +14,13 @@ class Member extends Role_Controller {
         if (!$this->ion_auth->logged_in()) {
             redirect('auth/login', 'refresh');
         }
+        $this->load->library('member_library');
         $this->load->model('org/member_model');
         $this->office_info = $this->data['office_info'];
     }
 
     public function test() {
-        $this->load->library('member_library');
+
         $member_info = $this->member_library->get_member_info(123, "", "");
         var_dump($member_info);
         exit;
@@ -924,16 +925,83 @@ class Member extends Role_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application', $this->data);
     }
 
-    public function loan_application_01($member_id = 0) {
-//        $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
-//        $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
-//        $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
-//        $this->data['name_title_list'] = $this->utility->name_title();
-//        $this->data['family_name_list'] = $this->utility->family_name();
+    public function loan_application_01($member_id, $loan_id) {
+
+        if (file_get_contents("php://input") != null) {
+            $user_name = "";
+            $response = array();
+            $inflow_list = array();
+            $outflow_list = array();
+            $postdata = file_get_contents("php://input");
+            $requestData = json_decode($postdata);
+            if (property_exists($requestData, "inflowOutFlow") != FALSE) {
+                $requestInfo = $requestData->inflowOutFlow;
+                if (property_exists($requestInfo, "inflow") != FALSE) {
+                    $inflowList = $requestInfo->inflow;
+                    foreach ($inflowList as $inflow) {
+                        $temp = array(
+                            'id' => $inflow->id,
+                            'cash_inflow_id' => $inflow->cash_inflow_id,
+                            'amount' => $inflow->amount,
+                            'inflow_type_id' => INFLOW_TYPE_ID_GENERAL,
+                            'member_id' => $member_id,
+                            'loan_id' => $loan_id
+                        );
+                        $inflow_list[] = $temp;
+                    }
+                }
+                if (property_exists($requestInfo, "outflow") != FALSE) {
+                    $outflowList = $requestInfo->outflow;
+                    foreach ($outflowList as $inflow) {
+                        $temp = array(
+                            'id' => $inflow->id,
+                            'cash_outflow_id' => $inflow->cash_outflow_id,
+                            'amount' => $inflow->amount,
+                            'outflow_type_id' => OUTFLOW_TYPE_ID_GENERAL,
+                            'member_id' => $member_id,
+                            'loan_id' => $loan_id
+                        );
+                        $outflow_list[] = $temp;
+                    }
+                }
+                if (property_exists($requestInfo, "overallInflow") != FALSE) {
+                    $overallInflowList = $requestInfo->overallInflow;
+                    foreach ($overallInflowList as $inflow) {
+                        $temp = array(
+                            'id' => $inflow->id,
+                            'cash_inflow_id' => $inflow->cash_inflow_id,
+                            'amount' => $inflow->amount,
+                            'inflow_type_id' => INFLOW_TYPE_ID_OVERALL,
+                            'member_id' => $member_id,
+                            'loan_id' => $loan_id
+                        );
+                        $inflow_list[] = $temp;
+                    }
+                }
+                if (property_exists($requestInfo, "overallOutflow") != FALSE) {
+                    $overallOutflowList = $requestInfo->overallOutflow;
+                    foreach ($overallOutflowList as $inflow) {
+                        $temp = array(
+                            'id' => $inflow->id,
+                            'cash_outflow_id' => $inflow->cash_outflow_id,
+                            'amount' => $inflow->amount,
+                            'outflow_type_id' => OUTFLOW_TYPE_ID_OVERALL,
+                            'member_id' => $member_id,
+                            'loan_id' => $loan_id
+                        );
+                        $outflow_list[] = $temp;
+                    }
+                    $response['member_info'] = $this->member_library->add_inflow_outflow($inflow_list, $outflow_list);
+                    echo json_encode($response);
+                    return;
+                }
+            }
+        }
         $this->data['inflow_list'] = $this->member_model->get_cash_inflow_list()->result_array();
         $this->data['outflow_list'] = $this->member_model->get_cash_outflow_list()->result_array();
         $this->data['app_name'] = MEMBER_APP;
         $this->data['member_id'] = $member_id;
+        $this->data['loan_id'] = $loan_id;
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application_form_part1', $this->data);
     }
 

@@ -30,6 +30,15 @@ class Member_model extends Ion_auth_model {
         return isset($id) ? $id : FALSE;
     }
 
+    public function add_inflow_outflow($inflow_list = array(), $outflow_list = array()) {
+        $inflow_list = $this->_filter_data($this->tables['member_cash_inflow'], $inflow_list);
+        $outflow_list = $this->_filter_data($this->tables['member_cash_outflow'], $outflow_list);
+        $this->db->trans_begin();
+        $this->db->insert_batch($this->tables['member_cash_inflow'], $user_profit_list);
+        $this->db->insert_batch($this->tables['member_cash_outflow'], $user_profit_list);
+        $this->db->trans_commit();
+    }
+
     public function get_survey_info($nid = "", $email = "", $mobile = 0) {
         if (!empty($nid)) {
             $this->db->where($this->tables['surveys'] . '.nid', $nid);
@@ -45,27 +54,24 @@ class Member_model extends Ion_auth_model {
                         ->get();
     }
 
-
-    public function get_survey_list()
-    {
+    public function get_survey_list() {
         return $this->db->select('*')
-            ->from($this->tables['surveys'])
-            ->get();
+                        ->from($this->tables['surveys'])
+                        ->get();
     }
 
-    public function get_member_list()
-    {
+    public function get_member_list() {
         return $this->db->select('*')
-            ->from($this->tables['members'])
-            ->get();
+                        ->from($this->tables['members'])
+                        ->get();
     }
 
-    public function get_loan_list()
-    {
+    public function get_loan_list() {
         return $this->db->select('*')
-            ->from($this->tables['loan_application'])
-            ->get();
+                        ->from($this->tables['loan_application'])
+                        ->get();
     }
+
 
     public function get_grantor_list()
     {
@@ -106,6 +112,7 @@ class Member_model extends Ion_auth_model {
                         ->limit(1)
                         ->get();
     }
+
     public function get_member_addresse_info($member_id, $nid) {
         if (!empty($nid)) {
             $this->db->where($this->tables['member_addresses'] . '.nid', $nid);
@@ -119,6 +126,7 @@ class Member_model extends Ion_auth_model {
                         ->limit(1)
                         ->get();
     }
+
     public function get_member_profession_info($member_id, $nid) {
         if (!empty($nid)) {
             $this->db->where($this->tables['member_profession_info'] . '.nid', $nid);
@@ -132,6 +140,7 @@ class Member_model extends Ion_auth_model {
                         ->limit(1)
                         ->get();
     }
+
     public function get_member_land_info($member_id, $nid) {
         if (!empty($nid)) {
             $this->db->where($this->tables['member_land_info'] . '.nid', $nid);
@@ -145,6 +154,7 @@ class Member_model extends Ion_auth_model {
                         ->limit(1)
                         ->get();
     }
+
     public function get_member_investment_info($member_id, $nid) {
         if (!empty($nid)) {
             $this->db->where($this->tables['member_investment_info'] . '.nid', $nid);
@@ -158,6 +168,7 @@ class Member_model extends Ion_auth_model {
                         ->limit(1)
                         ->get();
     }
+
     public function get_member_business_info($member_id, $nid) {
         if (!empty($nid)) {
             $this->db->where($this->tables['member_business_info'] . '.nid', $nid);
@@ -400,21 +411,25 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['payment_types'])
                         ->get();
     }
+
     public function get_member_groups_list() {
         return $this->db->select('*')
                         ->from($this->tables['member_groups'])
                         ->get();
     }
+
     public function get_cash_inflow_list() {
         return $this->db->select('*')
                         ->from($this->tables['cash_inflow'])
                         ->get();
     }
+
     public function get_cash_outflow_list() {
         return $this->db->select('*')
                         ->from($this->tables['cash_outflow'])
                         ->get();
     }
+
     public function get_monthly_income_expence_list() {
         return $this->db->select('*')
                         ->from($this->tables['monthly_income_expence'])

@@ -1,7 +1,7 @@
 <script type="text/javascript">
     function save_loan_info(memberId){
     angular.element($('#loan_saving_id')).scope().addLoanInfo( function(data) {
-    window.location = '<?php echo base_url(); ?>member/loan_application_01/' + memberId;
+    window.location = '<?php echo base_url(); ?>member/loan_application_01/' + memberId +'/' +memberId;
     });
     }
     $(function () {
