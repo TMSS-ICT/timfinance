@@ -40,6 +40,9 @@
         <!--<Date picker js>-->
         <script type="text/javascript" src="<?php echo base_url() ?>resources/js/superadmin/zebra_datepicker.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>resources/js/superadmin/zebra_datepicker_core.js"></script>
+        <!--image upload-->
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>resources/css/jquery.fileupload.css">
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>resources/css/jquery.fileupload-ui.css">
         <!--<angular>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/angular.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular-bootstrap/ui-bootstrap.js"></script>
@@ -47,15 +50,38 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/angular-file-upload.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/csv_file_dependencies/angular-sanitize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/csv_file_dependencies/ng-csv.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image-crop.js"></script>
+        <!--<image upload>-->
+<!--        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/vendor/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload-process.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload-image.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload-angular.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/ng-file-upload-shim.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/ng-infinite-scroll.min.js"></script>-->
+        
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/vendor/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/load-image.all.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload-process.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload-image.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload-angular.js"></script>
+        
+        
+<!--        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/jquery.fileupload-angular.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/jquery.fileupload-jquery-ui.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/jquery.fileupload-ui.js"></script>-->
+        <!--<script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image-crop.js"></script>-->
         <!--<angular Services>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularService/memberService.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularService/configurationService.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/app.js"></script>
         <!--<angular Controller>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/memberController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/configurationController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/imageCropController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/headerController.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/imageUploadController.js"></script>
 
         <!--<angular Apps>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularApp/memberApp.js"></script>
@@ -70,8 +96,8 @@
         <div class="wrapper" ng-app = "<?php echo $app_name; ?>">
 
 
-            <?php $this->load->view("templates/sections/header"); ?>
-            <?php $this->load->view('templates/left_panel'); ?>
+            <?php // $this->load->view("templates/sections/header"); ?>
+            <?php // $this->load->view('templates/left_panel'); ?>
             <div style="background-color: #FFFFFF;">
                 <div class="container-fluid">
                     <div class="row">

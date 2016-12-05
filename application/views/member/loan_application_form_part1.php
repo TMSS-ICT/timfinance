@@ -140,7 +140,7 @@
                                                    value="Remove">
                                             <input type="submit" class="btn btn-primary addnew pull-right"
                                                    value="Add New" ng-click="addOutNew()">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@
                                                    value="Remove">
                                             <input type="submit" class="btn btn-primary addnew pull-right"
                                                    value="Add New" ng-click="addOverallInNew()">
-                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@
                                                    value="Remove">
                                             <input type="submit" class="btn btn-primary addnew pull-right"
                                                    value="Add New" ng-click="addOverallOutNew()">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -398,7 +398,8 @@
 
                 <div class="box-body">
                     <div class="col-sm-2 pull-right">
-                        <button type="button" class="btn btn-info btn-flat " ng-click="saveLoanInflowOutFlow('<?php echo $member_id; ?>', '<?php echo $loan_id; ?>')">Save</button>
+                        <button type="button" id ="saveInflowOutflow" class="btn btn-info btn-flat "onclick="saveLoanInflowOutFlow()" >Save</button>
+<!--                        <button type="button" class="btn btn-info btn-flat "onclick="saveLoanInflowOutFlow()" ng-click="saveLoanInflowOutFlow('<?php echo $member_id; ?>', '<?php echo $loan_id; ?>')">Save</button>-->
                     </div>
                 </div>
 
@@ -412,6 +413,12 @@
 </div>
 
 <script type="text/javascript">
+    function saveLoanInflowOutFlow() {
+        angular.element($('#saveInflowOutflow')).scope().saveLoanInflowOutFlow('<?php echo $member_id; ?>', '<?php echo $loan_id; ?>', function (data) {
+            window.location = '<?php echo base_url(); ?>member/loan_application2/<?php echo $member_id; ?>/ <?php echo $loan_id; ?>';
+        });
+    }
+
     function showDropdown(key) {
         $("#name_" + key).hide();
         $("#option_" + key).show();

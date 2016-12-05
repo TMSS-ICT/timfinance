@@ -1,7 +1,7 @@
 angular.module("app.Member", [
     'controller.Header',
     'controller.Member',
-    'controllers.ImageCopper',
+    'controllers.Image',
     'ui.bootstrap'
 ]).directive('fallbackSrc', function () {
     var fallbackSrc = {

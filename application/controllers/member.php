@@ -940,8 +940,7 @@ class Member extends Role_Controller {
                     $inflowList = $requestInfo->inflow;
                     foreach ($inflowList as $inflow) {
                         $temp = array(
-                            'id' => $inflow->id,
-                            'cash_inflow_id' => $inflow->cash_inflow_id,
+                            'cash_flow_id' => $inflow->cash_inflow_id,
                             'amount' => $inflow->amount,
                             'inflow_type_id' => INFLOW_TYPE_ID_GENERAL,
                             'member_id' => $member_id,
@@ -954,8 +953,7 @@ class Member extends Role_Controller {
                     $outflowList = $requestInfo->outflow;
                     foreach ($outflowList as $inflow) {
                         $temp = array(
-                            'id' => $inflow->id,
-                            'cash_outflow_id' => $inflow->cash_outflow_id,
+                            'cash_flow_id' => $inflow->cash_outflow_id,
                             'amount' => $inflow->amount,
                             'outflow_type_id' => OUTFLOW_TYPE_ID_GENERAL,
                             'member_id' => $member_id,
@@ -968,8 +966,7 @@ class Member extends Role_Controller {
                     $overallInflowList = $requestInfo->overallInflow;
                     foreach ($overallInflowList as $inflow) {
                         $temp = array(
-                            'id' => $inflow->id,
-                            'cash_inflow_id' => $inflow->cash_inflow_id,
+                            'cash_flow_id' => $inflow->cash_inflow_id,
                             'amount' => $inflow->amount,
                             'inflow_type_id' => INFLOW_TYPE_ID_OVERALL,
                             'member_id' => $member_id,
@@ -982,8 +979,7 @@ class Member extends Role_Controller {
                     $overallOutflowList = $requestInfo->overallOutflow;
                     foreach ($overallOutflowList as $inflow) {
                         $temp = array(
-                            'id' => $inflow->id,
-                            'cash_outflow_id' => $inflow->cash_outflow_id,
+                            'cash_flow_id' => $inflow->cash_outflow_id,
                             'amount' => $inflow->amount,
                             'outflow_type_id' => OUTFLOW_TYPE_ID_OVERALL,
                             'member_id' => $member_id,
@@ -991,10 +987,10 @@ class Member extends Role_Controller {
                         );
                         $outflow_list[] = $temp;
                     }
-                    $response['member_info'] = $this->member_library->add_inflow_outflow($inflow_list, $outflow_list);
-                    echo json_encode($response);
-                    return;
                 }
+                $response['message'] = $this->member_library->add_inflow_outflow($inflow_list, $outflow_list);
+                echo json_encode($response);
+                return;
             }
         }
         $this->data['inflow_list'] = $this->member_model->get_cash_inflow_list()->result_array();
@@ -1005,7 +1001,7 @@ class Member extends Role_Controller {
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application_form_part1', $this->data);
     }
 
-    public function loan_application2() {
+    public function loan_application2($member_id, $loan_id) {
         $this->data['zone_list'] = $this->member_model->get_zone_list()->result_array();
         $this->data['area_list'] = $this->member_model->get_area_list()->result_array();
         $this->data['branch_list'] = $this->member_model->get_branch_list()->result_array();
@@ -1013,6 +1009,46 @@ class Member extends Role_Controller {
         $this->data['family_name_list'] = $this->utility->family_name();
         $this->data['app_name'] = MEMBER_APP;
         $this->template->load(MEMBER_TEMPLATE, 'member/loan_application_form_part2', $this->data);
+    }
+
+    public function test_image() {
+        $this->data['app_name'] = MEMBER_APP;
+        $this->template->load(MEMBER_TEMPLATE, 'welcome_message', $this->data);
+//        $this->load->view('welcome_message', $this->data);
+    }
+
+    public function image_upload() {
+        $this->load->library('utils');
+        $response = array();
+        $postdata = file_get_contents("php://input");
+        $requestInfo = json_decode($postdata);
+        $file = array();
+        $files = array();
+        if (isset($_FILES["userfile"])) {
+            $file_info = $_FILES["userfile"];
+            $result = $this->utils->upload_image($file_info, USER_ALBUM_IMAGE_PATH);
+            if ($result['status'] == 1) {
+                $picture = $result['upload_data']['file_name'];
+                $file = array(
+                    "name" => $picture,
+                    "type" => "image/jpeg",
+                    "url" => base_url() . USER_ALBUM_IMAGE_PATH . $picture,
+                    "thumbnailUrl" => base_url() . USER_ALBUM_IMAGE_PATH . $picture,
+                    "deleteUrl" => base_url() . USER_ALBUM_IMAGE_PATH . $picture,
+                    "size" => 100,
+                    "deleteType" => "DELETE"
+                );
+
+                $files[] = $file;
+                $response["files"] = $files;
+            } else {
+                $this->data['message'] = $result['message'];
+                echo json_encode($this->data);
+                return;
+            }
+            echo json_encode($response);
+            return;
+        }
     }
 
     public function loan_application3() {

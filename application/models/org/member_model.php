@@ -30,13 +30,14 @@ class Member_model extends Ion_auth_model {
         return isset($id) ? $id : FALSE;
     }
 
-    public function add_inflow_outflow($inflow_list = array(), $outflow_list = array()) {
-        $inflow_list = $this->_filter_data($this->tables['member_cash_inflow'], $inflow_list);
-        $outflow_list = $this->_filter_data($this->tables['member_cash_outflow'], $outflow_list);
+    public function add_inflow_outflow($inflow_list , $outflow_list ) {
+        $inflow_list = $this->_filter_data_list($this->tables['member_cash_inflow'], $inflow_list);
+        $outflow_list = $this->_filter_data_list($this->tables['member_cash_outflow'], $outflow_list);
         $this->db->trans_begin();
-        $this->db->insert_batch($this->tables['member_cash_inflow'], $user_profit_list);
-        $this->db->insert_batch($this->tables['member_cash_outflow'], $user_profit_list);
+        $this->db->insert_batch($this->tables['member_cash_inflow'], $inflow_list);
+        $this->db->insert_batch($this->tables['member_cash_outflow'], $outflow_list);
         $this->db->trans_commit();
+        return true;
     }
 
     public function get_survey_info($nid = "", $email = "", $mobile = 0) {

@@ -350,7 +350,7 @@ angular.module('controller.Member', ['services.Member']).
                 });
                 $scope.overallOutflowsRow = newDataList;
             };
-            $scope.saveLoanInflowOutFlow = function (memberId, loanId) {
+            $scope.saveLoanInflowOutFlow = function (memberId, loanId, requestFunction) {
                 if ($scope.allow_action == false) {
                     return;
                 }
@@ -392,6 +392,7 @@ angular.module('controller.Member', ['services.Member']).
                 memberService.saveLoanInflowOutFlow(inflowOutFlow, memberId, loanId).
                         success(function (data, status, headers, config) {
                             $scope.allow_action = true;
+                            requestFunction(data);
                         });
 
             };

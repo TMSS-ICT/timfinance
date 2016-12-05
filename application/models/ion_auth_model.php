@@ -28,11 +28,12 @@ if (!defined('BASEPATH'))
  *
  */
 class Ion_auth_model extends CI_Model {
-
     /*
      * Holds an array of all possible user account status
      */
+
     public $account_status_list = array();
+
     /**
      * Holds an array of tables used
      *
@@ -185,7 +186,7 @@ class Ion_auth_model extends CI_Model {
         $this->tables = $this->config->item('tables', 'ion_auth');
 
         $this->account_status_list = $this->config->item('account_status', 'ion_auth');
-        
+
         //initialize data
         $this->identity_column = $this->config->item('identity', 'ion_auth');
         $this->store_salt = $this->config->item('store_salt', 'ion_auth');
@@ -1875,6 +1876,22 @@ class Ion_auth_model extends CI_Model {
         }
 
         return $filtered_data;
+    }
+
+    protected function _filter_data_list($table, $data_list) {
+        $filtered_data_list = array();
+        $columns = $this->db->list_fields($table);
+        foreach ($data_list as $data) {
+            $filtered_data = array();
+            if (is_array($data)) {
+                foreach ($columns as $column) {
+                    if (array_key_exists($column, $data))
+                        $filtered_data[$column] = $data[$column];
+                }
+                $filtered_data_list[] = $filtered_data;
+            }
+        }
+        return $filtered_data_list;
     }
 
     protected function _prepare_ip($ip_address) {
