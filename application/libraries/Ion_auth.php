@@ -381,10 +381,10 @@ class Ion_auth {
         return null;
     }
 
-    public function get_current_user_types(){
+    public function get_current_user_types() {
         $id = $this->session->userdata('user_id');
         $groups_array = array();
-        
+
         if (isset($this->_cache_user_in_group[$id])) {
             $groups_array = $this->_cache_user_in_group[$id];
         } else {
@@ -396,6 +396,7 @@ class Ion_auth {
         }
         return $groups_array;
     }
+
     /**
      * is_admin
      *
@@ -408,6 +409,31 @@ class Ion_auth {
         $admin_group = $this->config->item('admin_group', 'ion_auth');
 
         return $this->in_group($admin_group, $id);
+    }
+
+    public function get_user_groups_info($zone_id, $area_id, $branch_id) {
+        $this->load->model('org/common_model');
+        $user_group = $this->get_current_user_types();
+        $branch_info = array();
+        foreach ($user_group as $group) {
+            $this->session->set_userdata(array('group' => $group));
+            if ($group == ADMIN && $zone_id != 0) {
+                $branch_info['branch_info'] = $this->common_model->get_zone_info($zone_id)->result_array();
+                break;
+            } elseif ($group == ZONE_MEMBER && $zone_id != 0) {
+                $branch_info['branch_info'] = $this->common_model->get_zone_info($zone_id)->result_array();
+                break;
+            } elseif ($group == AREA_MEMBER && $zone_id != 0 && $area_id != 0) {
+                $branch_info['branch_info'] = $this->common_model->get_area_info($zone_id, $area_id)->result_array();
+                break;
+            } elseif ($group == BRANCH_MEMBER && $zone_id != 0 && $area_id != 0 && $branch_id != 0) {
+                $branch_info['branch_info'] = $this->common_model->get_branch_info($area_id, $branch_id)->result_array();
+                break;
+            } else {
+                echo "Non member";
+            }
+        }
+        return $branch_info;
     }
 
     /**

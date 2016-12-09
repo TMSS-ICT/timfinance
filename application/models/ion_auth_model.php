@@ -28,11 +28,12 @@ if (!defined('BASEPATH'))
  *
  */
 class Ion_auth_model extends CI_Model {
-
     /*
      * Holds an array of all possible user account status
      */
+
     public $account_status_list = array();
+
     /**
      * Holds an array of tables used
      *
@@ -185,7 +186,7 @@ class Ion_auth_model extends CI_Model {
         $this->tables = $this->config->item('tables', 'ion_auth');
 
         $this->account_status_list = $this->config->item('account_status', 'ion_auth');
-        
+
         //initialize data
         $this->identity_column = $this->config->item('identity', 'ion_auth');
         $this->store_salt = $this->config->item('store_salt', 'ion_auth');
@@ -803,12 +804,10 @@ class Ion_auth_model extends CI_Model {
         }
 
         $this->trigger_events('extra_where');
-
-        $query = $this->db->select($this->identity_column . ', username, email, id, password, account_status_id, last_login')
+        $query = $this->db->select($this->identity_column . ', username, email, id, password, account_status_id, last_login, office_id, dept_id, designation')
                 ->where($this->identity_column, $this->db->escape_str($identity))
                 ->limit(1)
                 ->get($this->tables['users']);
-
         if ($this->is_time_locked_out($identity)) {
             //Hash something anyway, just to take up time
             $this->hash_password($password);
@@ -1464,12 +1463,13 @@ class Ion_auth_model extends CI_Model {
             'identity' => $user->{$this->identity_column},
             'username' => $user->username,
             'email' => $user->email,
+            'dept_id' => $user->dept_id,
+            'office_id' => $user->office_id,
+            'designation' => $user->designation,
             'user_id' => $user->id, //everyone likes to overwrite id so we'll use user_id
             'old_last_login' => $user->last_login
         );
-
         $this->session->set_userdata($session_data);
-
         $this->trigger_events('post_set_session');
 
         return TRUE;
@@ -1876,6 +1876,22 @@ class Ion_auth_model extends CI_Model {
         }
 
         return $filtered_data;
+    }
+
+    protected function _filter_data_list($table, $data_list) {
+        $filtered_data_list = array();
+        $columns = $this->db->list_fields($table);
+        foreach ($data_list as $data) {
+            $filtered_data = array();
+            if (is_array($data)) {
+                foreach ($columns as $column) {
+                    if (array_key_exists($column, $data))
+                        $filtered_data[$column] = $data[$column];
+                }
+                $filtered_data_list[] = $filtered_data;
+            }
+        }
+        return $filtered_data_list;
     }
 
     protected function _prepare_ip($ip_address) {

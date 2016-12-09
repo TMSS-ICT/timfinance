@@ -13,6 +13,8 @@ class Member_model extends Ion_auth_model {
 
     public function __construct() {
         parent::__construct();
+        $this->load->config('ion_auth', TRUE);
+        $this->lang->load('ion_auth');
     }
 
     /*
@@ -22,10 +24,198 @@ class Member_model extends Ion_auth_model {
      */
 
     public function add_survey($additional_data) {
-        $data = $this->_filter_data($this->tables['members'], $additional_data);
-        $this->db->insert($this->tables['members'], $data);
+        $data = $this->_filter_data($this->tables['surveys'], $additional_data);
+        $this->db->insert($this->tables['surveys'], $data);
         $id = $this->db->insert_id();
         return isset($id) ? $id : FALSE;
+    }
+
+    public function add_inflow_outflow($inflow_list , $outflow_list ) {
+        $inflow_list = $this->_filter_data_list($this->tables['member_cash_inflow'], $inflow_list);
+        $outflow_list = $this->_filter_data_list($this->tables['member_cash_outflow'], $outflow_list);
+        $this->db->trans_begin();
+        $this->db->insert_batch($this->tables['member_cash_inflow'], $inflow_list);
+        $this->db->insert_batch($this->tables['member_cash_outflow'], $outflow_list);
+        $this->db->trans_commit();
+        return true;
+    }
+
+    public function get_survey_info($nid = "", $email = "", $mobile = 0) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['surveys'] . '.nid', $nid);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['surveys'] . '.email', $email);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['surveys'] . '.mobile', $mobile);
+        }
+        return $this->db->select('*')
+                        ->from($this->tables['surveys'])
+                        ->get();
+    }
+
+    public function get_survey_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['surveys'])
+                        ->get();
+    }
+
+    public function get_member_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['members'])
+                        ->get();
+    }
+
+    public function get_loan_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['loan_application'])
+                        ->get();
+    }
+
+
+    public function get_grantor_list()
+    {
+        return $this->db->select('*')
+            ->from($this->tables['grantor_info'])
+            ->get();
+    }
+
+
+    public function get_member_info($nid = "", $email = "", $mobile = 0, $member_id = 0) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['members'] . '.nid', $nid);
+        }
+        if (!empty($email)) {
+            $this->db->where($this->tables['members'] . '.email', $email);
+        }
+        if (!empty($mobile)) {
+            $this->db->where($this->tables['members'] . '.mobile', $mobile);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['members'] . '.member_id', $member_id);
+        }
+        return $this->db->select('*')
+                        ->from($this->tables['members'])
+                        ->get();
+    }
+
+    public function get_member_family_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_family_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_family_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_family_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_family_info'])
+                        ->limit(1)
+                        ->get();
+    }
+
+    public function get_member_addresse_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_addresses'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_addresses'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_addresses'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_addresses'])
+                        ->limit(1)
+                        ->get();
+    }
+
+    public function get_member_profession_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_profession_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_profession_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_profession_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_profession_info'])
+                        ->limit(1)
+                        ->get();
+    }
+
+    public function get_member_land_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_land_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_land_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_land_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_land_info'])
+                        ->limit(1)
+                        ->get();
+    }
+
+    public function get_member_investment_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_investment_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_investment_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_investment_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_investment_info'])
+                        ->limit(1)
+                        ->get();
+    }
+
+    public function get_member_business_info($member_id, $nid) {
+        if (!empty($nid)) {
+            $this->db->where($this->tables['member_business_info'] . '.nid', $nid);
+        }
+        if (!empty($member_id)) {
+            $this->db->where($this->tables['member_business_info'] . '.member_id', $member_id);
+        }
+        $this->db->order_by($this->tables['member_business_info'] . '.id', 'desc');
+        return $this->db->select('*')
+                        ->from($this->tables['member_business_info'])
+                        ->limit(1)
+                        ->get();
+    }
+
+    public function add_addmission_info($member_info, $member_family_info, $member_address_info, $member_profession_info, $member_land_info, $member_investment_info, $additional_data) {
+        $this->db->trans_begin();
+        $member_info['reference_id'] = $this->session->userdata('user_id');
+        $member_info = $this->_filter_data($this->tables['members'], $member_info);
+        $this->db->insert($this->tables['members'], $member_info);
+        $member_id = $this->db->insert_id();
+        $member_family_info['member_id'] = $member_id;
+        $member_address_info['member_id'] = $member_id;
+        $member_profession_info['member_id'] = $member_id;
+        $member_land_info['member_id'] = $member_id;
+        $member_investment_info['member_id'] = $member_id;
+        $additional_data['member_id'] = $member_id;
+        $nid = $member_info['nid'];
+        $member_family_info['nid'] = $nid;
+        $member_address_info['nid'] = $nid;
+        $member_profession_info['nid'] = $nid;
+        $member_land_info['nid'] = $nid;
+        $member_investment_info['nid'] = $nid;
+        $additional_data['nid'] = $nid;
+        $member_family_info = $this->_filter_data($this->tables['member_family_info'], $member_family_info);
+        $this->db->insert($this->tables['member_family_info'], $member_family_info);
+        $member_address_info = $this->_filter_data($this->tables['member_addresses'], $member_address_info);
+        $this->db->insert($this->tables['member_addresses'], $member_address_info);
+        $member_profession_info = $this->_filter_data($this->tables['member_profession_info'], $member_profession_info);
+        $this->db->insert($this->tables['member_profession_info'], $member_profession_info);
+        $member_land_info = $this->_filter_data($this->tables['member_land_info'], $member_land_info);
+        $this->db->insert($this->tables['member_land_info'], $member_land_info);
+        $member_investment_info = $this->_filter_data($this->tables['member_investment_info'], $member_investment_info);
+        $this->db->insert($this->tables['member_investment_info'], $member_investment_info);
+        $additional_data = $this->_filter_data($this->tables['member_business_info'], $additional_data);
+        $this->db->insert($this->tables['member_business_info'], $additional_data);
+        $this->db->trans_commit();
     }
 
     /*
@@ -34,7 +224,10 @@ class Member_model extends Ion_auth_model {
      * @author rashida on 12th Nov 2016
      */
 
-    public function get_zone_list() {
+    public function get_zone_list($zone_id = 0) {
+        if ($zone_id != 0) {
+            $this->db->where($this->tables['zones'] . '.id', $zone_id);
+        }
         return $this->db->select('*')
                         ->from($this->tables['zones'])
                         ->get();
@@ -46,9 +239,12 @@ class Member_model extends Ion_auth_model {
      * @author rashida on 12th Nov 2016
      */
 
-    public function get_area_list($zone_id = 0) {
+    public function get_area_list($zone_id = 0, $area_id = 0) {
         if ($zone_id != 0) {
             $this->db->where($this->tables['areas'] . '.zone_id', $zone_id);
+        }
+        if ($area_id != 0) {
+            $this->db->where($this->tables['areas'] . '.id', $area_id);
         }
         return $this->db->select('*')
                         ->from($this->tables['areas'])
@@ -61,9 +257,12 @@ class Member_model extends Ion_auth_model {
      * @author rashida on 12th Nov 2016
      */
 
-    public function get_branch_list($area_id = 0) {
+    public function get_branch_list($area_id = 0, $branch_id = 0) {
         if ($area_id != 0) {
-            $this->db->where($this->tables['areas'] . '.area_id', $area_id);
+            $this->db->where($this->tables['branches'] . '.area_id', $area_id);
+        }
+        if ($branch_id != 0) {
+            $this->db->where($this->tables['branches'] . '.id', $branch_id);
         }
         return $this->db->select('*')
                         ->from($this->tables['branches'])
@@ -111,8 +310,7 @@ class Member_model extends Ion_auth_model {
                         ->from($this->tables['thanas'])
                         ->get();
     }
-    
-    
+
     public function get_country_list() {
         return $this->db->select('*')
                         ->from($this->tables['countries'])
@@ -128,6 +326,12 @@ class Member_model extends Ion_auth_model {
     public function get_district_list() {
         return $this->db->select('*')
                         ->from($this->tables['districts'])
+                        ->get();
+    }
+
+    public function get_union_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['unions'])
                         ->get();
     }
 
@@ -200,6 +404,36 @@ class Member_model extends Ion_auth_model {
     public function get_education_list() {
         return $this->db->select('*')
                         ->from($this->tables['educations'])
+                        ->get();
+    }
+
+    public function get_payment_type_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['payment_types'])
+                        ->get();
+    }
+
+    public function get_member_groups_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['member_groups'])
+                        ->get();
+    }
+
+    public function get_cash_inflow_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['cash_inflow'])
+                        ->get();
+    }
+
+    public function get_cash_outflow_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['cash_outflow'])
+                        ->get();
+    }
+
+    public function get_monthly_income_expence_list() {
+        return $this->db->select('*')
+                        ->from($this->tables['monthly_income_expence'])
                         ->get();
     }
 

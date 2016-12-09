@@ -39,11 +39,16 @@ class Auth extends CI_Controller {
                     $user_id = $this->session->userdata('user_id');
                     //$this->_render_page('auth/index', $this->data);
                     //$this->template->load(NULL, ADMIN_LOGIN_SUCCESS_VIEW, $this->data);
-
                      redirect('member/index', 'refresh');
                     break;
-                } elseif ($group == MEMBER) {
-                    $this->template->load(NULL, MEMBER_LOGIN_SUCCESS_VIEW);
+                } elseif ($group == ZONE_MEMBER) {
+                   redirect('member/index', 'refresh');
+                    break;
+                } elseif ($group == AREA_MEMBER) {
+                   redirect('member/index', 'refresh');
+                    break;
+                } elseif ($group == BRANCH_MEMBER) {
+                   redirect('member/index', 'refresh');
                     break;
                 } else {
                     echo "Non member";
@@ -94,8 +99,6 @@ class Auth extends CI_Controller {
                 'type' => 'password',
             );
             $this->template->load("nonmember/templates/main_tmpl", "nonmember/login", $this->data);
-            //$this->template->load(NULL, LOGIN_TEMPLATE, $this->data);
-            //$this->_render_page('auth/login', $this->data);
         }
     }
 

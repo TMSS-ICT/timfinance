@@ -2,11 +2,17 @@
 
 include './constants/auth.php';
 include './constants/app_configarations.php';
+include './constants/member.php';
+include './constants/image_upload.php';
+include './constants/configurations.php';
 /***************** Custom constant **********************/
 
-define('MEMBER', 'members');
-define('MANAGER', 'manager');
 define('ADMIN', 'admin');
+define('MEMBER', 'members');
+define('ZONE_MEMBER', 'zone member');
+define('AREA_MEMBER', 'area member');
+define('BRANCH_MEMBER', 'branch member');
+define('MANAGER', 'manager');
 define('NON_MEMBER', 'non_member');
 
 define('LOGIN_URI', 'auth/login');

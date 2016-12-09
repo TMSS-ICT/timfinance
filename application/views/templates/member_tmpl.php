@@ -16,24 +16,33 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/AdminLTE.css">
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/skins/_all-skins.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/styles.css">
 
         <!--<Date picker css>-->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/superadmin/zebra_datePicker.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/superadmin/zebra_datePicker_custom.css" type="text/css">
-
-
+<!--        <link rel="stylesheet" href="--><?php ////echo base_url(); ?><!--<!--resources/css/superadmin/zebra_datePicker.css" type="text/css">-->
+<!--        <link rel="stylesheet" href="--><?php ////echo base_url(); ?><!--<!--resources/css/superadmin/zebra_datePicker_custom.css" type="text/css">-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/datepicker/datepicker3.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/timepicker/bootstrap-timepicker.min.css">
         <!--<NAV Bar JS>-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>resources/plugins/datatables/dataTables.bootstrap.css">
+
         <script src="<?php echo base_url(); ?>resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
         <!-- jQuery UI 1.11.4 -->
         <script src="<?php echo base_url(); ?>resources/js/jquery-ui.js"></script>
-
+        <script src="<?php echo base_url(); ?>resources/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url(); ?>resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>resources/js/bootstrap.min.js"></script>
-
+        <script src="<?php echo base_url(); ?>resources/js/moment.js"></script>
+        <script src="<?php echo base_url(); ?>resources/plugins/datepicker/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url(); ?>resources/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 
         <script src="<?php echo base_url(); ?>resources/js/app.min.js"></script>
         <!--<Date picker js>-->
         <script type="text/javascript" src="<?php echo base_url() ?>resources/js/superadmin/zebra_datepicker.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>resources/js/superadmin/zebra_datepicker_core.js"></script>
+        <!--image upload-->
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>resources/css/jquery.fileupload.css">
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>resources/css/jquery.fileupload-ui.css">
         <!--<angular>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/angular.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular-bootstrap/ui-bootstrap.js"></script>
@@ -41,16 +50,44 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/angular-file-upload.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/csv_file_dependencies/angular-sanitize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/csv_file_dependencies/ng-csv.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image-crop.js"></script>
+        <!--<image upload>-->
+<!--        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/vendor/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload-process.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload-image.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/image/jquery.fileupload-angular.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/ng-file-upload-shim.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/ng-infinite-scroll.min.js"></script>-->
+        
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/vendor/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/load-image.all.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload-process.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload-image.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/jquery.fileupload-angular.js"></script>
+        
+        
+<!--        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/jquery.fileupload-angular.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/jquery.fileupload-jquery-ui.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/jquery.fileupload-ui.js"></script>-->
+        <!--<script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image-crop.js"></script>-->
         <!--<angular Services>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularService/memberService.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularService/configurationService.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/angular/image/app.js"></script>
         <!--<angular Controller>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/memberController.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/configurationController.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/imageCropController.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/headerController.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularController/imageUploadController.js"></script>
 
         <!--<angular Apps>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularApp/memberApp.js"></script>
-
+        <script type="text/javascript" src="<?php echo base_url(); ?>resources/js/AngularApp/configarationApp.js"></script>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/   css" media="all" />
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini">
@@ -59,8 +96,8 @@
         <div class="wrapper" ng-app = "<?php echo $app_name; ?>">
 
 
-            <?php $this->load->view("templates/sections/header"); ?>
-            <?php $this->load->view('templates/left_panel'); ?>
+            <?php // $this->load->view("templates/sections/header"); ?>
+            <?php // $this->load->view('templates/left_panel'); ?>
             <div style="background-color: #FFFFFF;">
                 <div class="container-fluid">
                     <div class="row">

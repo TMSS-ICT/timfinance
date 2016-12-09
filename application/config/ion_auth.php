@@ -44,6 +44,21 @@ $config['tables']['users_groups']    = 'users_groups';
 $config['tables']['login_attempts']  = 'login_attempts';
 
 $config['tables']['members']       = 'members';
+$config['tables']['member_family_info']       = 'member_family_info';
+$config['tables']['member_addresses']       = 'member_addresses';
+$config['tables']['member_profession_info']       = 'member_profession_info';
+$config['tables']['member_land_info']       = 'member_land_info';
+$config['tables']['member_investment_info']       = 'member_investment_info';
+$config['tables']['member_business_info']       = 'member_business_info';
+$config['tables']['member_cash_outflow']       = 'member_cash_outflow';
+$config['tables']['member_cash_inflow']       = 'member_cash_inflow';
+$config['tables']['monthly_income_expence']       = 'monthly_income_expence';
+$config['tables']['member_documentation']       = 'member_documentation';
+$config['tables']['assets_debt_info']       = 'assets_debt_info';
+$config['tables']['loan_applications']       = 'loan_applications';
+$config['tables']['member_groups']       = 'member_groups';
+$config['tables']['cash_outflow']       = 'cash_outflow';
+$config['tables']['cash_inflow']       = 'cash_inflow';
 $config['tables']['zones']       = 'zones';
 $config['tables']['areas']       = 'areas';
 $config['tables']['branches']       = 'branches';
@@ -58,6 +73,15 @@ $config['tables']['political_statuses']       = 'political_statuses';
 $config['tables']['business_types']       = 'business_types';
 $config['tables']['family_types']       = 'family_types';
 $config['tables']['educations']       = 'educations';
+$config['tables']['unions']       = 'unions';
+$config['tables']['payment_types']       = 'payment_types';
+$config['tables']['surveys']       = 'surveys';
+$config['tables']['investors']       = 'investors';
+$config['tables']['process_types']       = 'process_types';
+$config['tables']['organigation_settings']       = 'organigation_settings';
+$config['tables']['payment_frequency']       = 'payment_frequency';
+$config['tables']['products']       = 'products';
+$config['tables']['purposes']       = 'purposes';
 
 /*
  | Users table column and Group table column you want to join WITH.
@@ -108,7 +132,7 @@ $config['site_title']                 = "Example.com";       // Site Title, exam
 $config['admin_email']                = "admin@example.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
-$config['identity']                   = 'email';             // A database column which is used to login with
+$config['identity']                   = 'username';             // A database column which is used to login with
 $config['min_password_length']        = 8;                   // Minimum Required Length of Password
 $config['max_password_length']        = 20;                  // Maximum Allowed Length of Password
 $config['email_activation']           = FALSE;               // Email Activation for registration
