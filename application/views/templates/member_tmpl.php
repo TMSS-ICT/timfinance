@@ -96,8 +96,8 @@
         <div class="wrapper" ng-app = "<?php echo $app_name; ?>">
 
 
-            <?php // $this->load->view("templates/sections/header"); ?>
-            <?php // $this->load->view('templates/left_panel'); ?>
+            <?php  $this->load->view("templates/sections/header"); ?>
+            <?php  $this->load->view('templates/left_panel'); ?>
             <div style="background-color: #FFFFFF;">
                 <div class="container-fluid">
                     <div class="row">
